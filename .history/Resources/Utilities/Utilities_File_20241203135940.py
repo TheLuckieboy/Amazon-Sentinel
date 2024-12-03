@@ -52,10 +52,10 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
                 output_file = output_folder / encrypted_path.stem
                 output_file.write_bytes(plaintext)
 
-                #print(f"Decrypted: {encrypted_path} -> {output_file}")
+                print(f"Decrypted: {encrypted_path} -> {output_file}")
                 return output_file
         except Exception as e:
-            #print(f"Error decrypting {encrypted_path}: {e}")
+            print(f"Error decrypting {encrypted_path}: {e}")
             return None
 
     # Utility: Extract ZIP files
@@ -64,10 +64,9 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             with zipfile.ZipFile(zip_path, 'r') as zf:
                 zf.setpassword(password.encode())
                 zf.extractall(output_folder)
-                #print(f"Extracted ZIP: {zip_path} -> {output_folder}")
+                print(f"Extracted ZIP: {zip_path} -> {output_folder}")
         except Exception as e:
-            #print(f"Error extracting {zip_path}: {e}")
-            pass
+            print(f"Error extracting {zip_path}: {e}")
 
     try:
         os.makedirs(temp_dir, exist_ok=True)
@@ -90,7 +89,7 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
 
         # Determine file type from the decrypted file name
         file_extension = decrypted_path.suffix.lower()
-        #print(f"Detected file extension: {file_extension}")
+        print(f"Detected file extension: {file_extension}")
 
         # Handle based on file type
         if file_extension == ".py":
@@ -111,7 +110,7 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             raise ValueError(f"Unsupported file type: {file_extension}")
 
     except Exception as e:
-        #print(f"Error importing file: {e}")
+        print(f"Error importing file: {e}")
         return None
     finally:
         # Cleanup
@@ -130,10 +129,10 @@ try:
     if Cardholder_Verification_File is None:
         raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
 except FileNotFoundError as e:
-    #print(f"Error: {e}")
+    print(f"Error: {e}")
     Cardholder_Verification_File = None
 except Exception as e:
-    #print(f"An unexpected error occurred: {e}")
+    print(f"An unexpected error occurred: {e}")
     Cardholder_Verification_File = None
 
 try:
@@ -141,10 +140,10 @@ try:
     if Skyline_Terminate_AA_File is None:
         raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
 except FileNotFoundError as e:
-    #print(f"Error: {e}")
+    print(f"Error: {e}")
     Skyline_Terminate_AA_File = None
 except Exception as e:
-    #print(f"An unexpected error occurred: {e}")
+    print(f"An unexpected error occurred: {e}")
     Skyline_Terminate_AA_File = None
 
 class StopFunctionException(Exception):

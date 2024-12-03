@@ -63,7 +63,7 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
 
                 return output_file
         except Exception as e:
-            #print(f"Error decrypting {encrypted_path}: {e}")
+            print(f"Error decrypting {encrypted_path}: {e}")
             return None
 
     # Utility: Extract ZIP files
@@ -73,8 +73,7 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
                 zf.setpassword(password.encode())
                 zf.extractall(output_folder)
         except Exception as e:
-            #print(f"Error extracting {zip_path}: {e}")
-            pass
+            print(f"Error extracting {zip_path}: {e}")
 
     try:
         os.makedirs(temp_dir, exist_ok=True)
@@ -117,7 +116,7 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             raise ValueError(f"Unsupported file type: {file_extension}")
 
     except Exception as e:
-        #print(f"Error importing file: {e}")
+        print(f"Error importing file: {e}")
         return None
     finally:
         # Cleanup

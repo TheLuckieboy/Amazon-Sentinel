@@ -1589,9 +1589,19 @@ if __name__ == "__main__":
 
         sys.exit()
 
+    """try:
+        # Load the stylesheet from the Resources folder
+        stylesheet_path = resource_path(os.path.join("Resources", "styles.qss"))
+        with open(stylesheet_path, "r") as f:
+            stylesheet = f.read()
+            app.setStyleSheet(stylesheet)
+    except FileNotFoundError:
+        stylesheet = None
+        print("styles.qss file not found.")"""
+
     try:
         # Load the stylesheet from the encrypted zip
-        stylesheet = Import_File("styles", resource_path(os.path.join("Resources/Test/Utilities/styles.zip")))
+        stylesheet = Import_File("styles", "Resources/Test/Utilities/styles.zip")
         if stylesheet:
             app.setStyleSheet(stylesheet)
     except FileNotFoundError:
