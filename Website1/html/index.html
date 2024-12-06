@@ -1,0 +1,1605 @@
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title id="app-title">Cardholder Management</title>
+    <!-- Local JS Files -->
+    <script src="../js/webcomponents-loader.js"></script>
+    <script defer="defer" src="../js/main.js"></script>
+    <!-- Local CSS File -->
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+
+<body style="margin: 0;" class="katal-visual-refresh-2024"><noscript>You need to enable JavaScript to run this
+        app.</noscript>
+    <div id="root" class="katal">
+        <div>
+            <div class="awsui-context-top-navigation">
+                <div aria-hidden="true"
+                    class="awsui_top-navigation_k5dlb_1ditb_163 awsui_virtual_k5dlb_1ditb_219 awsui_hidden_k5dlb_1ditb_223">
+                    <div class="awsui_padding-box_k5dlb_1ditb_198">
+                        <div class="awsui_identity_k5dlb_1ditb_235 awsui_no-logo_k5dlb_1ditb_258"><a
+                                class="awsui_identity-link_k5dlb_1ditb_238" href="#"><span
+                                    class="awsui_title_k5dlb_1ditb_274">Cardholder Management</span></a></div>
+                        <div class="awsui_utilities_k5dlb_1ditb_305">
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-special="search"><span><a id="link-self11-1733328551132-7869"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Search" data-analytics-funnel-value="link10-1733328551132-5838"
+                                        role="button" tabindex="0"><span
+                                            class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                aria-hidden="true">
+                                                <path d="m11 11 4 4M7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10Z"
+                                                    class="stroke-linejoin-round"></path>
+                                            </svg></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="0" data-utility-hide="false"><span><a
+                                        id="link-self14-1733328551133-9182"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Guardian Hub (opens in a new tab)"
+                                        data-analytics-funnel-value="link13-1733328551133-2047" target="_blank"
+                                        rel="noopener noreferrer" href="https://guardian.gso.amazon.dev/"><span>Guardian
+                                            Hub</span><span class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="1" data-utility-hide="false"><span><a
+                                        id="link-self17-1733328551133-3864"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Toggle Dark Mode"
+                                        data-analytics-funnel-value="link16-1733328551133-2352" role="button"
+                                        tabindex="0"><span>Toggle Dark Mode</span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="2" data-utility-hide="false"><span><a
+                                        id="link-self20-1733328551133-5288"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Help (opens in a new tab)"
+                                        data-analytics-funnel-value="link19-1733328551133-3447" target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://river.amazon.com/?org=AccSys&amp;q0=0b8269b6-86b2-4c92-b341-b95714d6a3d2"><span>Help</span><span
+                                            class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="3" data-utility-hide="false">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="25-1733328551133-6709"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Permission" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Permission</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Permission"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="4" data-utility-hide="false">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="29-1733328551135-2770"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Language" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Language</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Language"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="5" data-utility-hide="false"><span
+                                    class="awsui_offset-right-xxl_k5dlb_1ditb_375"><a
+                                        id="link-self31-1733328551135-2938"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="wmichluc" data-analytics-funnel-value="link30-1733328551135-3315"
+                                        role="button" tabindex="0"><span>wmichluc</span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="0" data-utility-hide="true"><span><a
+                                        id="link-self34-1733328551135-2060"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Guardian Hub (opens in a new tab)"
+                                        data-analytics-funnel-value="link33-1733328551135-956" target="_blank"
+                                        rel="noopener noreferrer" href="https://guardian.gso.amazon.dev/"><span>Guardian
+                                            Hub</span><span class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="1" data-utility-hide="true"><span><a
+                                        id="link-self37-1733328551135-1643"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Toggle Dark Mode"
+                                        data-analytics-funnel-value="link36-1733328551135-3490" role="button"
+                                        tabindex="0"><span>Toggle Dark Mode</span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="2" data-utility-hide="true"><span><a
+                                        id="link-self40-1733328551135-2637"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Help (opens in a new tab)"
+                                        data-analytics-funnel-value="link39-1733328551135-231" target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://river.amazon.com/?org=AccSys&amp;q0=0b8269b6-86b2-4c92-b341-b95714d6a3d2"><span>Help</span><span
+                                            class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="3" data-utility-hide="true">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="45-1733328551136-2104"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Permission" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Permission</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Permission"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="4" data-utility-hide="true">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="49-1733328551136-6323"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Language" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Language</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Language"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="5" data-utility-hide="true"><span><a
+                                        id="link-self51-1733328551136-2992"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="wmichluc" data-analytics-funnel-value="link50-1733328551136-7977"
+                                        role="button" tabindex="0"><span>wmichluc</span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-special="menu-trigger"><button type="button"
+                                    class="awsui_button_m5h9f_7rvcg_141 awsui_offset-right-l_m5h9f_7rvcg_210"
+                                    aria-expanded="false" aria-haspopup="true"><span
+                                        class="awsui_text_m5h9f_7rvcg_238">More</span><span
+                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                            aria-hidden="true">
+                                            <path d="m8 11 4-6H4l4 6Z" class="filled stroke-linejoin-round"></path>
+                                        </svg></span></button></div>
+                        </div>
+                    </div>
+                </div>
+                <header class="awsui_top-navigation_k5dlb_1ditb_163">
+                    <div class="awsui_padding-box_k5dlb_1ditb_198">
+                        <div class="awsui_identity_k5dlb_1ditb_235 awsui_no-logo_k5dlb_1ditb_258"><a
+                                class="awsui_identity-link_k5dlb_1ditb_238" href="#"><span
+                                    class="awsui_title_k5dlb_1ditb_274">Cardholder Management</span></a></div>
+                        <div class="awsui_utilities_k5dlb_1ditb_305">
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="0" data-utility-hide="false"><span><a
+                                        id="link-self54-1733328551137-2324"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Guardian Hub (opens in a new tab)"
+                                        data-analytics-funnel-value="link53-1733328551137-9225" target="_blank"
+                                        rel="noopener noreferrer" href="https://guardian.gso.amazon.dev/"><span>Guardian
+                                            Hub</span><span class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="1" data-utility-hide="false"><span><a
+                                        id="link-self57-1733328551137-9390"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Toggle Dark Mode"
+                                        data-analytics-funnel-value="link56-1733328551137-3185" role="button"
+                                        tabindex="0"><span>Toggle Dark Mode</span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="2" data-utility-hide="false"><span><a
+                                        id="link-self60-1733328551137-3864"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="Help (opens in a new tab)"
+                                        data-analytics-funnel-value="link59-1733328551137-8716" target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://river.amazon.com/?org=AccSys&amp;q0=0b8269b6-86b2-4c92-b341-b95714d6a3d2"><span>Help</span><span
+                                            class="awsui_icon-wrapper_4c84z_qfgyb_529">&nbsp;<span
+                                                class="awsui_icon_4c84z_qfgyb_529"><span
+                                                    class="awsui_icon_h11ix_o4x4v_185 awsui_icon-flex-height_h11ix_o4x4v_193 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316 awsui_name-external_h11ix_o4x4v_350"
+                                                    style="height: 22px;"><svg viewBox="0 0 16 16"
+                                                        xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                                        aria-hidden="true">
+                                                        <path d="M14 8.01v-6H8M14.02 2 8 8.01M6 2.01H2v12h12v-3.99"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></span></span></a></span></div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="3" data-utility-hide="false">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="65-1733328551137-4214"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Permission" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Permission</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Permission"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-menu-dropdown_k5dlb_1ditb_342"
+                                data-utility-index="4" data-utility-hide="false">
+                                <div class="awsui_button-dropdown_sne0l_dwtkx_141">
+                                    <div
+                                        class="awsui_root_qwoo0_1orqr_195 awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                        <div id="69-1733328551137-3599"
+                                            class="awsui_stretch-trigger-height_qwoo0_1orqr_347">
+                                            <div class="awsui_dropdown-trigger_sne0l_dwtkx_247"><button type="button"
+                                                    class="awsui_button_m5h9f_7rvcg_141 awsui_test-utils-button-trigger_sne0l_dwtkx_251"
+                                                    aria-label="Language" aria-expanded="false"
+                                                    aria-haspopup="true"><span
+                                                        class="awsui_text_m5h9f_7rvcg_238">Language</span><span
+                                                        class="awsui_rotate-down_sne0l_dwtkx_179 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                            viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                            focusable="false" aria-hidden="true">
+                                                            <path d="m8 11 4-6H4l4 6Z"
+                                                                class="filled stroke-linejoin-round"></path>
+                                                        </svg></span></button></div>
+                                        </div>
+                                        <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        <div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                            <div class="awsui_dropdown_qwoo0_1orqr_149 awsui-context-top-navigation awsui_with-limited-width_qwoo0_1orqr_299"
+                                                data-open="false" data-animating="false" aria-hidden="true">
+                                                <div class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                    <div class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                        <ul class="awsui_options-list_19gcf_unj0y_141 awsui_decrease-block-margin_19gcf_unj0y_197"
+                                                            role="menu" tabindex="-1" aria-label="Language"
+                                                            style="position: static;"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="awsui_utility-wrapper_k5dlb_1ditb_316 awsui_utility-type-button-link_k5dlb_1ditb_337"
+                                data-utility-index="5" data-utility-hide="false"><span
+                                    class="awsui_offset-right-xxl_k5dlb_1ditb_375"><a id="link-self71-1733328551138-685"
+                                        class="awsui_link_4c84z_qfgyb_141 awsui_variant-top-navigation_4c84z_qfgyb_345 awsui_font-size-body-m_4c84z_qfgyb_474"
+                                        aria-label="wmichluc" data-analytics-funnel-value="link70-1733328551138-5136"
+                                        role="button" tabindex="0"><span>wmichluc</span></a></span></div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div>
+            <div class="awsui_root_lm6vo_cyosf_149 awsui_root_1fj9k_z5zo8_5" style="min-block-size: calc(0px + 100vh);">
+                <div class="awsui_layout_lm6vo_cyosf_161">
+                    <main class="awsui_layout-main_lm6vo_cyosf_171">
+                        <div>
+                            <div class="awsui_notifications-sticky_1hmm4_1lppl_10" style="top: 0px;">
+                                <div role="region" class="awsui_notifications_1fj9k_z5zo8_10">
+                                    <div aria-live="assertive" role="alert"></div>
+                                </div>
+                            </div>
+                            <div class="awsui_content-wrapper_zycdx_bttbg_149"
+                                style="--awsui-sticky-vertical-top-offset: calc(0px + 0px); --awsui-sticky-vertical-bottom-offset: 0px;">
+                                <div class="awsui_content-wrapper_lm6vo_cyosf_195 awsui_content-extra-top-padding_lm6vo_cyosf_203 awsui_content_1fj9k_z5zo8_9"
+                                    style="min-width: 280px;">
+                                    <div
+                                        class="awsui_root_18582_7onux_141 awsui_vertical_18582_7onux_188 awsui_vertical-xs_18582_7onux_197">
+                                        <div class="awsui_child_18582_7onux_145">
+                                            <form>
+                                                <div data-analytics-funnel-step="1" class="awsui_root_1i0s3_1l7eh_141"
+                                                    data-analytics-funnel-interaction-id="c8ef8461-8b26-481b-9607-9cdaa80c52fd">
+                                                    <div class="awsui_content_1i0s3_1l7eh_180">
+                                                        <div class="awsui_root_14iqq_zuudq_185 awsui_variant-default_14iqq_zuudq_229"
+                                                            data-analytics-funnel-substep="substep101-1733328551160-7383">
+                                                            <div id="102-1733328551160-8431"
+                                                                class="awsui_content-wrapper_14iqq_zuudq_304">
+                                                                <div
+                                                                    class="awsui_header_14iqq_zuudq_345 awsui_header_164jl_1ns0c_5 awsui_with-paddings_14iqq_zuudq_388">
+                                                                    <div
+                                                                        class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219 awsui_root-no-actions_2qdw9_kiqfw_216">
+                                                                        <div class="awsui_main_2qdw9_kiqfw_238">
+                                                                            <div
+                                                                                class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                                                                <h2
+                                                                                    class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                                                                    <span
+                                                                                        data-analytics-funnel-key="substep-name"
+                                                                                        class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                                                        id="heading103-1733328551160-5362">Search
+                                                                                        Cardholders</span></h2>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="awsui_content_14iqq_zuudq_304">
+                                                                    <div
+                                                                        class="awsui_content-inner_14iqq_zuudq_492 awsui_content-inner_1mwlm_oyjaq_5 awsui_with-paddings_14iqq_zuudq_388 awsui_with-header_14iqq_zuudq_499">
+                                                                        <div
+                                                                            class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField104-1733328551161-358-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField104-1733328551161-358-label"
+                                                                                            for="formField104-1733328551161-358">Employee
+                                                                                            Status:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_r2vco_t8f9j_141">
+                                                                                                            <div
+                                                                                                                class="awsui_root_qwoo0_1orqr_195">
+                                                                                                                <div id="110-1733328551161-2924"
+                                                                                                                    class="">
+                                                                                                                    <button
+                                                                                                                        id="formField104-1733328551161-358"
+                                                                                                                        type="button"
+                                                                                                                        class="awsui_button-trigger_18eso_157u4_157 awsui_button-trigger_l32fn_xo3sj_5 awsui_has-caret_18eso_157u4_254"
+                                                                                                                        aria-expanded="false"
+                                                                                                                        aria-labelledby="formField104-1733328551161-358-label select-arialabel-108-1733328551161-8616 trigger-content-112-1733328551161-7084"
+                                                                                                                        aria-haspopup="listbox"><span
+                                                                                                                            id="trigger-content-112-1733328551161-7084"
+                                                                                                                            class="awsui_trigger_dwuol_16dn4_164">All</span><span
+                                                                                                                            class="awsui_arrow_18eso_157u4_157"><span
+                                                                                                                                class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                                                                                                    viewBox="0 0 16 16"
+                                                                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                    focusable="false"
+                                                                                                                                    aria-hidden="true">
+                                                                                                                                    <path
+                                                                                                                                        d="m8 11 4-6H4l4 6Z"
+                                                                                                                                        class="filled stroke-linejoin-round">
+                                                                                                                                    </path>
+                                                                                                                                </svg></span></span></button>
+                                                                                                                </div>
+                                                                                                                <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                    tabindex="-1">
+                                                                                                                </div>
+                                                                                                                <div>
+                                                                                                                    <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                        tabindex="-1">
+                                                                                                                    </div>
+                                                                                                                    <div class="awsui_dropdown_qwoo0_1orqr_149 awsui_hide-block-border_qwoo0_1orqr_318 awsui_stretch-beyond-trigger-width_qwoo0_1orqr_311"
+                                                                                                                        id="dialog107-1733328551161-6562"
+                                                                                                                        data-open="false"
+                                                                                                                        data-animating="false"
+                                                                                                                        aria-hidden="true"
+                                                                                                                        style="--awsui-dropdown-default-max-width-g964ok: 465px;">
+                                                                                                                        <div
+                                                                                                                            class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149">
+                                                                                                                            <div
+                                                                                                                                class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                                                                                                <ul id="option-list106-1733328551161-299"
+                                                                                                                                    class="awsui_options-list_19gcf_unj0y_141"
+                                                                                                                                    role="listbox"
+                                                                                                                                    tabindex="-1"
+                                                                                                                                    aria-labelledby="select-arialabel-108-1733328551161-8616 formField104-1733328551161-358"
+                                                                                                                                    style="position: relative;">
+                                                                                                                                </ul>
+                                                                                                                                <div
+                                                                                                                                    class="awsui_root_1afi9_1ksuj_141 awsui_hidden_1afi9_1ksuj_175">
+                                                                                                                                    <div id="footer109-1733328551161-7748"
+                                                                                                                                        class="awsui_root_1iee7_di2un_141 awsui_root_1pc7b_1k8pp_5">
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                        tabindex="-1">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div hidden=""
+                                                                                                                id="select-arialabel-108-1733328551161-8616">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField113-1733328551163-6001-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField113-1733328551163-6001-label"
+                                                                                            for="formField113-1733328551163-6001">Employee
+                                                                                            Login:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField113-1733328551163-6001-label"
+                                                                                                                placeholder="Auto to lower case"
+                                                                                                                id="formField113-1733328551163-6001"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField114-1733328551164-4247-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField114-1733328551164-4247-label"
+                                                                                            for="formField114-1733328551164-4247">Employee
+                                                                                            ID:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField114-1733328551164-4247-label"
+                                                                                                                placeholder=""
+                                                                                                                id="formField114-1733328551164-4247"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField115-1733328551164-5558-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField115-1733328551164-5558-label"
+                                                                                            for="formField115-1733328551164-5558">Badge
+                                                                                            ID:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField115-1733328551164-5558-label"
+                                                                                                                placeholder=""
+                                                                                                                id="formField115-1733328551164-5558"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField116-1733328551165-2176-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField116-1733328551165-2176-label"
+                                                                                            for="formField116-1733328551165-2176">Barcode:</label>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField116-1733328551165-2176-label"
+                                                                                                                placeholder=""
+                                                                                                                id="formField116-1733328551165-2176"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField117-1733328551165-7461-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField117-1733328551165-7461-label"
+                                                                                            for="formField117-1733328551165-7461">First
+                                                                                            Name:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField117-1733328551165-7461-label"
+                                                                                                                id="formField117-1733328551165-7461"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField118-1733328551165-7842-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField118-1733328551165-7842-label"
+                                                                                            for="formField118-1733328551165-7842">Last
+                                                                                            Name:</label></div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_2rhyz_oflk9_141 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                            <input
+                                                                                                                aria-labelledby="formField118-1733328551165-7842-label"
+                                                                                                                id="formField118-1733328551165-7842"
+                                                                                                                class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                autocomplete="on"
+                                                                                                                type="text"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField119-1733328551166-7280-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField119-1733328551166-7280-label"
+                                                                                            for="formField119-1733328551166-7280">Building:</label>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_r2vco_t8f9j_141">
+                                                                                                            <div
+                                                                                                                class="awsui_root_qwoo0_1orqr_195">
+                                                                                                                <div id="178-1733328551208-6401"
+                                                                                                                    class="">
+                                                                                                                    <button
+                                                                                                                        id="formField119-1733328551166-7280"
+                                                                                                                        type="button"
+                                                                                                                        class="awsui_button-trigger_18eso_157u4_157 awsui_button-trigger_l32fn_xo3sj_5 awsui_has-caret_18eso_157u4_254"
+                                                                                                                        aria-expanded="false"
+                                                                                                                        aria-labelledby="formField119-1733328551166-7280-label select-arialabel-176-1733328551208-8151 trigger-content-180-1733328551208-8411"
+                                                                                                                        aria-haspopup="dialog"><span
+                                                                                                                            aria-disabled="true"
+                                                                                                                            class="awsui_placeholder_dwuol_16dn4_141 awsui_trigger_dwuol_16dn4_164"
+                                                                                                                            id="trigger-content-180-1733328551208-8411">Select
+                                                                                                                            Building</span><span
+                                                                                                                            class="awsui_arrow_18eso_157u4_157"><span
+                                                                                                                                class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                                                                                                    viewBox="0 0 16 16"
+                                                                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                    focusable="false"
+                                                                                                                                    aria-hidden="true">
+                                                                                                                                    <path
+                                                                                                                                        d="m8 11 4-6H4l4 6Z"
+                                                                                                                                        class="filled stroke-linejoin-round">
+                                                                                                                                    </path>
+                                                                                                                                </svg></span></span></button>
+                                                                                                                </div>
+                                                                                                                <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                    tabindex="-1">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div hidden=""
+                                                                                                                id="select-arialabel-176-1733328551208-8151">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="awsui_child_18582_7onux_145">
+                                                                                <div class="awsui_root_14mhv_167fw_232"
+                                                                                    data-analytics-field-label="[id=&quot;formField120-1733328551168-1819-label&quot;]">
+                                                                                    <div
+                                                                                        class="awsui_label-wrapper_14mhv_167fw_308">
+                                                                                        <label
+                                                                                            class="awsui_label_14mhv_167fw_268 awsui_label_aqu00_ocied_5"
+                                                                                            id="formField120-1733328551168-1819-label"
+                                                                                            for="formField120-1733328551168-1819">Badge
+                                                                                            Expiry Prior To:</label>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="awsui_controls_14mhv_167fw_305">
+                                                                                        <div
+                                                                                            class="awsui_grid_14yj0_1cgl1_141">
+                                                                                            <div
+                                                                                                class="awsui_grid-column_14yj0_1cgl1_185 awsui_colspan-12_14yj0_1cgl1_306">
+                                                                                                <div
+                                                                                                    class="awsui_restore-pointer-events_14yj0_1cgl1_356">
+                                                                                                    <div
+                                                                                                        class="awsui_control_14mhv_167fw_305">
+                                                                                                        <div
+                                                                                                            class="awsui_root_145pa_1qqxn_141 awsui_date-picker-container_145pa_1qqxn_196">
+                                                                                                            <div
+                                                                                                                class="awsui_root_qwoo0_1orqr_195">
+                                                                                                                <div id="123-1733328551169-1417"
+                                                                                                                    class="">
+                                                                                                                    <div
+                                                                                                                        class="awsui_date-picker-trigger_145pa_1qqxn_201">
+                                                                                                                        <div
+                                                                                                                            class="awsui_date-picker-input_145pa_1qqxn_205">
+                                                                                                                            <div
+                                                                                                                                class="awsui_root_yodkx_im8v7_5 awsui_input-container_2rhyz_oflk9_309">
+                                                                                                                                <input
+                                                                                                                                    aria-labelledby="formField120-1733328551168-1819-label"
+                                                                                                                                    placeholder="Maximum 90 Days"
+                                                                                                                                    id="formField120-1733328551168-1819"
+                                                                                                                                    class="awsui_input_2rhyz_oflk9_145"
+                                                                                                                                    autocomplete="off"
+                                                                                                                                    type="text"
+                                                                                                                                    autocorrect="off"
+                                                                                                                                    autocapitalize="off"
+                                                                                                                                    value="">
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <button
+                                                                                                                                class="awsui_open-calendar-button_145pa_1qqxn_210 awsui_button_vjswe_4v1qr_153 awsui_variant-normal_vjswe_4v1qr_204 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                                                                                                aria-label="Choose Badge expiry date"
+                                                                                                                                title="Choose Badge expiry date"
+                                                                                                                                data-analytics-funnel-value="button124-1733328551170-3893"
+                                                                                                                                type="button"
+                                                                                                                                data-analytics-performance-mark="125-1733328551170-7778"><span
+                                                                                                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                                                                                                        viewBox="0 0 16 16"
+                                                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                        focusable="false"
+                                                                                                                                        aria-hidden="true">
+                                                                                                                                        <path
+                                                                                                                                            d="M14 2H2v12h12V2Z"
+                                                                                                                                            class="stroke-linejoin-round">
+                                                                                                                                        </path>
+                                                                                                                                        <path
+                                                                                                                                            d="M4 6V4h2v2H4ZM7 6V4h2v2H7ZM10 6V4h2v2h-2ZM4 9V7h2v2H4ZM7 9V7h2v2H7ZM4 12v-2h2v2H4ZM7 12v-2h2v2H7ZM10 9V7h2v2h-2Z"
+                                                                                                                                            class="filled no-stroke">
+                                                                                                                                        </path>
+                                                                                                                                    </svg></span></button>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                    tabindex="-1">
+                                                                                                                </div>
+                                                                                                                <div>
+                                                                                                                    <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                        tabindex="-1">
+                                                                                                                    </div>
+                                                                                                                    <div class="awsui_dropdown_qwoo0_1orqr_149 awsui_hide-block-border_qwoo0_1orqr_318"
+                                                                                                                        data-open="false"
+                                                                                                                        data-animating="false"
+                                                                                                                        aria-hidden="true">
+                                                                                                                        <div
+                                                                                                                            class="awsui_dropdown-content-wrapper_qwoo0_1orqr_149 awsui_is-empty_qwoo0_1orqr_288">
+                                                                                                                            <div
+                                                                                                                                class="awsui_dropdown-content_qwoo0_1orqr_149">
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="awsui_root_oip5a_160mh_5"
+                                                                                                                        tabindex="-1">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awsui_footer_1i0s3_1l7eh_188">
+                                                        <div class="awsui_actions-section_1i0s3_1l7eh_192">
+                                                            <div class="awsui_actions_1i0s3_1l7eh_192">
+                                                                <div
+                                                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                                                    <div class="awsui_child_18582_7onux_145"><button
+                                                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-link_vjswe_4v1qr_388"
+                                                                            data-analytics-funnel-value="button127-1733328551170-5452"
+                                                                            type="button"
+                                                                            data-analytics-performance-mark="128-1733328551170-9037"><span
+                                                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">Reset</span></button>
+                                                                    </div>
+                                                                    <div class="awsui_child_18582_7onux_145"><button
+                                                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                                                            data-analytics-funnel-value="button130-1733328551171-3358"
+                                                                            type="submit"
+                                                                            data-analytics-performance-mark="131-1733328551171-3953"><span
+                                                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">Search</span></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="1-1733328549577-7866-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_large_1d2i7_18st5_331">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading2-1733328549577-8358"><span id="1-1733328549577-7866-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">
+                                                    <div
+                                                        class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h3_2qdw9_kiqfw_219 awsui_root-no-actions_2qdw9_kiqfw_216">
+                                                        <div class="awsui_main_2qdw9_kiqfw_238">
+                                                            <div
+                                                                class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h3_2qdw9_kiqfw_312">
+                                                                <h3
+                                                                    class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h3_2qdw9_kiqfw_391">
+                                                                    <span
+                                                                        class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h3_2qdw9_kiqfw_416"
+                                                                        id="heading3-1733328549577-8621"> Cardholder
+                                                                        Management</span></h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button4-1733328549578-6825" type="button"
+                                                data-analytics-performance-mark="5-1733328549578-81"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">An error occurred checking your permission. Please
+                            refresh the page or contact support for assistance.<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button7-1733328549579-4696" type="submit"
+                                            data-analytics-performance-mark="8-1733328549579-1628"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="76-1733328551150-1954-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_medium_1d2i7_18st5_328">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading77-1733328551150-6028"><span
+                                                    id="76-1733328551150-1954-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                data-analytics-funnel-value="button78-1733328551150-6389" type="button"
+                                                data-analytics-performance-mark="79-1733328551150-7637"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_color-default_18wu0_1lw09_168 awsui_font-size-body-m_18wu0_1lw09_324 awsui_font-weight-normal_18wu0_1lw09_360 awsui_t-center_18wu0_1lw09_378">
+                                Please wait, we are loading building ID... <span
+                                    class="awsui_root_1612d_12atb_179 awsui_size-big_1612d_12atb_202 awsui_variant-normal_1612d_12atb_218"><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="81-1733328551151-8413-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_medium_1d2i7_18st5_328">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading82-1733328551151-4547"><span
+                                                    id="81-1733328551151-8413-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                data-analytics-funnel-value="button83-1733328551151-426" type="button"
+                                                data-analytics-performance-mark="84-1733328551151-4242"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_color-default_18wu0_1lw09_168 awsui_font-size-body-m_18wu0_1lw09_324 awsui_font-weight-normal_18wu0_1lw09_360 awsui_t-center_18wu0_1lw09_378">
+                                Please wait, we are loading badge status... <span
+                                    class="awsui_root_1612d_12atb_179 awsui_size-big_1612d_12atb_202 awsui_variant-normal_1612d_12atb_218"><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="86-1733328551151-4008-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_medium_1d2i7_18st5_328">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading87-1733328551151-5639"><span
+                                                    id="86-1733328551151-4008-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                data-analytics-funnel-value="button88-1733328551151-4317" type="button"
+                                                data-analytics-performance-mark="89-1733328551152-3750"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_color-default_18wu0_1lw09_168 awsui_font-size-body-m_18wu0_1lw09_324 awsui_font-weight-normal_18wu0_1lw09_360 awsui_t-center_18wu0_1lw09_378">
+                                Please wait, we are loading badge type... <span
+                                    class="awsui_root_1612d_12atb_179 awsui_size-big_1612d_12atb_202 awsui_variant-normal_1612d_12atb_218"><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span
+                                        class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="92-1733328551156-4010-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_large_1d2i7_18st5_331">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading93-1733328551156-6124"><span
+                                                    id="92-1733328551156-4010-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">
+                                                    <div
+                                                        class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h3_2qdw9_kiqfw_219 awsui_root-no-actions_2qdw9_kiqfw_216">
+                                                        <div class="awsui_main_2qdw9_kiqfw_238">
+                                                            <div
+                                                                class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h3_2qdw9_kiqfw_312">
+                                                                <h3
+                                                                    class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h3_2qdw9_kiqfw_391">
+                                                                    <span
+                                                                        class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h3_2qdw9_kiqfw_416"
+                                                                        id="heading94-1733328551156-3448"> Cardholder
+                                                                        Management</span></h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button95-1733328551156-5324" type="button"
+                                                data-analytics-performance-mark="96-1733328551156-4386"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">An error occurred loading badge type. Please refresh
+                            page or contact support for assistance.<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button98-1733328551157-3851" type="submit"
+                                            data-analytics-performance-mark="99-1733328551157-6408"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div class="awsui_announcer_1iee7_di2un_149 awsui_announcer_1pc7b_1k8pp_9" aria-live="polite" aria-atomic="true">
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="141-1733328551189-2137-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_small_1d2i7_18st5_325">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading142-1733328551189-7146"><span
+                                                    id="141-1733328551189-2137-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button143-1733328551189-7087" type="button"
+                                                data-analytics-performance-mark="144-1733328551189-5962"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">Cannot find cardholder, please modify search fields
+                            and try again.<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button146-1733328551189-4837" type="submit"
+                                            data-analytics-performance-mark="147-1733328551189-5327"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="149-1733328551190-5416-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_small_1d2i7_18st5_325">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading150-1733328551190-9644"><span
+                                                    id="149-1733328551190-5416-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button151-1733328551190-1106" type="button"
+                                                data-analytics-performance-mark="152-1733328551190-9845"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">Please ensure search fields are not empty<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button154-1733328551190-3356" type="submit"
+                                            data-analytics-performance-mark="155-1733328551190-7642"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="157-1733328551191-3434-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_small_1d2i7_18st5_325">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading158-1733328551191-2066"><span
+                                                    id="157-1733328551191-3434-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button159-1733328551191-4226" type="button"
+                                                data-analytics-performance-mark="160-1733328551191-7685"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">Both First Name or Last Name cannot be empty<div>
+                            </div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button162-1733328551191-4268" type="submit"
+                                            data-analytics-performance-mark="163-1733328551191-6659"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="165-1733328551191-4650-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_small_1d2i7_18st5_325">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading166-1733328551192-8563"><span
+                                                    id="165-1733328551191-4650-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">Cardholder
+                                                    Management</span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button167-1733328551192-9992" type="button"
+                                                data-analytics-performance-mark="168-1733328551192-4364"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">Building is empty, please select building<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button170-1733328551192-8347" type="submit"
+                                            data-analytics-performance-mark="171-1733328551192-7159"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+    <div>
+        <div data-analytics-funnel-step="1" class="awsui_root_1d2i7_18st5_221 awsui_hidden_1d2i7_18st5_301"
+            role="dialog" aria-modal="true" aria-labelledby="182-1733328551210-467-header">
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+            <div class="awsui_focus-lock_1d2i7_18st5_305">
+                <div class="awsui_dialog_1d2i7_18st5_165 awsui_large_1d2i7_18st5_331">
+                    <div class="awsui_container_1d2i7_18st5_340">
+                        <div class="awsui_header_1d2i7_18st5_394 awsui_header_15dxs_1ns0c_5">
+                            <div class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h2_2qdw9_kiqfw_219">
+                                <div class="awsui_main_2qdw9_kiqfw_238 awsui_no-wrap_2qdw9_kiqfw_248">
+                                    <div class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h2_2qdw9_kiqfw_306">
+                                        <h2
+                                            class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h2_2qdw9_kiqfw_386">
+                                            <span
+                                                class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h2_2qdw9_kiqfw_408"
+                                                id="heading183-1733328551210-9386"><span
+                                                    id="182-1733328551210-467-header"
+                                                    class="awsui_header--text_1d2i7_18st5_406">
+                                                    <div
+                                                        class="awsui_root_2qdw9_kiqfw_177 awsui_root-variant-h3_2qdw9_kiqfw_219 awsui_root-no-actions_2qdw9_kiqfw_216">
+                                                        <div class="awsui_main_2qdw9_kiqfw_238">
+                                                            <div
+                                                                class="awsui_title_2qdw9_kiqfw_294 awsui_title-variant-h3_2qdw9_kiqfw_312">
+                                                                <h3
+                                                                    class="awsui_heading_2qdw9_kiqfw_370 awsui_heading-variant-h3_2qdw9_kiqfw_391">
+                                                                    <span
+                                                                        class="awsui_heading-text_2qdw9_kiqfw_397 awsui_heading-text_105ke_268sp_5 awsui_heading-text-variant-h3_2qdw9_kiqfw_416"
+                                                                        id="heading184-1733328551210-6363"> Cardholder
+                                                                        Management</span></h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span></span></h2>
+                                    </div>
+                                    <div class="awsui_actions_2qdw9_kiqfw_262 awsui_actions-variant-h2_2qdw9_kiqfw_274">
+                                        <div><button
+                                                class="awsui_dismiss-control_1d2i7_18st5_431 awsui_button_vjswe_4v1qr_153 awsui_variant-modal-dismiss_vjswe_4v1qr_247 awsui_button-no-text_vjswe_4v1qr_1133"
+                                                aria-label="Close Modal" title="Close Modal"
+                                                data-analytics-funnel-value="button185-1733328551210-4108" type="button"
+                                                data-analytics-performance-mark="186-1733328551210-7456"><span
+                                                    class="awsui_icon_vjswe_4v1qr_1159 awsui_icon-left_vjswe_4v1qr_1159 awsui_icon_h11ix_o4x4v_185 awsui_size-medium-mapped-height_h11ix_o4x4v_263 awsui_size-medium_h11ix_o4x4v_259 awsui_variant-normal_h11ix_o4x4v_316"><svg
+                                                        viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                                        focusable="false" aria-hidden="true">
+                                                        <path d="m2 1.71 12 12M2 13.71l12-12"
+                                                            class="stroke-linejoin-round"></path>
+                                                    </svg></span></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awsui_content_1d2i7_18st5_384">An error occurred processing the request. Please try
+                            again or contact support for assistance.<div></div>
+                        </div>
+                        <div class="awsui_footer_1d2i7_18st5_410">
+                            <div
+                                class="awsui_root_18wu0_1lw09_916 awsui_box_18wu0_1lw09_168 awsui_f-right_18wu0_1lw09_912 awsui_color-default_18wu0_1lw09_168 awsui_font-size-default_18wu0_1lw09_184 awsui_font-weight-default_18wu0_1lw09_224">
+                                <div
+                                    class="awsui_root_18582_7onux_141 awsui_horizontal_18582_7onux_156 awsui_horizontal-xs_18582_7onux_166">
+                                    <div class="awsui_child_18582_7onux_145"><button
+                                            class="awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296"
+                                            data-analytics-funnel-value="button188-1733328551210-5942" type="submit"
+                                            data-analytics-performance-mark="189-1733328551210-7640"><span
+                                                class="awsui_content_vjswe_4v1qr_149 awsui_label_1f1d4_ocied_5">OK</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="awsui_root_oip5a_160mh_5" tabindex="-1"></div>
+        </div>
+    </div>
+</body>
+</html>

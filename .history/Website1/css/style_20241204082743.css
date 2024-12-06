@@ -1,0 +1,571 @@
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff
+}
+
+section#base-pane {
+    margin-top: 0rem;
+    padding: 2rem 2rem 3rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    color: #222
+}
+
+div#login-pane {
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+div#oob-success-view {
+    margin-top: 0rem;
+    padding: 2rem 2rem 3rem 2rem;
+    background-color: #1ba0229f;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0.5rem;
+    color: #222
+}
+
+div#banner {
+    text-align: center;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    position: relative
+}
+
+div#error {
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    right: 20%;
+    position: relative;
+    color: #C1292E
+}
+
+div#tooltip {
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden
+}
+
+div#center-wide-pane {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+div#center-thin-pane {
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+div#u2f-login-pane {
+    max-width: 46rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7em
+}
+
+h2 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 2.2rem
+}
+
+h3 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.6rem
+}
+
+label {
+    font-size: 0.8em;
+    font-weight: 500
+}
+
+a {
+    color: #2479C7;
+    text-decoration: none
+}
+
+a:hover {
+    color: #54a2f7;
+    text-decoration: underline
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0.15rem 0.5rem;
+    margin-top: 0.2em;
+    border: 1px solid #999;
+    border-radius: 0.2rem;
+    transition: all 100ms linear;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    outline: 2px solid #0058ff !important;
+    outline-offset: 1px !important
+}
+
+input[type=submit] {
+    font-size: 0.8em;
+    border-radius: 0.25rem;
+    border: 1px solid #996633;
+    background-color: #fbb125;
+    color: #000;
+    font-weight: 700;
+    transition: all 150ms linear
+}
+
+#error-message {
+    font-size: 14px
+}
+
+.login-button {
+    width: 100%;
+    height: 2rem
+}
+
+.verify-posture-button {
+    max-width: 20rem;
+    height: 2rem
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #fbc745;
+    border: 1px solid #aa7744
+}
+
+input[type="submit"]:disabled {
+    background: #dddddd;
+    color: #000000
+}
+
+footer {
+    text-align: center
+}
+
+footer p {
+    font-size: 0.8em;
+    color: #999;
+    line-height: 1.2em
+}
+
+ol>ol {
+    list-style-type: lower-alpha
+}
+
+.m1-red {
+    color: #c44
+}
+
+.spacing {
+    padding-top: 12px
+}
+
+.error-message {
+    padding: 5px;
+    background-color: #C1292E;
+    color: #EFEFEF;
+    border-radius: 10px
+}
+
+.hidden {
+    display: none
+}
+
+.banner-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+
+.banner-item {
+    font-family: 'Amazon Ember', 'Arial', sans-serif;
+    padding: 10px;
+    font-size: 13px;
+    text-align: center;
+    background-color: #ffc107
+}
+
+.warning-color {
+    background-color: #eed202
+}
+
+.banner-font {
+    font-family: 'Amazon Ember', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000000;
+    text-align: center
+}
+
+.banner.box {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 10px;
+    border-radius: 10px
+}
+
+.banner.text {
+    text-decoration: underline;
+    margin: 10px
+}
+
+.invisible {
+    visibility: hidden
+}
+
+.ta-left {
+    text-align: left
+}
+
+.ta-center {
+    text-align: center
+}
+
+.ta-right {
+    text-align: right
+}
+
+.split-user-logout {
+    display: block;
+    margin: 0px;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.split-user-logout span {
+    float: right
+}
+
+.row {
+    width: 100%
+}
+
+.row>* {
+    float: left
+}
+
+.row:after,
+.row:before {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0
+}
+
+.cell-100,
+.cell-90,
+.cell-85,
+.cell-80,
+.cell-75,
+.cell-66,
+.cell-62 .cell-50,
+.cell-38,
+.cell-33,
+.cell-25,
+.cell-20,
+.cell-15,
+.cell-10 {
+    clear: none;
+    margin-left: 0
+}
+
+.cell-100 {
+    width: 100%
+}
+
+.cell-90 {
+    width: 90%
+}
+
+.cell-85 {
+    width: 85%
+}
+
+.cell-80 {
+    width: 80%
+}
+
+.cell-75 {
+    width: 75%
+}
+
+.cell-66 {
+    width: 66.6666667%
+}
+
+.cell-62 {
+    width: 61.8034%
+}
+
+.cell-50 {
+    width: 50%
+}
+
+.cell-38 {
+    width: 38.1966%
+}
+
+.cell-33 {
+    width: 33.3333333%
+}
+
+.cell-25 {
+    width: 25%
+}
+
+.cell-20 {
+    width: 20%
+}
+
+.cell-15 {
+    width: 15%
+}
+
+.cell-10 {
+    width: 10%
+}
+
+.mb-0 {
+    margin-bottom: 0rem
+}
+
+.mt-2 {
+    margin-top: 2rem
+}
+
+.pl-0 {
+    padding-left: 0rem
+}
+
+.pl-2 {
+    padding-left: 2rem
+}
+
+.pl-4 {
+    padding-left: 4rem
+}
+
+.pt-1 {
+    padding-top: 1rem
+}
+
+.pb-1 {
+    padding-bottom: 1rem
+}
+
+ul.no-indent,
+ol.no-indent {
+    padding-left: 1.2em
+}
+
+.tiny-text {
+    font-size: 0.5em
+}
+
+.small-text {
+    font-size: 0.8em
+}
+
+.big-text {
+    font-size: 1.3em
+}
+
+.very-big-text {
+    font-size: 1.5em
+}
+
+.huge-text {
+    font-size: 2em
+}
+
+.tight-lines {
+    line-height: 1.2em
+}
+
+.tightish-lines {
+    line-height: 1.5em
+}
+
+.light-text {
+    font-weight: 300
+}
+
+.medium-heavy-text {
+    font-weight: 500
+}
+
+.heavy-text {
+    font-weight: 800
+}
+
+.green {
+    color: #1ba021
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.centered-container {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.flex-50 {
+    display: flex;
+    width: 50%
+}
+
+.flex-horz-50 {
+    display: flex;
+    width: 50%
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px
+}
+
+button.accordion.active,
+button.accordion:hover {
+    background-color: #ddd
+}
+
+button.accordion:after {
+    content: "\2039";
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.2s linear
+}
+
+button.accordion.active:after {
+    transform: rotate(-90deg)
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out
+}
+
+.display-none {
+    display: none
+}
+
+@media screen and (max-width: 600px) {
+    .move-to-end-small {
+        order: 99
+    }
+
+    .cell-100-small {
+        width: 100%
+    }
+
+    .hide-small {
+        display: none
+    }
+
+    .flex-container {
+        flex-direction: column
+    }
+
+    .flex-horz-50 {
+        width: 100%
+    }
+}
+
+a:focus,
+#modal-confirm:focus,
+#modal-cancel:focus {
+    outline: 2px solid #0058ff !important;
+    outline-offset: 1px !important
+}
+
+input[type=submit]:focus,
+input[type=text]:focus,
+input[type=password]:focus {
+    outline: 2px solid #0058ff !important;
+    outline-offset: 1px !important
+}
+
+.transparent-field {
+    border: 0 solid;
+    background-color: transparent;
+    color: transparent;
+    box-shadow: 0 0 0 0;
+    margin-top: 0;
+    height: 1rem
+}
+
+.transparent-field:focus {
+    border-style: none;
+    outline: none;
+    text-shadow: 0 0 0 gray
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white
+}
+
+.info {
+    font-family: 'Amazon Ember', 'Arial', sans-serif;
+    font-style: normal;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    background-color: #F1FAFF;
+    color: #232F3E;
+    text-align: center
+}
+
+.icon {
+    position: relative;
+    top: 3px
+}
+
+.otp-field {
+    -webkit-text-security: disc
+}

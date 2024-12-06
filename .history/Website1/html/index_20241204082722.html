@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Midway Authentication Portal</title>
+    <link rel="stylesheet" media="all" href="css/application-6f214fe947c0edd4efaa0177e590dd6b201ba0b1eb0324263498e235c5262cbe.css">
+    <script src="js/application-f6fff0e6bde057c3cbfdd0338d34b0056b8b007d106c0a26b3190271b98d9c36.js"></script>
+    <script src="js/client-side-metrics-e680371f2d0ba09e8361.js"></script>
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="Zth+Qnq81+YOjoXfBBfkgwsO28UqzMoWFvThTsIiIwwen2HCYKjYEbAQ0eSD/reRjHdTnVWgaYyaHtzn6JVvZQ==">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <script src="js/login-5f4607a3effee4c149258f44642a94045f30f57302e2a1145be74744ea3e376a.js" defer="defer"></script>
+    <main>
+        <div class="banner-item">
+          You are using old UI, to switch to new UI click
+          <button id="switch-to-new-ui-button">here</button>
+        </div>
+    
+    
+      <form id="fpr_form" name="fpr_form"></form>
+      <section id="base-pane">
+        <div id="login-pane">
+          <div id="input-params" data-session-status="{&quot;csrf_param&quot;:&quot;authenticity_token&quot;,&quot;csrf_token&quot;:&quot;iuHMFWdnXgJt1BrkpJkk3SYsT3FdD/Q15XkBugcm0DHyptOVfXNR9dNKTt8jcHfPoVXHKSJjV69pkzwTLZGcWA==&quot;,&quot;session_uuid&quot;:&quot;57e2c3a22ea27fc7d0785df8744f4130&quot;,&quot;client_cert_valid&quot;:false,&quot;totp_enabled&quot;:true,&quot;display_otp_enabled&quot;:true,&quot;mcs_andon_cord_pulled&quot;:false,&quot;otp_enabled&quot;:true,&quot;authenticated&quot;:false,&quot;auth_prompt&quot;:&quot;Password&quot;}" data-js-params="{&quot;next&quot;:&quot;/SSO/redirect?client_id=https%3A%2F%2Fidp-eu-west-1.federate.amazon.com\u0026redirect_uri=https%3A%2F%2Fidp-eu-west-1.federate.amazon.com%2Fapi%2Fv1%2Fintermediate\u0026response_type=id_token\u0026scope=openid\u0026nonce=P241204142627294DUBBHK5Y6XL476P\u0026state=eu-west-1_P241204142627294DUBBHK5Y6XL476P_AgR48wJ19R-jREMJgZ8Xixi_OSfrBKWTBu2vqK51XYBBLrYAKAABAAN0eG4AH1AyNDEyMDQxNDI2MjcyOTREVUJCSEs1WTZYTDQ3NlAAAQAHYXdzLWttcwBLYXJuOmF3czprbXM6ZXUtd2VzdC0xOjY0MjM5NzE3MDM1MDprZXkvNGI4NDE1M2EtNTJkOS00MzUxLTg4MGQtNTA0MmJmMDgyODdkALgBAgEAeHiC3LlJ3oB2ufwJFoRJeaY5U54wI_CAdPLdzP1tkYm3AQFJrVWGu1TilErcYEzqytAAAAB-MHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxfZX8jTsfoMLy_8hcCARCAO44p_qdQgVH9Ecah6aDv0bKJP0hbwB3oOAbYy6LRjWiRFPcR6wRelvWUABLUnbCelzJmI6KsY0bkdHxQAgAAEADtArWEwk3QCOaeTvZw-vyTQRzkdUenwU3x6H7scfh9w2HBcZnUWPx-R-myOa_gSlj_____AAAAAQAAAAAAAAAAAAAAAQAAAE8iiKQgJTDnUeXjPAoWDFOAPsp9qiYEIbV3OfKp8tHXtShGlOIm9yeRLI2jbfM1d3Q3qJqjyQymildgEsIGfjhhJcp9QShjOYozkJPUE9fGOO8bqJV0kWeDvRbQFOrCow&quot;}"></div>
+          <h2>Sign in</h2>
+          <!--This hidden header is added because many canaries look for this text to know that they are on a Midway page-->
+          <h2 hidden="">Sign in with Midway</h2>
+          <div class="ta-right">
+            <a class="medium-heavy-text small-text" href="https://w.amazon.com/index.php/NextGenMidway/FAQ">Why am I here?</a>
+          </div>
+    
+          <form id="login_form" action="/api/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="" autocomplete="off"><input type="hidden" name="authenticity_token" value="IkIE0tERn9CW4mZ6eQWWHvPXiQCIepjCXxpyvPmnSVlaBRtSywWQJyh8MkH+7MUMdK4BWPcWO1jT8E8V0xAFMA==" autocomplete="off">
+            <input type="hidden" name="old_login_form" id="old_login_form" value="true" autocomplete="off">
+            <input type="hidden" name="next" id="next" value="/SSO/redirect?client_id=https%3A%2F%2Fidp-eu-west-1.federate.amazon.com&amp;redirect_uri=https%3A%2F%2Fidp-eu-west-1.federate.amazon.com%2Fapi%2Fv1%2Fintermediate&amp;response_type=id_token&amp;scope=openid&amp;nonce=P241204142627294DUBBHK5Y6XL476P&amp;state=eu-west-1_P241204142627294DUBBHK5Y6XL476P_AgR48wJ19R-jREMJgZ8Xixi_OSfrBKWTBu2vqK51XYBBLrYAKAABAAN0eG4AH1AyNDEyMDQxNDI2MjcyOTREVUJCSEs1WTZYTDQ3NlAAAQAHYXdzLWttcwBLYXJuOmF3czprbXM6ZXUtd2VzdC0xOjY0MjM5NzE3MDM1MDprZXkvNGI4NDE1M2EtNTJkOS00MzUxLTg4MGQtNTA0MmJmMDgyODdkALgBAgEAeHiC3LlJ3oB2ufwJFoRJeaY5U54wI_CAdPLdzP1tkYm3AQFJrVWGu1TilErcYEzqytAAAAB-MHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxfZX8jTsfoMLy_8hcCARCAO44p_qdQgVH9Ecah6aDv0bKJP0hbwB3oOAbYy6LRjWiRFPcR6wRelvWUABLUnbCelzJmI6KsY0bkdHxQAgAAEADtArWEwk3QCOaeTvZw-vyTQRzkdUenwU3x6H7scfh9w2HBcZnUWPx-R-myOa_gSlj_____AAAAAQAAAAAAAAAAAAAAAQAAAE8iiKQgJTDnUeXjPAoWDFOAPsp9qiYEIbV3OfKp8tHXtShGlOIm9yeRLI2jbfM1d3Q3qJqjyQymildgEsIGfjhhJcp9QShjOYozkJPUE9fGOO8bqJV0kWeDvRbQFOrCow" autocomplete="off">
+            <p>
+              <label for="user_name">Amazon username</label><br>
+              <input type="text" name="user_name" id="user_name" value="" placeholder="Enter your Amazon username" autocomplete="username" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </p>
+    
+            <p>
+            </p><div class="row">
+              <div class="cell-50">
+                <label for="password">PIN</label>
+              </div>
+              <div class="cell-50 ta-right">
+                <a class="medium-heavy-text small-text" href="https://password-v2.corp.amazon.com/selfReset">Reset password</a>
+              </div>
+            </div>
+            <input type="password" name="password" id="password" value="" placeholder="Enter your security key PIN" autocomplete="current-password" autocorrect="off" autocapitalize="off">
+            <p>
+              <input type="submit" name="commit" value="Sign in" class="login-button inline-button orange-button" id="verify_btn" data-disable-with="Sign in">
+            </p><p id="error-message" class="m1-red ta-center mb-0 invisible" tabindex="0">Error</p>
+            <p id="forgot-password" class="ta-center mb-0" hidden="">
+              <a href="https://password-v2.corp.amazon.com/selfReset">Did you forget your password?</a></p>
+    </form>    </div>
+    
+        <div id="u2f-login-pane" class="ta-center" hidden="">
+          <h2>Second factor required</h2>
+          <div class="row pb-1 pl-2 flex-container">
+            <div class="cell-20 hide-small">
+              <img height="128" alt="Security key with lock" src="images/yubikey-with-lock-4617700bf1ac51a21ee884c1e5b8208eb7c9fff492246a69ec718c8654e75cdd.png">
+            </div>
+            <div class="cell-80 ta-left cell-100-small move-to-end-small">
+              <ol class="no-indent">
+                <li>Plug your security key into a USB slot on your computer</li>
+                <li>Touch your security key</li>
+                  <li>Or, if short touch does not work press and hold for 3 seconds to activate OTP</li>
+              </ol>
+            </div>
+              <div class="cell-80">
+                <p>
+                </p><form action="/api/yubiotp/login" method="post">
+                  <input id="otp-field" name="otp" autocomplete="off" class="otp-field" autocapitalize="none" style="width: 185px">
+                  <input id="otp-submit-btn" type="submit" value="Submit">
+                </form>
+                <p id="u2f-error-message" class="m1-red" hidden=""></p>
+              </div>
+          </div>
+        </div>
+    
+        <div id="redirect-pane" class="ta-center" hidden="">
+          <h2 class="green"> Authentication Successful</h2>
+          <br>
+          <br>
+          <h3 class="">Now redirecting you to <span id="redirect-url"></span></h3>
+          <br>
+          <img alt="Spinning processing circle" src="images/ajax-spinner-4e6e1fb3f08a162cfd4f8fb435769612a801c3cea4684b1efc71455e3795c5ca.gif">
+        </div>
+    
+        <div id="loadingDiv" class="ta-center invisible">
+          <img alt="Spinning processing circle" src="images/ajax-spinner-4e6e1fb3f08a162cfd4f8fb435769612a801c3cea4684b1efc71455e3795c5ca.gif">
+        </div>
+      </section>
+      
+      <footer>
+        <p>
+          Secured by  <a id="help_link" href="https://w.amazon.com/index.php/NextGenMidway/FAQ">Midway</a>. For login issues, 
+          <a href="https://firstaid.it.a2z.com/chat">chat with IT support</a>.
+        </p>
+    
+        <img height="32" class="mt-2" alt="Amazon logo" title="Midway is brought to you by Matt, David, Tyler, Sunitha, Stefan, Chris, Pratik, Carl, Misha, Alex, Eric, and more!" src="images/amazon-logo-f589d03bb13bcabcfcfdd596bf2f0c4bc4996adc605cc737991ce9c6a0025be6.png">
+      </footer>
+    
+    </main>
+    
+    <script src="js/old-ui-3a5bdbeca59dd72fa883.js"></script>
+    
+    
+    </body></html>

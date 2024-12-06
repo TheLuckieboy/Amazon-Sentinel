@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1001",
+        "name": "John Doe",
+        "title": "Software Engineer",
+        "status": "Active"
+    },
+    {
+        "id": "1002",
+        "name": "Jane Smith",
+        "title": "Product Manager",
+        "status": "Suspended"
+    },
+    {
+        "id": "1003",
+        "name": "Alice Johnson",
+        "title": "HR Specialist",
+        "status": "Terminated"
+    },
+    {
+        "id": "1004",
+        "name": "Bob Brown",
+        "title": "Security Officer",
+        "status": "Active"
+    }
+    // Add more profiles here
+]
