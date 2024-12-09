@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 if (profileData) {
-                    //console.log('Found profile:', profileData);
-                    //displayProfile(profileData);
+                    console.log('Found profile:', profileData);
+                    displayProfile(profileData);
                 } else {
                     console.log('Profile not found.');
                 }

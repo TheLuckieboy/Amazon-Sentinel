@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 if (profileData) {
-                    //console.log('Found profile:', profileData);
-                    //displayProfile(profileData);
+                    console.log('Found profile:', profileData);
+                    displayProfile(profileData);
                 } else {
                     console.log('Profile not found.');
                 }
@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(`    Activate On: ${access.AccessLevel_ActivateOn}`);
             console.log(`    Deactivate On: ${access.AccessLevel_Deactivate}`);
         });
-    }
     
     
     /*// Function to display the profile data
