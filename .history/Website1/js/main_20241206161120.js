@@ -98,8 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
             profileSection.innerHTML = '';
         }
 
-        // const BadgeData = generateBadgeTableHTML(profileData)
-
         // Add the profile data as inner HTML
         profileSection.innerHTML = `
             <div class="awsui_root_18582_7onux_141 awsui_vertical_18582_7onux_188 awsui_vertical-xxxs_18582_7onux_191">
@@ -418,8 +416,60 @@ document.addEventListener("DOMContentLoaded", function() {
                                                         <div class="awsui_content-inner_14iqq_zuudq_492 awsui_content-inner_1mwlm_oyjaq_5 awsui_with-header_14iqq_zuudq_499">
                                                             <div class="awsui_wrapper_wih1l_1v07r_208 awsui_variant-container_wih1l_1v07r_215 awsui_has-header_wih1l_1v07r_221" style="scroll-padding-inline: 384px 0px;" role="region" tabindex="0" aria-labelledby="heading12568-1733498994808-3572">
                                                                 <div class="awsui_wrapper-content-measure_wih1l_1v07r_215"></div>
-                                                                ${BadgeData}
-                                                                <span class="awsui_tracker_x7peu_12e0g_249"></span></div>
+                                                                <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" role="table" aria-rowcount="4" data-analytics-performance-mark="12562-1733498994808-6510" data-analytics-task-interaction-id="12563-1733498994808-2651" aria-labelledby="heading12568-1733498994808-3572">
+                                                                    <thead class="awsui_thead-active_wih1l_1v07r_355">
+                                                                        <tr data-selection-item="all" aria-rowindex="1">
+                                                                            <th data-focus-id="header-Symbol(selection-column-id)" class="awsui_header-cell_1spae_13mz6_145 awsui_selection-control_wih1l_1v07r_279 awsui_selection-control-header_wih1l_1v07r_286 awsui_sticky-cell_1spae_13mz6_215" scope="col" style="inset-inline-start: 0px;"><span class="awsui_root_xttbq_1ekiv_141"></span><span class="awsui_divider_x7peu_12e0g_146 awsui_divider-disabled_x7peu_12e0g_160"></span></th>
+                                                                            <th data-focus-id="header-badgeID" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="none" style="width: 150px; min-width: 120px; inset-inline-start: 54px;">
+                                                                                <div data-focus-id="sorting-control-badgeID" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12570-1733498994810-3847">Badge ID</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12570-1733498994810-3847" tabindex="0" data-focus-id="resize-control-badgeID"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12571-1733498994810-9967" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="150" aria-valuetext="150" aria-valuemin="120" data-focus-id="resize-control-badgeID"></span></th>
+                                                                            <th data-focus-id="header-badgeStatus" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="ascending" style="width: 180px; min-width: 150px; inset-inline-start: 204px;">
+                                                                                <div data-focus-id="sorting-control-badgeStatus" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12572-1733498994810-2096">Status</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12572-1733498994810-2096" tabindex="0" data-focus-id="resize-control-badgeStatus"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12573-1733498994810-2300" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeStatus"></span></th>
+                                                                            <th data-focus-id="header-badgeType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 180px; min-width: 150px;">
+                                                                                <div data-focus-id="sorting-control-badgeType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12574-1733498994810-5218">Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12574-1733498994810-5218" tabindex="0" data-focus-id="resize-control-badgeType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12575-1733498994810-9341" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeType"></span></th>
+                                                                            <th data-focus-id="header-badgeActive" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-badgeActive" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12576-1733498994810-714">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12576-1733498994810-714" tabindex="0" data-focus-id="resize-control-badgeActive"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12577-1733498994810-8973" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="220" aria-valuetext="220" aria-valuemin="180" data-focus-id="resize-control-badgeActive"></span></th>
+                                                                            <th data-focus-id="header-badgeDeactivate" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-badgeDeactivate" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12578-1733498994810-1906">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12578-1733498994810-1906" tabindex="0" data-focus-id="resize-control-badgeDeactivate"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12579-1733498994810-4179" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeDeactivate"></span></th>
+                                                                            <th data-focus-id="header-badgeLastChanged" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-badgeLastChanged" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12580-1733498994810-6424">Badge Last Updated UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12580-1733498994810-6424" tabindex="0" data-focus-id="resize-control-badgeLastChanged"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12581-1733498994810-1198" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeLastChanged"></span></th>
+                                                                            <th data-focus-id="header-lastLocationReaderName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 250px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-lastLocationReaderName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12582-1733498994810-3570">Last Location Reader Name</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12582-1733498994810-3570" tabindex="0" data-focus-id="resize-control-lastLocationReaderName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12583-1733498994810-5435" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="250" aria-valuetext="250" aria-valuemin="180" data-focus-id="resize-control-lastLocationReaderName"></span></th>
+                                                                            <th data-focus-id="header-lastLocationTimestamp" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 260px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-lastLocationTimestamp" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12584-1733498994810-7872">Last Location Timestamp UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12584-1733498994810-7872" tabindex="0" data-focus-id="resize-control-lastLocationTimestamp"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12585-1733498994810-1575" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="260" aria-valuetext="260" aria-valuemin="180" data-focus-id="resize-control-lastLocationTimestamp"></span></th>
+                                                                            <th data-focus-id="header-lastLocationEventType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                                                                                <div data-focus-id="sorting-control-lastLocationEventType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                                                                                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-12586-1733498994811-4807">Last Location Event Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                                                                                </div>
+                                                                                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-12586-1733498994811-4807" tabindex="0" data-focus-id="resize-control-lastLocationEventType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="12587-1733498994811-1142" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-lastLocationEventType"></span></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table><span class="awsui_tracker_x7peu_12e0g_249"></span></div>
                                                             <div class="awsui_sticky-scrollbar_faqt8_1we8w_177 awsui_sticky-scrollbar-offset_faqt8_1we8w_195 awsui_sticky-scrollbar-visible_faqt8_1we8w_189" style="block-size: 17px; inline-size: 1463px; inset-block-end: var(--awsui-sticky-vertical-bottom-offset, 0px);">
                                                                 <div class="awsui_sticky-scrollbar-content_faqt8_1we8w_186" style="block-size: 17px; inline-size: 1984px;"></div>
                                                             </div>
@@ -440,30 +490,41 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
+        // Append the new profile container to the parent element
+        parentElement.appendChild(profileContainer);
+
         displayBadges(profileData)
     }
 
-    function generateBadgeTableHTML(profileData) {
-        if (!profileData || !profileData.Badges) {
-            console.error('Invalid profileData.');
-            return '';
+    function displayBadges(profileData) {
+        const table = document.querySelector('table.awsui_table_wih1l_1v07r_198.awsui_table-layout-fixed_wih1l_1v07r_204');
+        const tbody = table.querySelector('tbody');
+
+        if (!table || !tbody) {
+            console.error('Table or tbody not found.');
+            return;
         }
-    
-        // Build the table structure dynamically
-        const badgeRows = profileData.Badges.map((badge, index) => `
-            <tr class="awsui_row_wih1l_1v07r_356" aria-rowindex="${index + 2}">
-                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
-                    <div class="awsui_body-cell-content_c6tup_et2x0_156">
-                        <label for="2694-1733517193214-860" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141"><span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177"><span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle></svg><input id="2694-1733517193214-860" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="2454-1733517192640-3304" value=""><span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179"></span></span>
-                            </span>
-                        </label><span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span></div>
-                </td>
+
+        // Clear previous badge rows if any
+        tbody.innerHTML = '';
+
+        // Update the aria-rowcount attribute dynamically
+        const badgeCount = profileData.Badges.length;
+        table.setAttribute('aria-rowcount', badgeCount + 1); // Add 1 to match your structure
+
+        // Iterate over badges and create rows
+        profileData.Badges.forEach(badge => {
+            const row = document.createElement('tr');
+            row.className = 'awsui_row_wih1l_1v07r_356';
+            row.setAttribute('aria-rowindex', tbody.children.length + 2);
+
+            row.innerHTML = `
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">${badge.Badge_ID || ''}</div>
                 </td>
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">
-                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'blue'}">
+                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'red'}">
                             ${badge.Badge_Status || ''}
                         </span>
                     </div>
@@ -486,67 +547,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">${badge.Badge_LastLocationEventType || ''}</div>
                 </td>
-            </tr>
-        `).join('');
-    
-        // Combine the table header, rows, and footer
-        return `
-            <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" aria-rowcount="${profileData.Badges.length + 1}">
-                <thead class="awsui_thead-active_wih1l_1v07r_355">
-                    <tr data-selection-item="all" aria-rowindex="1">
-                        <th data-focus-id="header-Symbol(selection-column-id)" class="awsui_header-cell_1spae_13mz6_145 awsui_selection-control_wih1l_1v07r_279 awsui_selection-control-header_wih1l_1v07r_286 awsui_sticky-cell_1spae_13mz6_215" scope="col" style="inset-inline-start: 0px;"><span class="awsui_root_xttbq_1ekiv_141"></span><span class="awsui_divider_x7peu_12e0g_146 awsui_divider-disabled_x7peu_12e0g_160"></span></th>
-                        <th data-focus-id="header-badgeID" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="none" style="width: 150px; min-width: 120px; inset-inline-start: 54px;">
-                            <div data-focus-id="sorting-control-badgeID" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2460-1733517192642-9109">Badge ID</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2460-1733517192642-9109" tabindex="0" data-focus-id="resize-control-badgeID"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2461-1733517192642-1974" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="150" aria-valuetext="150" aria-valuemin="120" data-focus-id="resize-control-badgeID"></span></th>
-                        <th data-focus-id="header-badgeStatus" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="ascending" style="width: 180px; min-width: 150px; inset-inline-start: 204px;">
-                            <div data-focus-id="sorting-control-badgeStatus" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2462-1733517192642-4238">Status</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2462-1733517192642-4238" tabindex="0" data-focus-id="resize-control-badgeStatus"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2463-1733517192642-808" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeStatus"></span></th>
-                        <th data-focus-id="header-badgeType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 180px; min-width: 150px;">
-                            <div data-focus-id="sorting-control-badgeType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2464-1733517192642-2336">Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2464-1733517192642-2336" tabindex="0" data-focus-id="resize-control-badgeType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2465-1733517192643-2570" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeType"></span></th>
-                        <th data-focus-id="header-badgeActive" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-badgeActive" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2466-1733517192643-2830">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2466-1733517192643-2830" tabindex="0" data-focus-id="resize-control-badgeActive"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2467-1733517192643-2642" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="220" aria-valuetext="220" aria-valuemin="180" data-focus-id="resize-control-badgeActive"></span></th>
-                        <th data-focus-id="header-badgeDeactivate" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-badgeDeactivate" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2468-1733517192643-4818">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2468-1733517192643-4818" tabindex="0" data-focus-id="resize-control-badgeDeactivate"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2469-1733517192643-9842" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeDeactivate"></span></th>
-                        <th data-focus-id="header-badgeLastChanged" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-badgeLastChanged" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2470-1733517192643-2802">Badge Last Updated UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2470-1733517192643-2802" tabindex="0" data-focus-id="resize-control-badgeLastChanged"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2471-1733517192644-1995" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeLastChanged"></span></th>
-                        <th data-focus-id="header-lastLocationReaderName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 250px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-lastLocationReaderName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2472-1733517192644-8928">Last Location Reader Name</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2472-1733517192644-8928" tabindex="0" data-focus-id="resize-control-lastLocationReaderName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2473-1733517192644-2547" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="250" aria-valuetext="250" aria-valuemin="180" data-focus-id="resize-control-lastLocationReaderName"></span></th>
-                        <th data-focus-id="header-lastLocationTimestamp" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 260px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-lastLocationTimestamp" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2474-1733517192644-688">Last Location Timestamp UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2474-1733517192644-688" tabindex="0" data-focus-id="resize-control-lastLocationTimestamp"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2475-1733517192644-2841" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="260" aria-valuetext="260" aria-valuemin="180" data-focus-id="resize-control-lastLocationTimestamp"></span></th>
-                        <th data-focus-id="header-lastLocationEventType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                            <div data-focus-id="sorting-control-lastLocationEventType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                                <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2476-1733517192644-2589">Last Location Event Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                            </div>
-                            <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2476-1733517192644-2589" tabindex="0" data-focus-id="resize-control-lastLocationEventType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2477-1733517192644-4733" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-lastLocationEventType"></span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${badgeRows}
-                </tbody>
-            </table>
-        `;
+            `;
+
+            tbody.appendChild(row);
+        });
     }
 
     // Button click event listener

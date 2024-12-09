@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profileSection.innerHTML = '';
         }
 
-        // const BadgeData = generateBadgeTableHTML(profileData)
+        const BadgeData = generateBadgeTableHTML(profileData)
 
         // Add the profile data as inner HTML
         profileSection.innerHTML = `

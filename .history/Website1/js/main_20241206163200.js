@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profileSection.innerHTML = '';
         }
 
-        // const BadgeData = generateBadgeTableHTML(profileData)
+        const BadgeData = generateBadgeTableHTML(profileData)
 
         // Add the profile data as inner HTML
         profileSection.innerHTML = `
@@ -440,6 +440,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
+        // Append the new profile container to the parent element
+        parentElement.appendChild(profileContainer);
+
         displayBadges(profileData)
     }
 
@@ -463,7 +466,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </td>
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">
-                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'blue'}">
+                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'red'}">
                             ${badge.Badge_Status || ''}
                         </span>
                     </div>

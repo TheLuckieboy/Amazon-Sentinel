@@ -753,8 +753,4 @@ profiles = [generate_profile() for _ in range(3000)]
 with open('Website1/my-node-server/profiles.json', 'w') as f:
     json.dump(profiles, f, indent=4)
 
-"""# Save the profiles to a JSON file
-with open('profiles.json', 'w') as f:
-    json.dump(profiles, f, indent=4)"""
-
 print("Fake dataset generated and saved to profiles.json")

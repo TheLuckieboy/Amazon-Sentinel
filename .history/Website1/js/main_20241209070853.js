@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profileSection.innerHTML = '';
         }
 
-        // const BadgeData = generateBadgeTableHTML(profileData)
+        const BadgeData = generateBadgeTableHTML(profileData)
 
         // Add the profile data as inner HTML
         profileSection.innerHTML = `
@@ -439,6 +439,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="awsui_child_18582_7onux_145"></div>
             </div>
         `;
+
+        // Append the new profile container to the parent element
+        // parentElement.appendChild(profileContainer);
 
         displayBadges(profileData)
     }

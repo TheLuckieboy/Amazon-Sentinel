@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profileSection.innerHTML = '';
         }
 
-        // const BadgeData = generateBadgeTableHTML(profileData)
+        const BadgeData = generateBadgeTableHTML(profileData)
 
         // Add the profile data as inner HTML
         profileSection.innerHTML = `
@@ -440,6 +440,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
+        // Append the new profile container to the parent element
+        parentElement.appendChild(profileContainer);
+
         displayBadges(profileData)
     }
 
@@ -452,18 +455,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // Build the table structure dynamically
         const badgeRows = profileData.Badges.map((badge, index) => `
             <tr class="awsui_row_wih1l_1v07r_356" aria-rowindex="${index + 2}">
-                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
-                    <div class="awsui_body-cell-content_c6tup_et2x0_156">
-                        <label for="2694-1733517193214-860" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141"><span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177"><span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle></svg><input id="2694-1733517193214-860" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="2454-1733517192640-3304" value=""><span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179"></span></span>
-                            </span>
-                        </label><span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span></div>
-                </td>
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">${badge.Badge_ID || ''}</div>
                 </td>
                 <td class="awsui_body-cell_c6tup_et2x0_148">
                     <div class="awsui_body-cell-content_c6tup_et2x0_156">
-                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'blue'}">
+                        <span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-${badge.Badge_Status === 'Active' ? 'green' : 'red'}">
                             ${badge.Badge_Status || ''}
                         </span>
                     </div>
@@ -548,6 +545,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </table>
         `;
     }
+    
 
     // Button click event listener
     searchButton.addEventListener('click', function (event) {
