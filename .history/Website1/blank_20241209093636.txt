@@ -1,0 +1,377 @@
+function be(e) {
+				var t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1];
+				switch(e) {
+					case "Employeelogin":
+						c.set(t), v.set(t), y.set(t), f.set(t), m.set(t), _.set(t), w.siteID.set(""), P(t);
+						break;
+					case "EmployeeID":
+						d.set(t), v.set(t), y.set(t), f.set(t), m.set(t), _.set(t), P(t);
+						break;
+					case "BadgeID":
+						d.set(t), c.set(t), y.set(t), f.set(t), m.set(t), _.set(t), P(t);
+						break;
+					case "Barcode":
+						d.set(t), c.set(t), v.set(t), f.set(t), m.set(t), _.set(t), P(t);
+						break;
+					case "FirstName":
+					case "LastName":
+						d.set(t), c.set(t), v.set(t), y.set(t), P(t);
+						break;
+					case "SiteSelection":
+						d.set(t), c.set(t), v.set(t), y.set(t);
+						break;
+					case "BadgeExpire":
+						d.set(t), c.set(t), v.set(t), y.set(t), f.set(t), m.set(t)
+				}
+			}
+			var ye = Li(xa("components.search.SearchPanel"), 2),
+				we = ye[0];
+			return ye[1] ? t.createElement(Oc, {
+				size: "big"
+			}) : t.createElement(t.Fragment, null, t.createElement(IS.default, {
+				direction: "vertical",
+				size: "xs"
+			}, t.createElement("form", {
+				onSubmit: function(e) {
+					return e.preventDefault()
+				}
+			}, t.createElement(bE, {
+				actions: t.createElement(IS.default, {
+					direction: "horizontal",
+					size: "xs"
+				}, t.createElement(kE.default, {
+					formAction: "none",
+					variant: "link",
+					onClick: function() {
+						var t;
+						l.set(""), c.set(!1), u.set(""), d.set(!1), h.set(""), f.set(!1), p.set(""), m.set(!1), g.set(""), v.set(!1), b.set(""), y.set(!1), w.siteID.set(""), _.set(!1), T(!1), K.id.set("1"), K.name.set("All"), null === (t = e.current) || void 0 === t || t.focus(), C(""), D(""), P(!1), te(!0), $.set({
+							__typename: "GetCardholderResponse",
+							code: 0,
+							status: null,
+							body: []
+						}), Y.set(!1), U(""), R(""), q(""), G(!1)
+					}
+				}, we.getMessage("reset")), t.createElement(kE.default, {
+					variant: "primary",
+					onClick: function() {
+						return ve.apply(this, arguments)
+					},
+					loading: Y.value,
+					disabled: H
+				}, we.getMessage("search")))
+			}, t.createElement(VE, {
+				header: t.createElement(LE, {
+					variant: "h2"
+				}, we.getMessage("search-container-header"))
+			}, t.createElement(IS.default, {
+				direction: "horizontal",
+				size: "xs"
+			}, t.createElement(yE.default, {
+				label: we.getMessage("employee-status"),
+				stretch: !1
+			}, t.createElement(Y5, {
+				employeeStatusState: K,
+				buildingSelected: E,
+				reset: ee,
+				updateReset: function(e) {
+					te(e)
+				}
+			})), t.createElement(yE.default, {
+				label: we.getMessage("employee-login")
+			}, t.createElement(xE, {
+				ref: e,
+				placeholder: we.getMessage("auto-to-lower-case"),
+				value: u.value,
+				onChange: function(e) {
+					var t = e.detail;
+					u.set(t.value.toLocaleLowerCase().trim()), t.value ? be("Employeelogin") : be("Employeelogin", !1)
+				},
+				autoFocus: !0,
+				disabled: d.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("employee-id"),
+				errorText: L
+			}, t.createElement(xE, {
+				placeholder: "",
+				value: l.value,
+				onChange: function(e) {
+					var t = e.detail;
+					l.set(t.value), isNaN(t.value) ? (R(we.getMessage("field-format-error")), G(!0)) : (R(""), G(!1)), t.value ? be("EmployeeID") : be("EmployeeID", !1)
+				},
+				disabled: c.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("badge-id"),
+				errorText: M
+			}, t.createElement(xE, {
+				placeholder: "",
+				value: g.value.trim(),
+				onChange: function(e) {
+					var t = e.detail;
+					M && (U(""), G(!1));
+					var n = t.value;
+					g.set(n), n ? be("BadgeID") : be("BadgeID", !1)
+				},
+				disabled: v.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("barcode"),
+				errorText: F
+			}, t.createElement(xE, {
+				placeholder: "",
+				value: b.value.trim(),
+				onChange: function(e) {
+					var t = e.detail;
+					b.set(t.value), isNaN(t.value) ? (q(we.getMessage("field-format-error")), G(!0)) : (q(""), G(!1)), t.value ? be("Barcode") : be("Barcode", !1)
+				},
+				disabled: y.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("first-name")
+			}, t.createElement(xE, {
+				value: h.value,
+				onChange: function(e) {
+					var t = e.detail;
+					h.set(t.value), t.value || p.value ? be("FirstName") : h.value || p.value ? be("FirstName", !1) : be("FirstName")
+				},
+				disabled: f.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("last-name")
+			}, t.createElement(xE, {
+				value: p.value,
+				onChange: function(e) {
+					var t = e.detail;
+					p.set(t.value), t.value || h.value ? be("LastName") : h.value || p.value ? be("LastName", !1) : be("LastName")
+				},
+				disabled: m.value
+			})), t.createElement(yE.default, {
+				label: we.getMessage("building")
+			}, t.createElement(X5, {
+				employeeHomeSiteState: w,
+				disabled: _.value,
+				disableFields: be,
+				onBuildingSelected: function(e) {
+					T(e)
+				}
+			})), t.createElement(yE.default, {
+				label: we.getMessage("badge-expiry-on"),
+				errorText: I
+			}, t.createElement(fA, {
+				onChange: function(e) {
+					var t = e.detail;
+					be("BadgeExpire"), I && D(""), t.value && C(t.value)
+				},
+				value: k,
+				isDateEnabled: function(e) {
+					return Ii(e, bi)
+				},
+				dateDisabledReason: function(e) {
+					return Ii(e, bi) ? "" : "Maximum ".concat(bi, " Days In Future")
+				},
+				openCalendarAriaLabel: function(e) {
+					return "Choose Badge expiry date" + (e ? ", selected date is ".concat(e) : "")
+				},
+				placeholder: "Maximum ".concat(bi, " Days"),
+				disabled: j
+			})))))), 0 === $.body.value.length || window.location.href.includes("photo") || !0 === ee ? t.createElement(t.Fragment, null) : 1 === $.body.value.length ? t.createElement(j5, {
+				cardholderSearchResult: $
+			}) : t.createElement(W5, {
+				cardholderSearchResult: $
+			})), t.createElement(se, null), t.createElement(oe, null), t.createElement(ue, null), t.createElement(me, null), t.createElement(tG, {
+				visible: Z,
+				changeErrorModalDisplay: function(e) {
+					J(e)
+				},
+				errorMessage: we.getMessage("general-error-text"),
+				header: we.getMessage("cardholder-search-modal-header-text")
+			}))
+		}
+
+		var fi = [{
+				id: "1",
+				name: "All"
+			}, {
+				id: "10304",
+				name: "Active"
+			}, {
+				id: "10305",
+				name: "Suspended"
+			}, {
+				id: "10306",
+				name: "Terminated"
+			}],
+			pi = "Modify",
+			mi = "Add",
+			gi = "Delete",
+			vi = "ACCEPTED_BY_PACS",
+			bi = 90,
+			yi = "560001";
+
+        function Y5(e) {
+			var n = e.employeeStatusState,
+				r = e.buildingSelected,
+				o = e.reset,
+				a = e.updateReset,
+				i = [],
+				s = (i = r ? fi.filter((function(e) {
+					return "1" !== e.id
+				})) : fi).map((function(e) {
+					return {
+						label: e.name,
+						value: e.id
+					}
+				})),
+				l = Li((0, t.useState)({
+					label: n.name.value
+				}), 2),
+				c = l[0],
+				u = l[1];
+			return(0, t.useEffect)((function() {
+				o && (u({
+					label: "All",
+					value: "1"
+				}), n.id.set("1"), n.name.set("All")), a(!1)
+			}), [o]), (0, t.useEffect)((function() {
+				3 === i.length ? (u({
+					label: "Active",
+					value: "10304"
+				}), n.id.set("10304"), n.name.set("Active")) : (u({
+					label: "All",
+					value: "1"
+				}), n.id.set("1"), n.name.set("All"))
+			}), [i.length]), t.createElement(rk, {
+				selectedOption: c,
+				onChange: function(e) {
+					var t = e.detail;
+					u(t.selectedOption), n.id.set(t.selectedOption.value ? t.selectedOption.value : "0"), n.name.set(t.selectedOption.label ? t.selectedOption.label : "0")
+				},
+				virtualScroll: !1,
+				options: s,
+				selectedAriaLabel: "Selected"
+			})
+		}
+
+        <tbody>
+            <tr class="awsui_row_wih1l_1v07r_356" data-selection-item="item" aria-rowindex="2">
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">
+                        <label for="12811-1733498995316-1099" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141"><span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177"><span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle></svg><input id="12811-1733498995316-1099" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="12564-1733498994808-9393" value=""><span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179"></span></span>
+                            </span>
+                        </label><span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 54px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">38575127</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 204px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-green_1yjyg_1816x_190">Active</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">Air Employee (pic)</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2024-06-26 15:13:31</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2026-06-26 15:13:31</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2024-09-12 20:45:39</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>KAFW-4.3.18-L0 GSE SEC OFFC BADGE</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2024-12-06 14:01:43</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>Access Granted</span></div>
+                </td>
+            </tr>
+            <tr class="awsui_row_wih1l_1v07r_356" data-selection-item="item" aria-rowindex="3">
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">
+                        <label for="12813-1733498995316-7736" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141"><span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177"><span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle></svg><input id="12813-1733498995316-7736" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="12564-1733498994808-9393" value=""><span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179"></span></span>
+                            </span>
+                        </label><span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 54px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">26728558</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 204px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-blue_1yjyg_1816x_193">Returned</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">Air Employee (pic)</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2021-11-22 00:00:00</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2023-11-22 00:00:00</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2023-10-31 16:33:13</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>KAFW-4.3.18-L0 GSE SEC OFFC BADGE</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2023-10-31 16:30:22</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>Access Granted</span></div>
+                </td>
+            </tr>
+            <tr class="awsui_row_wih1l_1v07r_356" data-selection-item="item" aria-rowindex="4">
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">
+                        <label for="12815-1733498995317-9729" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141"><span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177"><span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle></svg><input id="12815-1733498995317-9729" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="12564-1733498994808-9393" value=""><span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179"></span></span>
+                            </span>
+                        </label><span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 54px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">36975967</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 204px;">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span class="awsui_badge_1yjyg_1816x_141 awsui_badge-color-blue_1yjyg_1816x_193">Returned</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156">Air Employee (pic)</div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2023-10-31 11:33:27</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2025-10-30 11:33:27</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2024-06-26 20:13:36</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>KAFW-4.3.18-L0 GSE SEC OFFC BADGE</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>2024-06-26 20:08:19</span></div>
+                </td>
+                <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-last-row_c6tup_et2x0_790 awsui_has-selection_c6tup_et2x0_445 awsui_resizable-columns_c6tup_et2x0_1092">
+                    <div class="awsui_body-cell-content_c6tup_et2x0_156"><span>Access Granted</span></div>
+                </td>
+            </tr>
+        </tbody>
+
+
+
+
+        <td class="awsui_body-cell_c6tup_et2x0_148 awsui_body-cell-first-row_c6tup_et2x0_787 awsui_selection-control_wih1l_1v07r_279 awsui_has-selection_c6tup_et2x0_445 awsui_sticky-cell_c6tup_et2x0_445" style="inset-inline-start: 0px;">
+            <div class="awsui_body-cell-content_c6tup_et2x0_156">
+                <label for="7163-1733753662273-581" class="awsui_label_1s55x_1iiee_145 awsui_root_1s55x_1iiee_141">
+                    <span class="awsui_wrapper_1wepg_1vmnx_162 awsui_radio_1mabk_i06od_177">
+                        <span class="awsui_label-wrapper_1wepg_1vmnx_168"><span class="awsui_control_1wepg_1vmnx_202 awsui_radio-control_1mabk_i06od_189">
+                        <svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle class="awsui_styled-circle-border_1mabk_i06od_219" stroke-width="8" cx="50" cy="50" r="46"></circle><circle class="awsui_styled-circle-fill_1mabk_i06od_228" stroke-width="30" cx="50" cy="50" r="35"></circle>
+                        </svg>
+                        <input id="7163-1733753662273-581" class="awsui_native-input_1wepg_1vmnx_158 awsui_native-input_13tpe_9w8pd_6" type="radio" name="6909-1733753661511-1843" value="">
+                        <span class="awsui_outline_1wepg_1vmnx_151 awsui_outline_1mabk_i06od_197"></span></span><span class="awsui_content_1wepg_1vmnx_141 awsui_empty-content_1wepg_1vmnx_179">
+                        </span>
+                        </span>
+                        </span>
+                    </label>
+                <span class="awsui_stud_1s55x_1iiee_159" aria-hidden="true">&nbsp;</span>
+            </div>
+        </td>
