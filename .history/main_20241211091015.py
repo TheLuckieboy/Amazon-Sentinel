@@ -129,6 +129,7 @@ def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
     return os.path.join(base_path, relative_path)
 
+
 def save_settings_to_json():
     # Define the path to settings.json
     settings_path = resource_path(os.path.join("Resources", "settings.json"))

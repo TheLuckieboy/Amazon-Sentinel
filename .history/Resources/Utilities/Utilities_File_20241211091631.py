@@ -154,7 +154,7 @@ def Plugin_Settings(settings):
                "making it easier to complete your tasks efficiently")
 
     Plugins.append(False)
-    Plugins.append("Placeholder_Name0")
+    Plugins.append("Skyline Terminate AA")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 

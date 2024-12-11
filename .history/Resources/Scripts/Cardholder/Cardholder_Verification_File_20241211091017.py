@@ -130,6 +130,7 @@ def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
     return os.path.join(base_path, relative_path)
 
+
 Quip_Utilities_File = Import_File("Quip_Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Quip_Utilities_File.zip")))
 CardHolder_Utilities_File = Import_File("CardHolder_Utilities_File", resource_path(os.path.join("Resources/Test/Scripts/Cardholder_Verification.zip")))
 

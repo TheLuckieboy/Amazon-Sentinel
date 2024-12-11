@@ -125,9 +125,8 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             shutil.rmtree(temp_dir)
 
 def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
-    # Base path is either the temp folder in PyInstaller or the main script directory.
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
 Quip_Utilities_File = Import_File("Quip_Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Quip_Utilities_File.zip")))
@@ -1547,6 +1546,7 @@ def Widget_Setup(FunctionsGUI, Main_Widget, settings, Save_Widget_Settings, Main
     grid_layout = QGridLayout(Main_Widget)
     grid_layout.setContentsMargins(8, 0, 8, 8)
     grid_layout.setSpacing(8)
+    print("Widget_Setup")
 
     Widgets_List = Main_Widgets(FunctionsGUI, grid_layout)
     cardholder_widget_list = ["EID_Widget", "Login_Widget", "FirstName_Widget", "LastName_Widget",

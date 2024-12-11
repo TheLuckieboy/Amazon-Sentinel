@@ -153,22 +153,22 @@ def Plugin_Settings(settings):
                "information back to the database. The available options streamline the data transfer process, "
                "making it easier to complete your tasks efficiently")
 
-    Plugins.append(False)
-    Plugins.append("Placeholder_Name0")
+    Plugins.append(False) #Skyline_Terminate_AA_Plugin
+    Plugins.append("Skyline Terminate AA")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False)
+    Plugins.append(False) #PreferredNames_To_LegalNames_Plugin
     Plugins.append("Placeholder_Name1")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False)
+    Plugins.append(False) #Quip_ClearRowColor_Plugin
     Plugins.append("Placeholder_Name2")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False)
+    Plugins.append(False) #NATACS_Terminate_AA_Plugin
     Plugins.append("Placeholder_Name3")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")

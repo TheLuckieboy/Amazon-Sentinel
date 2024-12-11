@@ -36,6 +36,9 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
 
     # Utility: Decrypt a single file
     def decrypt_file(encrypted_path: Path, output_folder: Path, password: str):
+        """global Called
+        Called = Called + 1
+        print(Called)"""
         try:
             with open(encrypted_path, 'rb') as enc_file:
                 content = enc_file.read()
@@ -124,9 +127,8 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             shutil.rmtree(temp_dir)
 
 def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
-    # Base path is either the temp folder in PyInstaller or the main script directory.
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
 def save_settings_to_json():
@@ -768,7 +770,7 @@ class FunctionsGUI(BasePage):
                 self.Script_Widgets.append("BlankIndex2")
             index1 = index1 + 4
 
-        #print(self.Script_Widgets)
+        print(self.Script_Widgets)
         self.grid_layout.addWidget(section_widget, 1, 0)
 
     def Hide_Main_Widgets(self, Hide=True):
@@ -874,7 +876,7 @@ class FunctionsGUI(BasePage):
 
             try:
                 # Import the encrypted and zipped Site_Locations.txt
-                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources/Test/Utilities/Site_Locations.zip")))
+                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources/Utilities/Site_Locations.zip")))
 
                 # Parse the file contents into a list
                 Site_Location_List = [
@@ -1552,7 +1554,7 @@ if __name__ == "__main__":
     Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
 
     # Load the utilities_file
-    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Utilities_File.zip")))
+    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources/Utilities/Utilities_File.zip")))
 
     # Assigning StopFunctionException and check_stop_event
     StopFunctionException, check_stop_event = getattr(utilities_file, "StopFunctionException", None), getattr(utilities_file, "check_stop_event", None)
@@ -1590,7 +1592,7 @@ if __name__ == "__main__":
 
     try:
         # Load the stylesheet from the encrypted zip
-        stylesheet = Import_File("styles", resource_path(os.path.join("Resources/Test/Utilities/styles.zip")))
+        stylesheet = Import_File("styles", resource_path(os.path.join("Resources/Utilities/styles.zip")))
         if stylesheet:
             app.setStyleSheet(stylesheet)
     except FileNotFoundError:
