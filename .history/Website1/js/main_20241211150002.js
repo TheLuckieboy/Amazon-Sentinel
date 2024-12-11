@@ -85,6 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayProfile(profileData) {
         // Find the main parent container
         const parentElement = document.querySelector('.awsui_root_18582_7onux_141.awsui_vertical_18582_7onux_188.awsui_vertical-xs_18582_7onux_197');
+
+        const BadgeData_Delayed = generateBadgeTabHTML_Delayed(profileData)
+        const AccessLvlData_Delayed = generateAccessLvlTabHTML_Delayed(profileData)
         const BadgeData = generateBadgeTabHTML(profileData)
         const AccessLvlData = generateAccessLvlTabHTML(profileData)
 
@@ -440,81 +443,12 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         `;
 
-        const Badge_ContentHeader_HTML = `
-        <tr data-selection-item="all" aria-rowindex="1">
-            <th data-focus-id="header-Symbol(selection-column-id)" class="awsui_header-cell_1spae_13mz6_145 awsui_selection-control_wih1l_1v07r_279 awsui_selection-control-header_wih1l_1v07r_286 awsui_sticky-cell_1spae_13mz6_215" scope="col" style="inset-inline-start: 0px;"><span class="awsui_root_xttbq_1ekiv_141"></span><span class="awsui_divider_x7peu_12e0g_146 awsui_divider-disabled_x7peu_12e0g_160"></span></th>
-            <th data-focus-id="header-badgeID" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="none" style="width: 150px; min-width: 120px; inset-inline-start: 54px;">
-                <div data-focus-id="sorting-control-badgeID" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2460-1733517192642-9109">Badge ID</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2460-1733517192642-9109" tabindex="0" data-focus-id="resize-control-badgeID"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2461-1733517192642-1974" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="150" aria-valuetext="150" aria-valuemin="120" data-focus-id="resize-control-badgeID"></span></th>
-            <th data-focus-id="header-badgeStatus" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="ascending" style="width: 180px; min-width: 150px; inset-inline-start: 204px;">
-                <div data-focus-id="sorting-control-badgeStatus" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2462-1733517192642-4238">Status</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2462-1733517192642-4238" tabindex="0" data-focus-id="resize-control-badgeStatus"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2463-1733517192642-808" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeStatus"></span></th>
-            <th data-focus-id="header-badgeType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 180px; min-width: 150px;">
-                <div data-focus-id="sorting-control-badgeType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2464-1733517192642-2336">Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2464-1733517192642-2336" tabindex="0" data-focus-id="resize-control-badgeType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2465-1733517192643-2570" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeType"></span></th>
-            <th data-focus-id="header-badgeActive" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
-                <div data-focus-id="sorting-control-badgeActive" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2466-1733517192643-2830">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2466-1733517192643-2830" tabindex="0" data-focus-id="resize-control-badgeActive"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2467-1733517192643-2642" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="220" aria-valuetext="220" aria-valuemin="180" data-focus-id="resize-control-badgeActive"></span></th>
-            <th data-focus-id="header-badgeDeactivate" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                <div data-focus-id="sorting-control-badgeDeactivate" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2468-1733517192643-4818">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2468-1733517192643-4818" tabindex="0" data-focus-id="resize-control-badgeDeactivate"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2469-1733517192643-9842" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeDeactivate"></span></th>
-            <th data-focus-id="header-badgeLastChanged" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                <div data-focus-id="sorting-control-badgeLastChanged" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2470-1733517192643-2802">Badge Last Updated UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2470-1733517192643-2802" tabindex="0" data-focus-id="resize-control-badgeLastChanged"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2471-1733517192644-1995" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeLastChanged"></span></th>
-            <th data-focus-id="header-lastLocationReaderName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 250px; min-width: 180px;">
-                <div data-focus-id="sorting-control-lastLocationReaderName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2472-1733517192644-8928">Last Location Reader Name</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2472-1733517192644-8928" tabindex="0" data-focus-id="resize-control-lastLocationReaderName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2473-1733517192644-2547" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="250" aria-valuetext="250" aria-valuemin="180" data-focus-id="resize-control-lastLocationReaderName"></span></th>
-            <th data-focus-id="header-lastLocationTimestamp" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 260px; min-width: 180px;">
-                <div data-focus-id="sorting-control-lastLocationTimestamp" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2474-1733517192644-688">Last Location Timestamp UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2474-1733517192644-688" tabindex="0" data-focus-id="resize-control-lastLocationTimestamp"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2475-1733517192644-2841" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="260" aria-valuetext="260" aria-valuemin="180" data-focus-id="resize-control-lastLocationTimestamp"></span></th>
-            <th data-focus-id="header-lastLocationEventType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
-                <div data-focus-id="sorting-control-lastLocationEventType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2476-1733517192644-2589">Last Location Event Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2476-1733517192644-2589" tabindex="0" data-focus-id="resize-control-lastLocationEventType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2477-1733517192644-4733" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-lastLocationEventType"></span></th>
-        </tr>
-        `;
-
-        const Badge_ContentBody_HTML = `
-        <tr>
-            <td colspan="10" class="awsui_cell-merged_wih1l_1v07r_238">
-                <div class="awsui_cell-merged-content_wih1l_1v07r_250" data-awsui-table-suppress-navigation="true" style="inline-size: 1463px;"><span class="awsui_root_1cbgc_1xogn_199 awsui_status-loading_1cbgc_1xogn_229 awsui_loading_wih1l_1v07r_270"><span class="awsui_container_1cbgc_1xogn_177 awsui_display-inline-block_1cbgc_1xogn_256"><span class="awsui_icon_1cbgc_1xogn_149"><span class="awsui_root_1612d_12atb_179 awsui_size-normal_1612d_12atb_194 awsui_variant-normal_1612d_12atb_218"><span class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
-                    </span><span class="awsui_root_1iee7_di2un_141 awsui_root_1pc7b_1k8pp_5">Loading badges...</span></span>
-                    </span>
-                </div>
-            </td>
-        </tr>
-        `; 
-
         const Badge_Content_HTML = `
         <div class="awsui_content_14iqq_zuudq_304">
             <div class="awsui_content-inner_14iqq_zuudq_492 awsui_content-inner_1mwlm_oyjaq_5 awsui_with-header_14iqq_zuudq_499">
                 <div class="awsui_wrapper_wih1l_1v07r_208 awsui_variant-container_wih1l_1v07r_215 awsui_has-header_wih1l_1v07r_221" style="scroll-padding-inline: 384px 0px;" role="region" tabindex="0" aria-labelledby="heading12568-1733498994808-3572">
                     <div class="awsui_wrapper-content-measure_wih1l_1v07r_215"></div>
-                    <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" aria-rowcount="0">
-                        <thead class="awsui_thead-active_wih1l_1v07r_355">
-                            ${Badge_ContentHeader_HTML}
-                        </thead>
-                        <tbody>
-                            ${Badge_ContentBody_HTML}
-                        </tbody>
-                    </table>
+                    ${BadgeData_Delayed}
                     <span class="awsui_tracker_x7peu_12e0g_249"></span></div>
                 <div class="awsui_sticky-scrollbar_faqt8_1we8w_177 awsui_sticky-scrollbar-offset_faqt8_1we8w_195 awsui_sticky-scrollbar-visible_faqt8_1we8w_189" style="block-size: 17px; inline-size: 1463px; inset-block-end: var(--awsui-sticky-vertical-bottom-offset, 0px);">
                     <div class="awsui_sticky-scrollbar-content_faqt8_1we8w_186" style="block-size: 17px; inline-size: 1984px;"></div>
@@ -581,50 +515,12 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         `;
         
-        const AccessLevel_ContentHeader_HTML = `
-        <tr data-selection-item="all" aria-rowindex="1">
-            <th data-focus-id="header-accesslevelName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354" scope="col" aria-sort="ascending" style="width: 250px; min-width: 200px;">
-                <div data-focus-id="sorting-control-accesslevelName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8905-1733781154940-24">Access Level</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8905-1733781154940-24" tabindex="0" data-focus-id="resize-control-accesslevelName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8906-1733781154940-6388" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="530.0625" aria-valuetext="530" aria-valuemin="200" data-focus-id="resize-control-accesslevelName"></span></th>
-            <th data-focus-id="header-accessLevelActivateOn" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
-                <div data-focus-id="sorting-control-accessLevelActivateOn" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8907-1733781154940-9808">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8907-1733781154940-9808" tabindex="0" data-focus-id="resize-control-accessLevelActivateOn"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8908-1733781154940-4474" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="466.453125" aria-valuetext="466" aria-valuemin="180" data-focus-id="resize-control-accessLevelActivateOn"></span></th>
-            <th data-focus-id="header-accessLevelDeactivateOn" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: auto; min-width: 180px;">
-                <div data-focus-id="sorting-control-accessLevelDeactivateOn" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
-                    <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8909-1733781154940-7637">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
-                </div>
-                <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8909-1733781154940-7637" tabindex="0" data-focus-id="resize-control-accessLevelDeactivateOn"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8910-1733781154940-4364" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="466.484375" aria-valuetext="466" aria-valuemin="180" data-focus-id="resize-control-accessLevelDeactivateOn"></span></th>
-        </tr>
-        `;
-
-        const AccessLevel_ContentBody_HTML = `
-        <tr>
-            <td colspan="3" class="awsui_cell-merged_wih1l_1v07r_238">
-                <div class="awsui_cell-merged-content_wih1l_1v07r_250" data-awsui-table-suppress-navigation="true" style="inline-size: 1463px;"><span class="awsui_root_1cbgc_1xogn_199 awsui_status-loading_1cbgc_1xogn_229 awsui_loading_wih1l_1v07r_270"><span class="awsui_container_1cbgc_1xogn_177 awsui_display-inline-block_1cbgc_1xogn_256"><span class="awsui_icon_1cbgc_1xogn_149"><span class="awsui_root_1612d_12atb_179 awsui_size-normal_1612d_12atb_194 awsui_variant-normal_1612d_12atb_218"><span class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
-                    </span><span class="awsui_root_1iee7_di2un_141 awsui_root_1pc7b_1k8pp_5">Loading accesslevels...</span></span>
-                </span>
-                </div>
-            </td>
-        </tr>
-        `;
-
         const AccessLevel_Content_HTML = `
         <div class="awsui_content_14iqq_zuudq_304">
             <div class="awsui_content-inner_14iqq_zuudq_492 awsui_content-inner_1mwlm_oyjaq_5 awsui_with-header_14iqq_zuudq_499">
                 <div class="awsui_wrapper_wih1l_1v07r_208 awsui_variant-container_wih1l_1v07r_215 awsui_has-header_wih1l_1v07r_221">
                     <div class="awsui_wrapper-content-measure_wih1l_1v07r_215"></div>
-                    <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" role="table" aria-rowcount="0" data-analytics-performance-mark="8897-1733781154939-4451" data-analytics-task-interaction-id="8898-1733781154939-4161" aria-labelledby="heading8903-1733781154939-6737">
-                        <thead class="awsui_thead-active_wih1l_1v07r_355">
-                            ${AccessLevel_ContentHeader_HTML}
-                        </thead>
-                        <tbody>
-                            ${AccessLevel_ContentBody_HTML}
-                        </tbody>
-                    </table>
+                    ${AccessLvlData_Delayed}
                     <span class="awsui_tracker_x7peu_12e0g_249"></span></div>
                 <div class="awsui_sticky-scrollbar_faqt8_1we8w_177" style="block-size: 17px; inline-size: 1463px; inset-block-end: var(--awsui-sticky-vertical-bottom-offset, 0px);">
                     <div class="awsui_sticky-scrollbar-content_faqt8_1we8w_186" style="block-size: 17px; inline-size: 1463px;"></div>
@@ -683,22 +579,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const secondPanel = document.querySelector('#awsui-tabs-12473-1733498994778-9458-second-panel');
         const thirdPanel = document.querySelector('#awsui-tabs-12473-1733498994778-9458-third-panel');
 
-        // Locate the <tbody>
-        const tableBody2 = secondPanel.querySelector('tbody');
-        const tableBody3 = thirdPanel.querySelector('tbody');
-
-        setTimeout(() => {
-            if (isSecondPanelActive) {
-                tableBody2.innerHTML = `
-                ${BadgeData}
-                `;
-            } else {
-                tableBody3.innerHTML = `
-                ${AccessLvlData}
-                `;
-            }
-        }, 1000); // 1-second delay
-
         if (badgeButton) {
             badgeButton.addEventListener('click', () => {
                 activePanel = "second"; //
@@ -710,11 +590,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Show second panel, hide third panel
                 secondPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 thirdPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
-
-                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTML}`;
+                
+                // Locate the <tbody> within the third panel
+                const tableBody = secondPanel.querySelector('tbody');
 
                 setTimeout(() => {
-                    tableBody2.innerHTML = `
+                    tableBody.innerHTML = `
                     ${BadgeData}
                     `;
                 }, 1000); // 1-second delay
@@ -733,10 +614,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 thirdPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 secondPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
 
-                tableBody2.innerHTML = `${Badge_ContentBody_HTML}`;
+                // Locate the <tbody> within the third panel
+                const tableBody = thirdPanel.querySelector('tbody');
 
                 setTimeout(() => {
-                    tableBody3.innerHTML = `
+                    tableBody.innerHTML = `
                     ${AccessLvlData}
                     `;
                 }, 1000); // 1-second delay
@@ -749,6 +631,137 @@ document.addEventListener("DOMContentLoaded", function () {
                 searchButton.classList.remove('awsui_disabled_vjswe_4v1qr_289');
             }
         }, 1000); // 1-second delay
+    }
+
+    function generateBadgeTabHTML_Delayed(profileData) {
+        if (!profileData || !profileData.Badges) {
+            console.error('Invalid profileData.');
+            return '';
+        }
+
+        const badgeHeader = `
+            <tr data-selection-item="all" aria-rowindex="1">
+                <th data-focus-id="header-Symbol(selection-column-id)" class="awsui_header-cell_1spae_13mz6_145 awsui_selection-control_wih1l_1v07r_279 awsui_selection-control-header_wih1l_1v07r_286 awsui_sticky-cell_1spae_13mz6_215" scope="col" style="inset-inline-start: 0px;"><span class="awsui_root_xttbq_1ekiv_141"></span><span class="awsui_divider_x7peu_12e0g_146 awsui_divider-disabled_x7peu_12e0g_160"></span></th>
+                <th data-focus-id="header-badgeID" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="none" style="width: 150px; min-width: 120px; inset-inline-start: 54px;">
+                    <div data-focus-id="sorting-control-badgeID" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2460-1733517192642-9109">Badge ID</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2460-1733517192642-9109" tabindex="0" data-focus-id="resize-control-badgeID"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2461-1733517192642-1974" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="150" aria-valuetext="150" aria-valuemin="120" data-focus-id="resize-control-badgeID"></span></th>
+                <th data-focus-id="header-badgeStatus" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354 awsui_sticky-cell_1spae_13mz6_215" scope="col" aria-sort="ascending" style="width: 180px; min-width: 150px; inset-inline-start: 204px;">
+                    <div data-focus-id="sorting-control-badgeStatus" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2462-1733517192642-4238">Status</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2462-1733517192642-4238" tabindex="0" data-focus-id="resize-control-badgeStatus"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2463-1733517192642-808" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeStatus"></span></th>
+                <th data-focus-id="header-badgeType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 180px; min-width: 150px;">
+                    <div data-focus-id="sorting-control-badgeType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2464-1733517192642-2336">Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2464-1733517192642-2336" tabindex="0" data-focus-id="resize-control-badgeType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2465-1733517192643-2570" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="180" aria-valuetext="180" aria-valuemin="150" data-focus-id="resize-control-badgeType"></span></th>
+                <th data-focus-id="header-badgeActive" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-badgeActive" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2466-1733517192643-2830">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2466-1733517192643-2830" tabindex="0" data-focus-id="resize-control-badgeActive"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2467-1733517192643-2642" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="220" aria-valuetext="220" aria-valuemin="180" data-focus-id="resize-control-badgeActive"></span></th>
+                <th data-focus-id="header-badgeDeactivate" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-badgeDeactivate" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2468-1733517192643-4818">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2468-1733517192643-4818" tabindex="0" data-focus-id="resize-control-badgeDeactivate"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2469-1733517192643-9842" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeDeactivate"></span></th>
+                <th data-focus-id="header-badgeLastChanged" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-badgeLastChanged" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2470-1733517192643-2802">Badge Last Updated UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2470-1733517192643-2802" tabindex="0" data-focus-id="resize-control-badgeLastChanged"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2471-1733517192644-1995" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-badgeLastChanged"></span></th>
+                <th data-focus-id="header-lastLocationReaderName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 250px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-lastLocationReaderName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2472-1733517192644-8928">Last Location Reader Name</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2472-1733517192644-8928" tabindex="0" data-focus-id="resize-control-lastLocationReaderName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2473-1733517192644-2547" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="250" aria-valuetext="250" aria-valuemin="180" data-focus-id="resize-control-lastLocationReaderName"></span></th>
+                <th data-focus-id="header-lastLocationTimestamp" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 260px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-lastLocationTimestamp" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2474-1733517192644-688">Last Location Timestamp UTC</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2474-1733517192644-688" tabindex="0" data-focus-id="resize-control-lastLocationTimestamp"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2475-1733517192644-2841" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="260" aria-valuetext="260" aria-valuemin="180" data-focus-id="resize-control-lastLocationTimestamp"></span></th>
+                <th data-focus-id="header-lastLocationEventType" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 230px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-lastLocationEventType" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-2476-1733517192644-2589">Last Location Event Type</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-2476-1733517192644-2589" tabindex="0" data-focus-id="resize-control-lastLocationEventType"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="2477-1733517192644-4733" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="230" aria-valuetext="230" aria-valuemin="180" data-focus-id="resize-control-lastLocationEventType"></span></th>
+            </tr>
+            `;
+
+        const badgeRows = `
+        <tr>
+            <td colspan="10" class="awsui_cell-merged_wih1l_1v07r_238">
+                <div class="awsui_cell-merged-content_wih1l_1v07r_250" data-awsui-table-suppress-navigation="true" style="inline-size: 1463px;"><span class="awsui_root_1cbgc_1xogn_199 awsui_status-loading_1cbgc_1xogn_229 awsui_loading_wih1l_1v07r_270"><span class="awsui_container_1cbgc_1xogn_177 awsui_display-inline-block_1cbgc_1xogn_256"><span class="awsui_icon_1cbgc_1xogn_149"><span class="awsui_root_1612d_12atb_179 awsui_size-normal_1612d_12atb_194 awsui_variant-normal_1612d_12atb_218"><span class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
+                    </span><span class="awsui_root_1iee7_di2un_141 awsui_root_1pc7b_1k8pp_5">Loading badges...</span></span>
+                    </span>
+                </div>
+            </td>
+        </tr>
+        `;
+
+        // Combine the table header, rows, and footer
+        return `
+            <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" aria-rowcount="0">
+                <thead class="awsui_thead-active_wih1l_1v07r_355">
+                    ${badgeHeader}
+                </thead>
+                <tbody>
+                    ${badgeRows}
+                </tbody>
+            </table>
+        `;
+    }
+
+    function generateAccessLvlTabHTML_Delayed(profileData) {
+        if (!profileData || !profileData.AccessLvl) {
+            console.error('Invalid profileData.');
+            return '';
+        }
+        
+        const accessHeader = `
+            <tr data-selection-item="all" aria-rowindex="1">
+                <th data-focus-id="header-accesslevelName" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212 awsui_header-cell-sorted_1spae_13mz6_330 awsui_header-cell-ascending_1spae_13mz6_354" scope="col" aria-sort="ascending" style="width: 250px; min-width: 200px;">
+                    <div data-focus-id="sorting-control-accesslevelName" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8905-1733781154940-24">Access Level</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 5 4 6H4l4-6Z" class="filled stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8905-1733781154940-24" tabindex="0" data-focus-id="resize-control-accesslevelName"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8906-1733781154940-6388" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="530.0625" aria-valuetext="530" aria-valuemin="200" data-focus-id="resize-control-accesslevelName"></span></th>
+                <th data-focus-id="header-accessLevelActivateOn" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: 220px; min-width: 180px;">
+                    <div data-focus-id="sorting-control-accessLevelActivateOn" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8907-1733781154940-9808">Activate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8907-1733781154940-9808" tabindex="0" data-focus-id="resize-control-accessLevelActivateOn"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8908-1733781154940-4474" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="466.453125" aria-valuetext="466" aria-valuemin="180" data-focus-id="resize-control-accessLevelActivateOn"></span></th>
+                <th data-focus-id="header-accessLevelDeactivateOn" class="awsui_header-cell_1spae_13mz6_145 awsui_header-cell-sortable_1spae_13mz6_212" scope="col" aria-sort="none" style="width: auto; min-width: 180px;">
+                    <div data-focus-id="sorting-control-accessLevelDeactivateOn" class="awsui_header-cell-content_1spae_13mz6_272" tabindex="0" role="button">
+                        <div class="awsui_header-cell-text_1spae_13mz6_344 awsui_header-cell-text_dpuyq_1id1o_5" id="table-header-8909-1733781154940-7637">Deactivate On</div><span class="awsui_sorting-icon_1spae_13mz6_258"><span class="awsui_icon_h11ix_o4x4v_185 awsui_size-normal-mapped-height_h11ix_o4x4v_244 awsui_size-normal_h11ix_o4x4v_240 awsui_variant-normal_h11ix_o4x4v_316"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" class="stroke-linejoin-round"></path></svg></span></span>
+                    </div>
+                    <button class="awsui_resizer_x7peu_12e0g_167" aria-labelledby="table-header-8909-1733781154940-7637" tabindex="0" data-focus-id="resize-control-accessLevelDeactivateOn"></button><span class="awsui_divider_x7peu_12e0g_146" data-awsui-table-suppress-navigation="true" id="8910-1733781154940-4364" role="separator" tabindex="-1" aria-hidden="true" aria-orientation="vertical" aria-valuenow="466.484375" aria-valuetext="466" aria-valuemin="180" data-focus-id="resize-control-accessLevelDeactivateOn"></span></th>
+            </tr>
+            `;
+
+        const accessRows = `
+        <tr>
+            <td colspan="3" class="awsui_cell-merged_wih1l_1v07r_238">
+                <div class="awsui_cell-merged-content_wih1l_1v07r_250" data-awsui-table-suppress-navigation="true" style="inline-size: 1463px;"><span class="awsui_root_1cbgc_1xogn_199 awsui_status-loading_1cbgc_1xogn_229 awsui_loading_wih1l_1v07r_270"><span class="awsui_container_1cbgc_1xogn_177 awsui_display-inline-block_1cbgc_1xogn_256"><span class="awsui_icon_1cbgc_1xogn_149"><span class="awsui_root_1612d_12atb_179 awsui_size-normal_1612d_12atb_194 awsui_variant-normal_1612d_12atb_218"><span class="awsui_circle_1612d_12atb_236 awsui_circle-left_1612d_12atb_264"></span><span class="awsui_circle_1612d_12atb_236 awsui_circle-right_1612d_12atb_269"></span></span>
+                    </span><span class="awsui_root_1iee7_di2un_141 awsui_root_1pc7b_1k8pp_5">Loading accesslevels...</span></span>
+                </span>
+                </div>
+            </td>
+        </tr>
+        `;
+
+        // Combine the table header, rows, and footer
+        return `
+            <table class="awsui_table_wih1l_1v07r_198 awsui_table-layout-fixed_wih1l_1v07r_204" role="table" aria-rowcount="0" data-analytics-performance-mark="8897-1733781154939-4451" data-analytics-task-interaction-id="8898-1733781154939-4161" aria-labelledby="heading8903-1733781154939-6737">
+                <thead class="awsui_thead-active_wih1l_1v07r_355">
+                    ${accessHeader}
+                </thead>
+                <tbody>
+                    ${accessRows}
+                </tbody>
+            </table>
+        `;
     }
 
     function generateBadgeTabHTML(profileData) {
@@ -818,7 +831,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Combine the table header, rows, and footer
-        return `${badgeRows}`;
+        return `
+        ${badgeRows}
+        `;
     }
 
     function generateAccessLvlTabHTML(profileData) {
@@ -872,7 +887,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        return `${accessRows}`;
+        // Combine the table header, rows, and footer
+        return `
+        ${accessRows}
+        `;
     }
 
     function enableSorting() {

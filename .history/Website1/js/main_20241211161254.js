@@ -711,7 +711,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 secondPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 thirdPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
 
-                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTML}`;
+                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTMLlData}`;
 
                 setTimeout(() => {
                     tableBody2.innerHTML = `

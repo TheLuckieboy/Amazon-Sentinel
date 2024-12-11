@@ -687,17 +687,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const tableBody2 = secondPanel.querySelector('tbody');
         const tableBody3 = thirdPanel.querySelector('tbody');
 
-        setTimeout(() => {
-            if (isSecondPanelActive) {
-                tableBody2.innerHTML = `
-                ${BadgeData}
-                `;
-            } else {
-                tableBody3.innerHTML = `
-                ${AccessLvlData}
-                `;
-            }
-        }, 1000); // 1-second delay
+        if (isSecondPanelActive) {
+            tableBody2.innerHTML = `
+            ${BadgeData}
+            `;
+        } else {
+            tableBody3.innerHTML = `
+            ${AccessLvlData}
+            `;
+        }
 
         if (badgeButton) {
             badgeButton.addEventListener('click', () => {
@@ -710,12 +708,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Show second panel, hide third panel
                 secondPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 thirdPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
-
-                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTML}`;
+                
 
                 setTimeout(() => {
                     tableBody2.innerHTML = `
                     ${BadgeData}
+                    `;
+                    tableBody3.innerHTML = `
+                    ${AccessLvAccessLevel_ContentBody_HTMLlData}
                     `;
                 }, 1000); // 1-second delay
             });
@@ -733,9 +733,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 thirdPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 secondPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
 
-                tableBody2.innerHTML = `${Badge_ContentBody_HTML}`;
-
                 setTimeout(() => {
+                    tableBody2.innerHTML = `
+                    ${Badge_ContentBody_HTML}
+                    `;
                     tableBody3.innerHTML = `
                     ${AccessLvlData}
                     `;
