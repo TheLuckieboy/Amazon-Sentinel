@@ -1552,8 +1552,8 @@ if __name__ == "__main__":
     Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
 
     # Load the utilities_file
-    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Utilities_File.zip")))
-    #from Resources.Utilities import Utilities_File as utilities_file
+    #utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Utilities_File.zip")))
+    from Resources.Utilities import Utilities_File as utilities_file
 
     # Assigning StopFunctionException and check_stop_event
     StopFunctionException, check_stop_event = getattr(utilities_file, "StopFunctionException", None), getattr(utilities_file, "check_stop_event", None)

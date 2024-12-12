@@ -131,8 +131,8 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 Quip_Utilities_File = Import_File("Quip_Utilities_File", resource_path(os.path.join("Resources/Test/Utilities/Quip_Utilities_File.zip")))
-CardHolder_Utilities_File = Import_File("CardHolder_Utilities_File", resource_path(os.path.join("Resources/Test/Scripts/Cardholder_Verification.zip")))
-#from Resources.Scripts.Cardholder import CardHolder_Utilities_File
+#CardHolder_Utilities_File = Import_File("CardHolder_Utilities_File", resource_path(os.path.join("Resources/Test/Scripts/Cardholder_Verification.zip")))
+from Resources.Scripts.Cardholder import CardHolder_Utilities_File
 
 Quip_GetInfo_CellText = getattr(Quip_Utilities_File, "Quip_GetInfo_CellText", None)
 Quip_ClickOn_Cell = getattr(Quip_Utilities_File, "Quip_ClickOn_Cell", None)
@@ -772,8 +772,8 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                     Cardholder_Failsafe_GeneralError(driver)
                                     time.sleep(gtime)
                                     TempElements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_counter_2qdw9"]')
-                                    BadgeNumber = TempElements[0]
-                                    print(f"BadgeNumber {BadgeNumber.text}")
+                                    BadgeNumber = TempElements[0].text
+                                    print(f"BadgeNumber {BadgeNumber}")
                                     if BadgeNumber.text == "(0)":
                                         check_stop_event(stop_event)
                                         Cardholder_Failsafe_GeneralError(driver)

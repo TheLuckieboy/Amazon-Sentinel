@@ -260,9 +260,6 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, settings
                         else:
                             print("stop all")
                             return False, False
-                    time.sleep(gtime)
-                    pyautogui.press('esc')
-                    time.sleep(gtime)
                     return True, False
                 else:
                     return True, True

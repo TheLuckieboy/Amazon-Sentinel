@@ -124,8 +124,8 @@ def resource_path(relative_path):
 Cardholder_Verification_File = None
 
 try:
-    Cardholder_Verification_File = Import_File("Cardholder_Verification_File", resource_path(os.path.join("Resources", "Test", "Scripts", "Cardholder_Verification.zip")))
-    #from Resources.Scripts.Cardholder import Cardholder_Verification_File
+    #Cardholder_Verification_File = Import_File("Cardholder_Verification_File", resource_path(os.path.join("Resources", "Test", "Scripts", "Cardholder_Verification.zip")))
+    from Resources.Scripts.Cardholder import Cardholder_Verification_File
     if Cardholder_Verification_File is None:
         raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
 except FileNotFoundError as e:

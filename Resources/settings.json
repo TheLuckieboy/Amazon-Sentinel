@@ -6,148 +6,148 @@
     "Kill Switch Key": "Ctrl+Alt+Shift",
     "Quip_Database": true,
     "Excel_Database": false,
-    "Starting Row": "2",
-    "CommandLine Column": "D",
+    "Starting Row": "63",
+    "CommandLine Column": "A",
     "SearchBy_Column_Widget": [
         true,
         false,
-        "D"
+        "A"
     ],
     "Home_Site_Widget": "KAFW",
     "Cardholder_Tab_Info_Widget": true,
     "EID_Widget": [
-        false,
+        true,
         "A"
     ],
     "Login_Widget": [
-        false,
-        "J"
+        true,
+        "B"
     ],
     "FirstName_Widget": [
-        false,
-        "D"
+        true,
+        "C"
     ],
     "LastName_Widget": [
-        false,
-        "D"
+        true,
+        "C"
     ],
     "EmployeeType_Widget": [
-        false,
+        true,
         "D"
     ],
     "EmployeeStatus_Widget": [
-        false,
-        "F"
-    ],
-    "ManagerLogin_Widget": [
-        true,
-        "K"
-    ],
-    "PersonID_Widget": [
-        false,
-        "A"
-    ],
-    "Barcode_Widget": [
-        false,
-        "A"
-    ],
-    "Tenure_Widget": [
-        false,
-        "L"
-    ],
-    "Region_Widget": [
-        false,
-        "A"
-    ],
-    "Building_Widget": [
-        false,
-        "I"
-    ],
-    "Badge_Tab_Info_Widget": false,
-    "BadgeStatus_Widget": [
-        true,
-        "G"
-    ],
-    "BadgeType_Widget": [
-        false,
-        "H"
-    ],
-    "BadgeCount_Widget": [
-        false,
-        "A"
-    ],
-    "BadgeID_Widget": [
-        false,
-        "A"
-    ],
-    "ActiveOn_Widget_Badge": [
-        false,
-        "D"
-    ],
-    "DeactiveOn_Widget_Badge": [
-        false,
-        "K"
-    ],
-    "LastUpdate_Widget": [
-        true,
-        "H"
-    ],
-    "LastRead_Widget": [
-        false,
-        "I"
-    ],
-    "LastTimestamp_Widget": [
-        false,
-        "J"
-    ],
-    "EventType_Widget": [
-        false,
-        "A"
-    ],
-    "ActiveBadgePresent_Widget": [
-        false,
-        "A"
-    ],
-    "AccessLvl_Tab_Info_Widget": false,
-    "GeneralAccess_Widget": [
-        false,
-        "N"
-    ],
-    "AccessLvlCount_Widget": [
-        false,
-        "A"
-    ],
-    "ActivateOn_Widget_AccessLvl": [
-        true,
-        "D"
-    ],
-    "DeactiveOn_Widget_AccessLvl": [
         true,
         "E"
     ],
+    "ManagerLogin_Widget": [
+        true,
+        "F"
+    ],
+    "PersonID_Widget": [
+        true,
+        "G"
+    ],
+    "Barcode_Widget": [
+        true,
+        "H"
+    ],
+    "Tenure_Widget": [
+        true,
+        "I"
+    ],
+    "Region_Widget": [
+        true,
+        "J"
+    ],
+    "Building_Widget": [
+        true,
+        "K"
+    ],
+    "Badge_Tab_Info_Widget": true,
+    "BadgeStatus_Widget": [
+        true,
+        "L"
+    ],
+    "BadgeType_Widget": [
+        true,
+        "M"
+    ],
+    "BadgeCount_Widget": [
+        true,
+        "N"
+    ],
+    "BadgeID_Widget": [
+        true,
+        "O"
+    ],
+    "ActiveOn_Widget_Badge": [
+        true,
+        "P"
+    ],
+    "DeactiveOn_Widget_Badge": [
+        true,
+        "Q"
+    ],
+    "LastUpdate_Widget": [
+        true,
+        "R"
+    ],
+    "LastRead_Widget": [
+        true,
+        "S"
+    ],
+    "LastTimestamp_Widget": [
+        true,
+        "T"
+    ],
+    "EventType_Widget": [
+        true,
+        "U"
+    ],
+    "ActiveBadgePresent_Widget": [
+        true,
+        "V"
+    ],
+    "AccessLvl_Tab_Info_Widget": true,
+    "GeneralAccess_Widget": [
+        true,
+        "W"
+    ],
+    "AccessLvlCount_Widget": [
+        true,
+        "X"
+    ],
+    "ActivateOn_Widget_AccessLvl": [
+        true,
+        "Y"
+    ],
+    "DeactiveOn_Widget_AccessLvl": [
+        true,
+        "Z"
+    ],
     "ColorCodeSettings_Widget": true,
     "Active AA, Active Badge @ Site_Widget": [
-        false,
+        true,
         "Green50"
     ],
     "Active AA, Active Badge @ Other Site_Widget": [
-        false,
+        true,
         "Green5"
     ],
     "Active AA, Inactive Badge @ Site_Widget": [
-        false,
+        true,
         "Blue20"
     ],
     "Active AA, Inactive Badge @ Other Site_Widget": [
-        false,
+        true,
         "Blue20"
     ],
     "Terminated AA @ Site_Widget": [
-        false,
+        true,
         "Gray80"
     ],
     "Terminated AA @ Other Site_Widget": [
-        false,
+        true,
         "Red40"
     ],
     "*Fail Safe Measure* Bad EID/Login_Widget": [
@@ -155,9 +155,9 @@
         "Magenta60"
     ],
     "*Color a Column* Row Complete_Widget": [
-        false,
-        "A",
-        "Gray80"
+        true,
+        "D",
+        "Gold40"
     ],
     "LastNameComma_FirstName_CardholderVerification": true,
     "FirstNameComma_LastName_CardholderVerification": false,

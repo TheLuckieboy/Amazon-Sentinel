@@ -199,11 +199,11 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, settings
         Time  = 0
 
         for attempt in range(30):
+            print(f"Wainting {Time} Seconds")
+            Time = Time + 1
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             if MainProfile:
-                print(f"Wainting for MainProfile: {Time} Seconds")
-                Time = Time + 1
                 class_name = Element.get_attribute('class')
                 
                 if 'awsui_disabled_vjswe' in class_name:
@@ -213,8 +213,6 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, settings
                     time.sleep(0.25)
                     break  # Exit the loop if the element is not found
             else:
-                print(f"Wainting for else: {Time} Seconds")
-                Time = Time + 1
                 try:
                     driver.find_element(By.CSS_SELECTOR, "[class*='awsui_icon_1cbgc']")
                     time.sleep(1)
@@ -260,9 +258,6 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, settings
                         else:
                             print("stop all")
                             return False, False
-                    time.sleep(gtime)
-                    pyautogui.press('esc')
-                    time.sleep(gtime)
                     return True, False
                 else:
                     return True, True
