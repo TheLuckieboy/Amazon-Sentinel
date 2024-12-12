@@ -157,9 +157,11 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
     try:
         def SwithTo_Window(QuipWindow=False, CardholderWindow=False):
             check_stop_event(stop_event)
+            Cardholder_Failsafe_GeneralError(driver)
             if QuipWindow:
                 driver.switch_to.window(window_handles[0])
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 time.sleep(gtime)
 
             if CardholderWindow:
@@ -169,6 +171,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                 time.sleep(gtime)
 
         check_stop_event(stop_event)
+        Cardholder_Failsafe_GeneralError(driver)
         if WorkingRow <= 0:
             print("Starting Row can not be 1")
             return False
@@ -184,26 +187,32 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
         if Quip_Database and not Excel_Database:
             def SwitchBack_FailsafeColoring():
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 # Switch to Quip, and write info to Quip Database
                 driver.switch_to.window(window_handles[0])
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 time.sleep(gtime)
 
                 # Iterate over settings and perform actions
                 settings_to_process = ["*Fail Safe Measure* Bad EID/Login_Widget"]
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 time.sleep(gtime)
                 for setting_name in settings_to_process:
                     check_stop_event(stop_event)
+                    Cardholder_Failsafe_GeneralError(driver)
                     boolean_value, Color = settings.get(setting_name)
                     if boolean_value:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                         pyautogui.press('esc')
 
             def Write_InfoTo_Quip(ProfileValues, BadgeValues=None, AccessValues=None,
                                   Badge_Tab=True, AccessLvl_Tab=True):
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 # Iterate over settings and perform actions
                 Cardholder_Tab_Settings = [
                     "EID_Widget", "Login_Widget", "FirstName_Widget", "LastName_Widget", "EmployeeType_Widget",
@@ -222,13 +231,15 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                 Cardholder_Tab_Info_Widget = settings.get("Cardholder_Tab_Info_Widget", False)
                 Badge_Tab_Info_Widget = settings.get("Badge_Tab_Info_Widget", False)
                 AccessLvl_Tab_Info_Widget = settings.get("AccessLvl_Tab_Info_Widget", False)
-                
+
                 def Cardholder_Settings():
                     for setting_name in Cardholder_Tab_Settings:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         boolean_value, column_name = settings.get(setting_name, [False, "A"])
                         if boolean_value:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             try:
                                 column_name = ord(column_name.upper()) - ord('A')
                             except TypeError:
@@ -236,24 +247,30 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                             if setting_name == "EID_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 print(f"{WorkingRow}, {column_name}")
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[1]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "Login_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[0]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "FirstName_Widget":
                                 boolean_value, column_name2 = settings.get("LastName_Widget", [False, "A"])
                                 column_name2 = ord(column_name2.upper()) - ord('A')
                                 if boolean_value and (column_name2 == column_name):
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     if settings.get("LastNameComma_FirstName_CardholderVerification"):
                                         pyperclip.copy(f"{ProfileValues[5]}, {ProfileValues[4]}")
                                     elif settings.get("FirstNameComma_LastName_CardholderVerification"):
@@ -261,81 +278,107 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                     elif settings.get("FirstName_LastName_CardholderVerification"):
                                         pyperclip.copy(f"{ProfileValues[4]} {ProfileValues[5]}")
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 else:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(ProfileValues[4]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "LastName_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 boolean_value, column_name2 = settings.get("FirstName_Widget", [False, "A"])
                                 column_name2 = ord(column_name2.upper()) - ord('A')
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if boolean_value and (column_name2 == column_name):
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                 else:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(ProfileValues[5]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "EmployeeType_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[6]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "EmployeeStatus_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[7]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "ManagerLogin_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[8]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "PersonID_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[2]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "Barcode_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[3]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "Tenure_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[9]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "Region_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[10]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
                             elif setting_name == "Building_Widget":
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[11]))
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
 
                 def Badge_Settings():
                     for setting_name in Badge_Tab_Settings:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         boolean_value, column_name = settings.get(setting_name, [False, "A"])
                         if boolean_value:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             try:
                                 column_name = ord(column_name.upper()) - ord('A')
                             except TypeError:
@@ -344,83 +387,109 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                             if BadgeValues is not None:
                                 if setting_name == "BadgeStatus_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[1]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "BadgeType_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[2]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "BadgeCount_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[10]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "BadgeID_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[0]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "ActiveOn_Widget_Badge":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[3]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "DeactiveOn_Widget_Badge":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[4]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "LastUpdate_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[5]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "LastRead_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[6]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "LastTimestamp_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[7]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "EventType_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[8]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "ActiveBadgePresent_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(BadgeValues[9]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                             else:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy("No Badge Info Available")
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
 
                 def AccessLvl_Settings():
                     for setting_name in AccessLvl_Tab_Settings:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         boolean_value, column_name = settings.get(setting_name, [False, "A"])
                         if boolean_value:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             try:
                                 column_name = ord(column_name.upper()) - ord('A')
                             except TypeError:
@@ -428,41 +497,54 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                             if AccessValues is not None:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if (setting_name == "GeneralAccess_Widget") and AccessValues[0]:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy("Has Access to Site")
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif (setting_name == "ActivateOn_Widget_AccessLvl") and AccessValues[0]:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(AccessValues[1]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif (setting_name == "DeactiveOn_Widget_AccessLvl") and AccessValues[0]:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(AccessValues[2]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 elif setting_name == "AccessLvlCount_Widget":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy(str(AccessValues[3]))
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                                 else:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     pyperclip.copy("Does not have Access to Site")
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.hotkey('ctrl', 'v')
                             else:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy("Does not have Access to Site")
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 pyautogui.hotkey('ctrl', 'v')
 
                 if Cardholder_Tab_Info_Widget:
@@ -483,47 +565,60 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 if setting_name == "Active AA, Active Badge @ Site_Widget" and ProfileValues[7] != "Terminated" and \
                                         ProfileValues[11] == Home_Site and BadgeValues[1] == "Active":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Active AA, Active Badge @ Other Site_Widget" and ProfileValues[
                                     4] != "Terminated" and \
                                         ProfileValues[11] != Home_Site and BadgeValues[1] == "Active":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Active AA, Inactive Badge @ Site_Widget" and ProfileValues[
                                     4] != "Terminated" and \
                                         ProfileValues[11] == Home_Site and BadgeValues[1] != "Active" and BadgeValues[
                                     0] != "Terminated":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Active AA, Inactive Badge @ Other Site_Widget" and ProfileValues[
                                     4] != "Terminated" and ProfileValues[11] != Home_Site and BadgeValues[1] != "Active" and \
                                         BadgeValues[1] != "Terminated":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Terminated AA @ Site_Widget_Widget" and ProfileValues[11] == Home_Site and (
                                         BadgeValues[1] == "Terminated" or ProfileValues[7] == "Terminated"):
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Terminated AA @ Other Site_Widget" and ProfileValues[11] != Home_Site and (
                                         BadgeValues[1] == "Terminated" or ProfileValues[7] == "Terminated"):
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
 
                     if TerminatedStatus:
@@ -533,17 +628,22 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 if setting_name == "Terminated AA @ Site_Widget" and ProfileValues[11] == Home_Site:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Terminated AA @ Other Site_Widget" and ProfileValues[11] != Home_Site:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
 
                     if NoBadges:
@@ -559,33 +659,43 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if setting_name == "Active AA, Inactive Badge @ Site_Widget" and ProfileValues[
                                     7] != "Terminated" and \
                                         ProfileValues[11] == Home_Site and TenureLength == False:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Active AA, Inactive Badge @ Other Site_Widget" and ProfileValues[
                                     7] != "Terminated" and ProfileValues[11] != Home_Site and TenureLength == False:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Terminated AA @ Site_Widget" and ProfileValues[
                                     11] == Home_Site and TenureLength == True:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Terminated AA @ Other Site_Widget" and ProfileValues[
                                     11] != Home_Site and TenureLength == True:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
 
                     if InActiveBadge:
@@ -595,18 +705,24 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if setting_name == "Active AA, Inactive Badge @ Site_Widget" and ProfileValues[7] != "Terminated" and ProfileValues[11] == Home_Site:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                 elif setting_name == "Active AA, Inactive Badge @ Other Site_Widget" and ProfileValues[7] != "Terminated" and ProfileValues[11] != Home_Site:
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
 
                     if Cardholder_Tab:
@@ -617,13 +733,17 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if ProfileValues[7] != "Terminated":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                     break
 
@@ -632,35 +752,44 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         ]
                         for setting_name in settings_to_process:
                             check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
                             boolean_value, Color = settings.get(setting_name, (False, None))
                             if boolean_value:
                                 check_stop_event(stop_event)
+                                Cardholder_Failsafe_GeneralError(driver)
                                 if ProfileValues[7] == "Terminated":
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     Quip_Color_Cells(driver, Color, WorkingRow, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                     check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
                                     pyautogui.press('esc')
                                     break
 
                     check_stop_event(stop_event)
+                    Cardholder_Failsafe_GeneralError(driver)
 
                     boolean_value, column_name, Color = settings.get("*Color a Column* Row Complete_Widget", (False, "A", None))
                     if boolean_value:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         try:
                             column_name = ord(column_name.upper()) - ord('A')
                         except TypeError:
                             column_name = 6
                         Quip_Color_Cells(driver, Color, WorkingRow, Row=False, Column=column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                         pyautogui.press('esc')
-            
+
             check_stop_event(stop_event)
+            Cardholder_Failsafe_GeneralError(driver)
             CommandLineResult = Quip_Check_CommandLine(driver, WorkingRow, CommandLineColumn, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
             check_stop_event(stop_event)
+            Cardholder_Failsafe_GeneralError(driver)
             if CommandLineResult == "skip":
                 return True
             elif CommandLineResult != "stopall":
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 if SearchBy_EID:
                     check_stop_event(stop_event)
                     Cardholder_Failsafe_GeneralError(driver)
@@ -691,6 +820,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                 time.sleep(gtime)
                 Quip_ClickOn_Cell(driver, WorkingRow - 1, CommandLineColumn, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                 check_stop_event(stop_event)
+                Cardholder_Failsafe_GeneralError(driver)
                 pyautogui.press('down', presses=3)
                 time.sleep(gtime)
 

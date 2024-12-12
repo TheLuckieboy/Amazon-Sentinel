@@ -278,6 +278,15 @@ def CardHolder_ClickOn_BadgeTab(driver):
                 return  # Break the loop after clicking the text "Badge"
         time.sleep(gtime)
 
+def CardHolder_ClickOn_CardholderTab(driver):
+    for attempt in range(5):
+        elements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_tabs-tab-label_14rmt"]')
+        for element in elements:
+            if element.text == "Cardholder":
+                element.click()
+                return  # Break the loop after clicking the text "Cardholder"
+        time.sleep(gtime)
+
 def CardHolder_ClickOn_AccessLvlTab(driver):
     for attempt in range(5):
         elements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_tabs-tab-label_14rmt"]')

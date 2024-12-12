@@ -97,7 +97,7 @@ def CardHolder_GetElement_SearchButton(driver, StopFunctionException=None, check
         Cardholder_Failsafe_GeneralError(driver)
         if SearchButton_Element is None:
             Button_Elements = driver.find_elements(By.CSS_SELECTOR, "[class*='awsui_button_vjswe']")
-            SearchButton_Element = Button_Elements[2]
+            SearchButton_Element = Button_Elements[1]
 
         check_stop_event(stop_event)
         Cardholder_Failsafe_GeneralError(driver)
@@ -278,6 +278,15 @@ def CardHolder_ClickOn_BadgeTab(driver):
                 return  # Break the loop after clicking the text "Badge"
         time.sleep(gtime)
 
+def CardHolder_ClickOn_CardholderTab(driver):
+    for attempt in range(5):
+        elements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_tabs-tab-label_14rmt"]')
+        for element in elements:
+            if element.text == "Cardholder":
+                element.click()
+                return  # Break the loop after clicking the text "Cardholder"
+        time.sleep(gtime)
+
 def CardHolder_ClickOn_AccessLvlTab(driver):
     for attempt in range(5):
         elements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_tabs-tab-label_14rmt"]')
@@ -310,7 +319,8 @@ def CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=None, check_sto
         check_stop_event(stop_event)
         Cardholder_Failsafe_GeneralError(driver)
 
-        for i in range(7, 19):
+        # Iterate over the input elements from index 6 to 17
+        for i in range(6, 18):
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             # Get the value attribute from each input element
@@ -407,19 +417,26 @@ def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=Non
     try:
         check_stop_event(stop_event)
 
+        Class_Selector = (
+            '.awsui_input_ '
+            '.awsui_input-type-search '
+            '.awsui_input-has-icon-left'
+        )
+
         # Find the input element with the specified class name
-        input_elements = driver.find_elements(By.CSS_SELECTOR, 'input[class*="awsui_input-type-search"]')
-        input_elements[1].click()
+        input_element = driver.find_element(By.CSS_SELECTOR, 'input[class*="awsui_input-type-search"]')
+        input_element.click()
 
         Home_Site = settings.get("Home_Site", "KAFW")
         Home_Site_Access = f"{Home_Site}-1-GENERAL ACCESS"
         pyperclip.copy(Home_Site_Access)
         pyautogui.hotkey('ctrl', 'v')
-        time.sleep(0.5)
+        time.sleep(1)
 
         Values = []
 
         try:
+            time.sleep(3)
             awsui_body_Elements = driver.find_elements(By.CSS_SELECTOR, 'div[class*="awsui_body-cell"]')
 
             if awsui_body_Elements[0].text.strip() == Home_Site_Access:
@@ -437,8 +454,8 @@ def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=Non
                 Values.append(False)
 
 
-        CountElements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_counter_"]')
-        CountText = CountElements[1].text.strip().replace('(', '').replace(')', '')
+        CountElement = driver.find_element(By.CSS_SELECTOR, 'span[class*="awsui_counter_"]')
+        CountText = CountElement.text.strip().replace('(', '').replace(')', '')
         Values.append(CountText)
 
         return Values
