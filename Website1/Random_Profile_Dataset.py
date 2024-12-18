@@ -632,20 +632,48 @@ def generate_profile():
     badge_count = random.randint(0, 5)  # Generate a random number of badges
     if badge_count == 0:
         badge_count = random.randint(0, 5)
+        if badge_count == 0:
+            badge_count = random.randint(0, 5)
+            if badge_count == 0:
+                badge_count = random.randint(0, 5)
+                if badge_count == 0:
+                    badge_count = random.randint(0, 5)
     badges = []
 
     accessLvl_count = random.randint(0, 5)  # Generate a random number of badges
     if accessLvl_count == 0:
         accessLvl_count = random.randint(0, 5)
+        if accessLvl_count == 0:
+            accessLvl_count = random.randint(0, 5)
+            if accessLvl_count == 0:
+                accessLvl_count = random.randint(0, 5)
+                if accessLvl_count == 0:
+                    accessLvl_count = random.randint(0, 5)
     accessLvl = []
 
     Employee_ID = generate_random_string(Just_Numbers=True, length=9)
+    if str(Employee_ID).startswith("0"):
+        Employee_ID = generate_random_string(Just_Numbers=True, length=9)
+        if str(Employee_ID).startswith("0"):
+            Employee_ID = generate_random_string(Just_Numbers=True, length=9)
+            if str(Employee_ID).startswith("0"):
+                Employee_ID = generate_random_string(Just_Numbers=True, length=9)
+                if str(Employee_ID).startswith("0"):
+                    Employee_ID = generate_random_string(Just_Numbers=True, length=9)
     Person_ID = generate_random_string()
     Barcode = generate_random_string(Just_Numbers=True, length=8)
     First_Name = random.choice(first_names)
     Last_Name = random.choice(last_names)
     Employee_Type = generate_random_employeeType()
     Employee_Status = generate_random_employeeStatus()
+    if Employee_Status != "Active":
+        Employee_Status = generate_random_employeeStatus()
+        if Employee_Status != "Active":
+            Employee_Status = generate_random_employeeStatus()
+            if Employee_Status != "Active":
+                Employee_Status = generate_random_employeeStatus()
+                if Employee_Status != "Active":
+                    Employee_Status = generate_random_employeeStatus()
     Login = None
 
     Manager = random.choice(manager_login)

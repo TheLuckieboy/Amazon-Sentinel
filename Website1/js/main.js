@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginInputField = document.getElementById('formField113-1733328551163-6001');
     const searchButton = document.querySelector('button[data-analytics-funnel-value="button130-1733328551171-3358"]');
     let activePanel = "second";
+    let previousFocusedElement = null;
 
     "awsui_button_vjswe_4v1qr_153 awsui_variant-primary_vjswe_4v1qr_296 awsui_disabled_vjswe_4v1qr_289"
 
@@ -39,47 +40,59 @@ document.addEventListener("DOMContentLoaded", function () {
                     displayProfile(profileData);
                 } else {
                     console.log('Profile not found.');
+            
+                    // Target all modal containers
+                    const modals = document.querySelectorAll('div[data-analytics-funnel-step="1"]');
+            
+                    // Loop through modals to find the correct one
+                    modals.forEach((modal) => {
+                        const contentElement = modal.querySelector('.awsui_content_1d2i7_18st5_384');
+            
+                        if (contentElement && contentElement.textContent.includes('Cannot find cardholder')) {
+                            // Found the specific modal for "Cannot find cardholder"
+                            modal.classList.remove('awsui_hidden_1d2i7_18st5_301'); // Make it visible
+
+                            // Save the currently focused element
+                            previousFocusedElement = document.activeElement;
+
+                            // Blur the input fields
+                            idInputField.blur();
+                            loginInputField.blur();
+
+                            // Add event listeners for closing the modal
+                            const okButton = modal.querySelector('.awsui_content_vjswe_4v1qr_149.awsui_label_1f1d4_ocied_5');
+                            const closeIcon = modal.querySelector('.awsui_icon_vjswe_4v1qr_1159');
+
+                            if (okButton) {
+                                okButton.addEventListener('click', () => closeModal(modal));
+                            }
+
+                            if (closeIcon) {
+                                closeIcon.addEventListener('click', () => closeModal(modal));
+                            }
+
+                            // Add keypress listener for Esc and Enter
+                            document.addEventListener('keydown', function keyHandler(event) {
+                                if (event.key === 'Escape' || event.key === 'Enter') {
+                                    closeModal(modal);
+                                    document.removeEventListener('keydown', keyHandler);
+                                }
+                            });
+
+                            setTimeout(() => {
+                                // Enable the search button after 1 second
+                                if (searchButton) {
+                                    searchButton.classList.remove('awsui_disabled_vjswe_4v1qr_289');
+                                }
+                            }, 1000); // 1-second delay
+                        }
+                    });
                 }
             })
             .catch(error => {
                 console.error('Error fetching profiles:', error);
             });
     }
-
-    /*function displayProfile(profile) {
-        console.log("Profile Information:");
-        console.log(`Login: ${profile.Login}`);
-        console.log(`Employee ID: ${profile.Employee_ID}`);
-        console.log(`Person ID: ${profile.Person_ID}`);
-        console.log(`Name: ${profile.First_Name} ${profile.Last_Name}`);
-        console.log(`Type: ${profile.Employee_Type}`);
-        console.log(`Status: ${profile.Employee_Status}`);
-        console.log(`Manager: ${profile.Manager}`);
-        console.log(`Tenure: ${profile.Tenure}`);
-        console.log(`Region: ${profile.Region}`);
-        console.log(`Building/Country: ${profile["Building/Country"]}`);
-        console.log(`Badge Count: ${profile.Badge_Count}`);
-        console.log("Badges:");
-        profile.Badges.forEach((badge, index) => {
-            console.log(`  Badge ${index + 1}:`);
-            console.log(`    ID: ${badge.Badge_ID}`);
-            console.log(`    Status: ${badge.Badge_Status}`);
-            console.log(`    Type: ${badge.Badge_Type}`);
-            console.log(`    Activate On: ${badge.Badge_ActivateOn}`);
-            console.log(`    Deactivate On: ${badge.Badge_DeactivateOn}`);
-            console.log(`    Last Updated: ${badge.Badge_LastUpdatedUTC}`);
-            console.log(`    Last Location Reader Name: ${badge.Badge_LastLocationReaderName}`);
-            console.log(`    Last Location Event Type: ${badge.Badge_LastLocationEventType}`);
-        });
-        console.log(`Access Level Count: ${profile.AccessLvl_Count}`);
-        console.log("Access Levels:");
-        profile.AccessLvl.forEach((access, index) => {
-            console.log(`  Access Level ${index + 1}:`);
-            console.log(`    Level: ${access.AccessLevel}`);
-            console.log(`    Activate On: ${access.AccessLevel_ActivateOn}`);
-            console.log(`    Deactivate On: ${access.AccessLevel_Deactivate}`);
-        });
-    }*/
 
     // Function to display the profile data
     function displayProfile(profileData) {
@@ -512,7 +525,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             ${Badge_ContentHeader_HTML}
                         </thead>
                         <tbody>
-                            ${Badge_ContentBody_HTML}
                         </tbody>
                     </table>
                     <span class="awsui_tracker_x7peu_12e0g_249"></span></div>
@@ -622,7 +634,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             ${AccessLevel_ContentHeader_HTML}
                         </thead>
                         <tbody>
-                            ${AccessLevel_ContentBody_HTML}
                         </tbody>
                     </table>
                     <span class="awsui_tracker_x7peu_12e0g_249"></span></div>
@@ -687,20 +698,41 @@ document.addEventListener("DOMContentLoaded", function () {
         const tableBody2 = secondPanel.querySelector('tbody');
         const tableBody3 = thirdPanel.querySelector('tbody');
 
+        const Number_Badges = secondPanel.querySelector('.awsui_counter_2qdw9_kiqfw_425');
+        const Number_AccessLvls = thirdPanel.querySelector('.awsui_counter_2qdw9_kiqfw_425');
+
+        if (isSecondPanelActive) {
+            tableBody2.innerHTML = `
+            ${Badge_ContentBody_HTML}
+            `;
+        } else {
+            tableBody3.innerHTML = `
+            ${AccessLevel_ContentBody_HTML}
+            `;
+        }
+
         setTimeout(() => {
             if (isSecondPanelActive) {
                 tableBody2.innerHTML = `
                 ${BadgeData}
                 `;
+
+                Number_Badges.textContent = ` (${profileData.Badge_Count})`;
             } else {
                 tableBody3.innerHTML = `
                 ${AccessLvlData}
                 `;
+
+                Number_AccessLvls.textContent = ` (${profileData.AccessLvl_Count})`;
             }
         }, 1000); // 1-second delay
 
         if (badgeButton) {
             badgeButton.addEventListener('click', () => {
+                if (activePanel === "second") {
+                    return; // Exit early
+                }
+
                 activePanel = "second"; //
                 badgeButton.setAttribute('class', 'awsui_tabs-tab-link_14rmt_pykih_410 awsui_tabs-tab-active_14rmt_pykih_486 awsui_tabs-tab-focused_14rmt_pykih_592 awsui_active-tab-header_1acwa_dp0cl_6 awsui_tabs-tab-focusable_14rmt_pykih_497');
                 accessLevelButton.setAttribute('class', 'awsui_tabs-tab-link_14rmt_pykih_410 awsui_tabs-tab-focusable_14rmt_pykih_497');
@@ -711,18 +743,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 secondPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 thirdPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
 
-                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTML}`;
+                tableBody2.innerHTML = `${Badge_ContentBody_HTML}`;
+                tableBody3.innerHTML = ``;
+                Number_Badges.textContent = ` (0)`;
 
                 setTimeout(() => {
                     tableBody2.innerHTML = `
                     ${BadgeData}
                     `;
+
+                    Number_Badges.textContent = ` (${profileData.Badge_Count})`;
                 }, 1000); // 1-second delay
             });
         }
 
         if (accessLevelButton) {
             accessLevelButton.addEventListener('click', () => {
+                if (activePanel === "third") {
+                    return; // Exit early
+                }
+
                 activePanel = "third"; //
                 badgeButton.setAttribute('class', 'awsui_tabs-tab-link_14rmt_pykih_410 awsui_tabs-tab-focusable_14rmt_pykih_497');
                 accessLevelButton.setAttribute('class', 'awsui_tabs-tab-link_14rmt_pykih_410 awsui_tabs-tab-active_14rmt_pykih_486 awsui_tabs-tab-focused_14rmt_pykih_592 awsui_active-tab-header_1acwa_dp0cl_6 awsui_tabs-tab-focusable_14rmt_pykih_497');
@@ -733,12 +773,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 thirdPanel.classList.add('awsui_tabs-content-active_14rmt_pykih_552');
                 secondPanel.classList.remove('awsui_tabs-content-active_14rmt_pykih_552');
 
-                tableBody2.innerHTML = `${Badge_ContentBody_HTML}`;
+                tableBody2.innerHTML = ``;
+                tableBody3.innerHTML = `${AccessLevel_ContentBody_HTML}`;
+                Number_AccessLvls.textContent = ` (0)`;
 
                 setTimeout(() => {
                     tableBody3.innerHTML = `
                     ${AccessLvlData}
                     `;
+
+                    Number_AccessLvls.textContent = ` (${profileData.AccessLvl_Count})`;
                 }, 1000); // 1-second delay
             });
         }
@@ -978,6 +1022,23 @@ document.addEventListener("DOMContentLoaded", function () {
         // Re-append sorted rows to the table body
         const tbody = table.querySelector('tbody');
         rows.forEach((row) => tbody.appendChild(row));
+    }
+
+    function closeModal(modal) {
+        modal.classList.add('awsui_hidden_1d2i7_18st5_301'); // Revert to original state
+        console.log('Modal closed.');
+
+        setTimeout(() => {
+            // Return focus to the previous element
+            if (previousFocusedElement) {
+                previousFocusedElement.focus();
+                previousFocusedElement = null; // Reset the variable
+            }
+        }, 100);
+
+        if (searchButton) {
+            searchButton.classList.remove('awsui_disabled_vjswe_4v1qr_289');
+        }
     }
 
     // Button click event listener
