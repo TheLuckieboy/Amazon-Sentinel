@@ -858,7 +858,7 @@ class FunctionsGUI(BasePage):
 
             try:
                 # Import the encrypted and zipped Site_Locations.txt
-                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources", "Utilities", "Site_Locations.zip")))
+                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources/Test/Utilities/Site_Locations.zip")))
 
                 # Parse the file contents into a list
                 Site_Location_List = [
@@ -1513,7 +1513,7 @@ if __name__ == "__main__":
 
     try:
         # Load the stylesheet from the encrypted zip
-        stylesheet = Import_File("styles", resource_path(os.path.join("Resources", "Utilities", "styles.zip")))
+        stylesheet = Import_File("styles", resource_path(os.path.join("Resources/Test/Utilities/styles.zip")))
         if stylesheet:
             app.setStyleSheet(stylesheet)
     except FileNotFoundError:

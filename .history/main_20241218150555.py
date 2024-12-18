@@ -858,7 +858,7 @@ class FunctionsGUI(BasePage):
 
             try:
                 # Import the encrypted and zipped Site_Locations.txt
-                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources", "Utilities", "Site_Locations.zip")))
+                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources/Test/Utilities/Site_Locations.zip")))
 
                 # Parse the file contents into a list
                 Site_Location_List = [
@@ -1456,25 +1456,25 @@ if __name__ == "__main__":
     gtime = 0.25
     stylesheet = None
 
-    bottom_left_image_path = Import_File("bottom_left_corner", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    bottom_right_image_path = Import_File("bottom_right_corner", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    Icon_Image = Import_File("App_Icon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    bottom_left_image_path = Import_File("bottom_left_corner", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    bottom_right_image_path = Import_File("bottom_right_corner", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    Icon_Image = Import_File("App_Icon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
 
-    icons_WO_desc1 = Import_File("BurgerMenuIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc2 = Import_File("FunctionsIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc3 = Import_File("HelpIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc4 = Import_File("ExtraIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    icons_WO_desc1 = Import_File("BurgerMenuIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_WO_desc2 = Import_File("FunctionsIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_WO_desc3 = Import_File("HelpIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_WO_desc4 = Import_File("ExtraIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
 
-    icons_with_desc1 = Import_File("BurgerMenuIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc2 = Import_File("FunctionsIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc3 = Import_File("HelpIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc4 = Import_File("ExtraIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    icons_with_desc1 = Import_File("BurgerMenuIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_with_desc2 = Import_File("FunctionsIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_with_desc3 = Import_File("HelpIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    icons_with_desc4 = Import_File("ExtraIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
     
-    Red_Confirmation_Img = Import_File("ConfirmedRed", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    Red_Confirmation_Img = Import_File("ConfirmedRed", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
+    Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Test", "Utilities", "Images.zip")))
 
     # Load the utilities_file
-    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Utilities", "Utilities_File.zip")))
+    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Test", "Utilities", "Utilities_File.zip")))
     #from Resources.Utilities import Utilities_File as utilities_file
 
     # Assigning StopFunctionException and check_stop_event
@@ -1513,7 +1513,7 @@ if __name__ == "__main__":
 
     try:
         # Load the stylesheet from the encrypted zip
-        stylesheet = Import_File("styles", resource_path(os.path.join("Resources", "Utilities", "styles.zip")))
+        stylesheet = Import_File("styles", resource_path(os.path.join("Resources/Test/Utilities/styles.zip")))
         if stylesheet:
             app.setStyleSheet(stylesheet)
     except FileNotFoundError:
