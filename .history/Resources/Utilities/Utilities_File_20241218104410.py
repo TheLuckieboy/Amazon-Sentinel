@@ -27,9 +27,6 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
 
     # Utility: Decrypt a single file
     def decrypt_file(encrypted_path: Path, output_folder: Path, password: str):
-        """global Called
-        Called = Called + 1
-        print(Called)"""
         try:
             with open(encrypted_path, 'rb') as enc_file:
                 content = enc_file.read()
@@ -119,33 +116,24 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password="PASSWORD", File_Pas
             shutil.rmtree(temp_dir)
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    """Get absolute path to resource, works for dev and PyInstaller."""
+    # Base path is either the temp folder in PyInstaller or the main script directory.
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
     return os.path.join(base_path, relative_path)
 
-Cardholder_Verification_File, Skyline_Terminate_AA_File = None, None
+Cardholder_Verification_File = None
 
 try:
-    Cardholder_Verification_File = Import_File("Cardholder_Verification_File", resource_path(os.path.join("Resources/Test/Scripts/Cardholder_Verification.zip")))
+    Cardholder_Verification_File = Import_File("Cardholder_Verification", resource_path(os.path.join("Resources", "Test", "Scripts", "Cardholder_Verification.zip")))
+    #from Resources.Scripts.Cardholder import Cardholder_Verification_File
     if Cardholder_Verification_File is None:
         raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
 except FileNotFoundError as e:
-    #print(f"Error: {e}")
+    print(f"Error: {e}")
     Cardholder_Verification_File = None
 except Exception as e:
-    #print(f"An unexpected error occurred: {e}")
+    print(f"An unexpected error occurred: {e}")
     Cardholder_Verification_File = None
-
-try:
-    Skyline_Terminate_AA_File = Import_File("Skyline_Terminate_AA_File", "Resources/Test/Scripts/Skyline_Terminate_AA.zip")
-    if Skyline_Terminate_AA_File is None:
-        raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
-except FileNotFoundError as e:
-    #print(f"Error: {e}")
-    Skyline_Terminate_AA_File = None
-except Exception as e:
-    #print(f"An unexpected error occurred: {e}")
-    Skyline_Terminate_AA_File = None
 
 class StopFunctionException(Exception):
     pass
@@ -165,27 +153,25 @@ def Plugin_Settings(settings):
                "information back to the database. The available options streamline the data transfer process, "
                "making it easier to complete your tasks efficiently")
 
-    Plugins.append(settings.get("Skyline_Terminate_AA_Plugin", False)) #Skyline_Terminate_AA_Plugin
-    Plugins.append("Skyline Terminate AA")
+    Plugins.append(False)
+    Plugins.append("Placeholder_Name0")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False) #PreferredNames_To_LegalNames_Plugin
+    Plugins.append(False)
     Plugins.append("Placeholder_Name1")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False) #Quip_ClearRowColor_Plugin
+    Plugins.append(False)
     Plugins.append("Placeholder_Name2")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
 
-    Plugins.append(False) #NATACS_Terminate_AA_Plugin
+    Plugins.append(False)
     Plugins.append("Placeholder_Name3")
     Plugins.append(True) #WebDriver needed
     Plugins.append("Message")
-
-    #print(Plugins)
 
     return Plugins
 # Scripts and widgets being used, aka Plugins
@@ -225,17 +211,8 @@ def Script_Launcher(get_next_index, function_mapping, index1):
             function_mapping[next_index] = None
 
     elif index1 == 3:
-        if Skyline_Terminate_AA_File:
-            Skyline_Terminate_AA = getattr(Skyline_Terminate_AA_File, "Skyline_Terminate_AA", None)
-            if Skyline_Terminate_AA:
-                next_index = get_next_index(function_mapping)
-                function_mapping[next_index] = Skyline_Terminate_AA
-            else:
-                next_index = get_next_index(function_mapping)
-                function_mapping[next_index] = None
-        else:
-            next_index = get_next_index(function_mapping)
-            function_mapping[next_index] = None
+        next_index = get_next_index(function_mapping)
+        function_mapping[next_index] = None
 
 # Attaches the Script to the selected function
 
