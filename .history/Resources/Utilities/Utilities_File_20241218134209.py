@@ -124,7 +124,7 @@ def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
     return os.path.join(base_path, relative_path)
 
-Cardholder_Verification_File = None
+Cardholder_Verification_File, Skyline_Terminate_AA_File = None, None
 
 try:
     Cardholder_Verification_File = Import_File("Cardholder_Verification", resource_path(os.path.join("Resources", "Test", "Scripts", "Cardholder_Verification.zip")))
@@ -136,6 +136,17 @@ except FileNotFoundError as e:
 except Exception as e:
     #print(f"An unexpected error occurred: {e}")
     Cardholder_Verification_File = None
+
+try:
+    Skyline_Terminate_AA_File = Import_File("Skyline_Terminate_AA_File", "Resources/Test/Scripts/Skyline_Terminate_AA.zip")
+    if Skyline_Terminate_AA_File is None:
+        raise FileNotFoundError("Import_File returned None. File may not exist or is inaccessible.")
+except FileNotFoundError as e:
+    #print(f"Error: {e}")
+    Skyline_Terminate_AA_File = None
+except Exception as e:
+    #print(f"An unexpected error occurred: {e}")
+    Skyline_Terminate_AA_File = None
 
 class StopFunctionException(Exception):
     pass
