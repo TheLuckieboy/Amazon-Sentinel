@@ -19,8 +19,6 @@ AccessValuesNonLoadCount = 0
 
 def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"Cardholder_Verification_Script: Trigger1 @ {current_time}")
         def SwithTo_Window(QuipWindow=False, CardholderWindow=False):
             check_stop_event(stop_event)
             if QuipWindow:
@@ -102,6 +100,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                             if setting_name == "EID_Widget":
                                 check_stop_event(stop_event)
+                                print(f"{WorkingRow}, {column_name}")
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[1]))
                                 check_stop_event(stop_event)
@@ -609,6 +608,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                     # In Cardholder Management System, get AA Information
                                     CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
                                     ProfileValues = CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                    print(ProfileValues)
 
                                     current_time = datetime.datetime.now()
                                     print(f"Cardholder_ProfileLoadedWithValues: Trigger2 @ {current_time}")
@@ -641,9 +641,6 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                             return True
 
                                         if settings.get("Badge_Tab_Info_Widget", False):
-                                            current_time = datetime.datetime.now()
-                                            print(f"Badge_Tab_Info_Widget: Trigger1 @ {current_time}")
-
                                             check_stop_event(stop_event)
                                             Cardholder_Failsafe_GeneralError(driver)
 
@@ -674,12 +671,10 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                                         time.sleep(gtime)
 
                                                         BadgeValues = CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                                        print(BadgeValues)
 
                                                         badge_number_text = BadgeNumberElement.text.strip().replace('(', '').replace(')', '')
                                                         BadgeValues.append(badge_number_text)
-
-                                                        current_time = datetime.datetime.now()
-                                                        print(f"Badge_Tab_Info_Widget: Trigger2 @ {current_time}")
 
                                                         if BadgeValues:
                                                             if not BadgeValues[9]:
@@ -711,9 +706,6 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                                                     return False
                                                             else:
                                                                 if settings.get("AccessLvl_Tab_Info_Widget", False):
-                                                                    current_time = datetime.datetime.now()
-                                                                    print(f"AccessLvl_Tab_Info_Widget: Trigger1 @ {current_time}")
-
                                                                     CardHolder_ClickOn_AccessLvlTab(driver)  # Click on AccessLvl Tab
                                                                     check_stop_event(stop_event)
                                                                     Cardholder_Failsafe_GeneralError(driver)
@@ -726,9 +718,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                                                             time.sleep(gtime)
 
                                                                             AccessValues = CardHolder_GetInfo_AccessLvlInfo(driver, settings=settings, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-
-                                                                            current_time = datetime.datetime.now()
-                                                                            print(f"AccessLvl_Tab_Info_Widget: Trigger2 @ {current_time}")
+                                                                            print(AccessValues)
 
                                                                             check_stop_event(stop_event)
                                                                             Cardholder_Failsafe_GeneralError(driver)
@@ -742,9 +732,6 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                                                                             Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AccessValues=AccessValues)
                                                                             Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AllInfo=True)
-
-                                                                            current_time = datetime.datetime.now()
-                                                                            print(f"Cardholder_Verification_Script: Trigger2 @ {current_time}")
                                                                             return True
                                                                         else:
                                                                             print(f"AccessValuesLoaded: {AccessValuesLoaded}")
@@ -1823,7 +1810,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             if MainProfile:
-                #print(f"Wainting for MainProfile: {Time} Seconds")
+                print(f"Wainting for MainProfile: {Time} Seconds")
                 Time = Time + 1
                 class_name = Element.get_attribute('class')
                 
@@ -1835,7 +1822,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
                     print(f"CardHolder_WaitFor_Loading: Trigger2 @ {current_time}")
                     return True, True
             else:
-                #print(f"Wainting for other Values: {Time} Seconds")
+                print(f"Wainting for other Values: {Time} Seconds")
                 Time = Time + 1
                 try:
                     driver.find_element(By.CSS_SELECTOR, "[class*='awsui_icon_1cbgc']")
@@ -1953,9 +1940,6 @@ def CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=None, check_sto
 
 def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_BadgeInfo: Trigger1 @ {current_time}")
-
         Tr_Elements = driver.find_elements(By.CSS_SELECTOR, 'tr[class*="awsui_row_wih1l"]')
         found_element = None  # Initialize a variable to store the found element
 
@@ -2014,10 +1998,6 @@ def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_
             values.append(True)
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
-
-            current_time = datetime.datetime.now()
-            print(f"CardHolder_GetInfo_BadgeInfo: Trigger2 @ {current_time}")
-
             return values
         except NoSuchElementException:
             check_stop_event(stop_event)
@@ -2033,9 +2013,6 @@ def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_
 
 def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_AccessLvlInfo: Trigger1 @ {current_time}")
-    
         check_stop_event(stop_event)
 
         # Find the input element with the specified class name
@@ -2071,9 +2048,6 @@ def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=Non
         CountElement = driver.find_element(By.CSS_SELECTOR, 'span[class*="awsui_counter_"]')
         CountText = CountElement.text.strip().replace('(', '').replace(')', '')
         Values.append(CountText)
-
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_AccessLvlInfo: Trigger2 @ {current_time}")
 
         return Values
 

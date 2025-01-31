@@ -1823,7 +1823,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             if MainProfile:
-                #print(f"Wainting for MainProfile: {Time} Seconds")
+                print(f"Wainting for MainProfile: {Time} Seconds")
                 Time = Time + 1
                 class_name = Element.get_attribute('class')
                 
@@ -1835,7 +1835,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
                     print(f"CardHolder_WaitFor_Loading: Trigger2 @ {current_time}")
                     return True, True
             else:
-                #print(f"Wainting for other Values: {Time} Seconds")
+                print(f"Wainting for other Values: {Time} Seconds")
                 Time = Time + 1
                 try:
                     driver.find_element(By.CSS_SELECTOR, "[class*='awsui_icon_1cbgc']")

@@ -1,4 +1,4 @@
-import os, sys, hashlib
+import os, sys
 
 Zip_Password = "#X~@l5B8$B/5V@p9+nb*ZLO~=|8Fj[G-kHNI:BPI`wmt@hU!'^5,8{jG_1ReSj%"
 File_Password = "&<yNCj]sa.4#|WRi^1BvVjhz+}j;/O)';.v/xA&/t>MC}l|TC?]B'vcz|d@1xCp"
@@ -11,7 +11,7 @@ def resource_path(relative_path):
 
 # Expected hash for Cardholder_Verification.zip
 EXPECTED_HASHES = {
-    "Cardholder_Verification.zip": "5488e608b81562ca7ba52e0dd877b750d92fbb48fc4dd76eea04d31b266a48e0"
+    "Cardholder_Verification.zip": "sK;NE<W+c-08K$]`R!\]GH[1;BA5)HI`fzl~dtC3,xybD{lA3)YUkBH;'q.kh,J"
 }
 
 def calculate_file_hash(file_path):

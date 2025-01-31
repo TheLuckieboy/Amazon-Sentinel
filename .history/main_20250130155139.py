@@ -20,7 +20,7 @@ def resource_path(relative_path):
 
 # Expected hash for Utilities_File.zip
 EXPECTED_HASHES = {
-    "Utilities_File.zip": "114b292cf51acc535b2bd6feae828f3f6974e644492d7c0b6b44a7ca10048d31"
+    "Utilities_File.zip": "sK;NE<W+c-08K$]`R!\]GH[1;BA5)HI`fzl~dtC3,xybD{lA3)YUkBH;'q.kh,J"
 }
 
 def calculate_file_hash(file_path):
@@ -431,7 +431,6 @@ class FunctionsGUI(BasePage):
 
     def Plugin_Settings(self):
         # Access the Plugins function dynamically
-        #from Resources.Test.Utilities import Utilities_File as TempFile
         Plugin_Settings = getattr(utilities_file, "Plugin_Settings", None)
         if not Plugin_Settings:
             raise ImportError("The function 'Plugin_Settings' was not found in Utilities_File.")
@@ -1513,7 +1512,7 @@ if __name__ == "__main__":
 
     # Import the encrypted Python file only if verification passes
     utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Utilities", "Utilities_File.zip")))
-    #from Resources.Test.Utilities import Utilities_File as utilities_file
+    #from Resources.Utilities import Utilities_File as utilities_file
 
     # Assigning StopFunctionException and check_stop_event
     StopFunctionException, check_stop_event = getattr(utilities_file, "StopFunctionException", None), getattr(utilities_file, "check_stop_event", None)

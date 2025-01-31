@@ -1,17 +1,11 @@
-import os, sys, hashlib
+import os, sys
 
 Zip_Password = "#X~@l5B8$B/5V@p9+nb*ZLO~=|8Fj[G-kHNI:BPI`wmt@hU!'^5,8{jG_1ReSj%"
 File_Password = "&<yNCj]sa.4#|WRi^1BvVjhz+}j;/O)';.v/xA&/t>MC}l|TC?]B'vcz|d@1xCp"
 
-def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
-    # Base path is either the temp folder in PyInstaller or the main script directory.
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
-    return os.path.join(base_path, relative_path)
-
 # Expected hash for Cardholder_Verification.zip
 EXPECTED_HASHES = {
-    "Cardholder_Verification.zip": "5488e608b81562ca7ba52e0dd877b750d92fbb48fc4dd76eea04d31b266a48e0"
+    "Cardholder_Verification.zip": "sK;NE<W+c-08K$]`R!\]GH[1;BA5)HI`fzl~dtC3,xybD{lA3)YUkBH;'q.kh,J"
 }
 
 def calculate_file_hash(file_path):
@@ -159,9 +153,15 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password=Zip_Password, File_P
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
 
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and PyInstaller."""
+    # Base path is either the temp folder in PyInstaller or the main script directory.
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
+    return os.path.join(base_path, relative_path)
+
 Cardholder_Verification_File = None
 
-# Verify all Script Files before importing
+#Verify all Script Files before importing
 verify_all_files()
 
 # Import the encrypted Python files only if verification passes

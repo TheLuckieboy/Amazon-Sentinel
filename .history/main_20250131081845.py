@@ -20,7 +20,7 @@ def resource_path(relative_path):
 
 # Expected hash for Utilities_File.zip
 EXPECTED_HASHES = {
-    "Utilities_File.zip": "114b292cf51acc535b2bd6feae828f3f6974e644492d7c0b6b44a7ca10048d31"
+    "Utilities_File.zip": "114b292cf51acc535b2bd6feae828f3f6974e644492d7c0b6b44a7ca10048d32"
 }
 
 def calculate_file_hash(file_path):

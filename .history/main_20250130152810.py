@@ -12,15 +12,9 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
 Zip_Password = "NKb>KlOkT=y**l4'a^(OP#KD7M:yBVVLS=RC,x7ST88mqKG>#@ithn@U?f}A=nZ"
 File_Password = "?LlQ~~KngwO'YDm,MR<{i8gO.Z)yJ,CTpq'B6j]:`N2!B5%[+;|ax61EPM*krmR"
 
-def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
-    # Base path is either the temp folder in PyInstaller or the main script directory.
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
-    return os.path.join(base_path, relative_path)
-
 # Expected hash for Utilities_File.zip
 EXPECTED_HASHES = {
-    "Utilities_File.zip": "114b292cf51acc535b2bd6feae828f3f6974e644492d7c0b6b44a7ca10048d31"
+    "Utilities_File.zip": "sK;NE<W+c-08K$]`R!\]GH[1;BA5)HI`fzl~dtC3,xybD{lA3)YUkBH;'q.kh,J"
 }
 
 def calculate_file_hash(file_path):
@@ -161,6 +155,12 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password=Zip_Password, File_P
         # Cleanup
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and PyInstaller."""
+    # Base path is either the temp folder in PyInstaller or the main script directory.
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
+    return os.path.join(base_path, relative_path)
 
 def save_settings_to_json():
     # Define the path to settings.json
@@ -431,7 +431,6 @@ class FunctionsGUI(BasePage):
 
     def Plugin_Settings(self):
         # Access the Plugins function dynamically
-        #from Resources.Test.Utilities import Utilities_File as TempFile
         Plugin_Settings = getattr(utilities_file, "Plugin_Settings", None)
         if not Plugin_Settings:
             raise ImportError("The function 'Plugin_Settings' was not found in Utilities_File.")
@@ -1508,12 +1507,12 @@ if __name__ == "__main__":
     Red_Confirmation_Img = Import_File("ConfirmedRed", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
     Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
 
-    # Verify the Utilities_File.zip before importing
+    # Step 1: Verify the Utilities_File.zip before importing
     verify_file("Utilities_File.zip", EXPECTED_HASHES["Utilities_File.zip"])
 
-    # Import the encrypted Python file only if verification passes
+    # Step 2: Import the encrypted Python file only if verification passes
     utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Utilities", "Utilities_File.zip")))
-    #from Resources.Test.Utilities import Utilities_File as utilities_file
+    #from Resources.Utilities import Utilities_File as utilities_file
 
     # Assigning StopFunctionException and check_stop_event
     StopFunctionException, check_stop_event = getattr(utilities_file, "StopFunctionException", None), getattr(utilities_file, "check_stop_event", None)

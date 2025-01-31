@@ -1,4 +1,4 @@
-import pyautogui, threading, keyboard, time, json, string, pyperclip, logging, datetime, os, sys, zipfile, importlib.util, shutil, hashlib
+import pyautogui, threading, keyboard, time, json, string, pyperclip, logging, datetime, os, sys, zipfile, importlib.util, shutil
 from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QGridLayout, QStackedWidget, QWidget, \
     QTextEdit, QComboBox, QHBoxLayout, QLineEdit, QCheckBox, QSpacerItem, QSizePolicy, QMessageBox, QCompleter, \
     QFrame, QVBoxLayout
@@ -11,43 +11,6 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
 
 Zip_Password = "NKb>KlOkT=y**l4'a^(OP#KD7M:yBVVLS=RC,x7ST88mqKG>#@ithn@U?f}A=nZ"
 File_Password = "?LlQ~~KngwO'YDm,MR<{i8gO.Z)yJ,CTpq'B6j]:`N2!B5%[+;|ax61EPM*krmR"
-
-def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
-    # Base path is either the temp folder in PyInstaller or the main script directory.
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
-    return os.path.join(base_path, relative_path)
-
-# Expected hash for Utilities_File.zip
-EXPECTED_HASHES = {
-    "Utilities_File.zip": "114b292cf51acc535b2bd6feae828f3f6974e644492d7c0b6b44a7ca10048d31"
-}
-
-def calculate_file_hash(file_path):
-    """Returns the SHA-256 hash of a file."""
-    try:
-        with open(file_path, "rb") as f:
-            file_hash = hashlib.sha256()
-            while chunk := f.read(8192):
-                file_hash.update(chunk)
-        return file_hash.hexdigest()
-    except FileNotFoundError:
-        return None
-
-def verify_file(file_name, expected_hash):
-    """Checks if the file matches the expected hash."""
-    file_path = resource_path(os.path.join("Resources", "Utilities", file_name))
-    actual_hash = calculate_file_hash(file_path)
-
-    if actual_hash is None:
-        print(f"[ERROR] {file_name} is missing!")
-        sys.exit(1)
-
-    if actual_hash.lower() != expected_hash.lower():
-        print(f"[ERROR] {file_name} is modified or corrupted!")
-        sys.exit(1)
-
-    print(f"[INFO] {file_name} verified successfully.")
 
 # Import function
 def Import_File(File_Name: str, zip_path: str, Zip_Password=Zip_Password, File_Password=File_Password, temp_dir="./temp"):
@@ -161,6 +124,12 @@ def Import_File(File_Name: str, zip_path: str, Zip_Password=Zip_Password, File_P
         # Cleanup
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and PyInstaller."""
+    # Base path is either the temp folder in PyInstaller or the main script directory.
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.argv[0]))
+    return os.path.join(base_path, relative_path)
 
 def save_settings_to_json():
     # Define the path to settings.json
@@ -431,7 +400,6 @@ class FunctionsGUI(BasePage):
 
     def Plugin_Settings(self):
         # Access the Plugins function dynamically
-        #from Resources.Test.Utilities import Utilities_File as TempFile
         Plugin_Settings = getattr(utilities_file, "Plugin_Settings", None)
         if not Plugin_Settings:
             raise ImportError("The function 'Plugin_Settings' was not found in Utilities_File.")
@@ -893,7 +861,7 @@ class FunctionsGUI(BasePage):
 
             try:
                 # Import the encrypted and zipped Site_Locations.txt
-                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources", "Utilities", "Site_Locations.zip")))
+                Site_Location_List_Content = Import_File("Site_Locations", resource_path(os.path.join("Resources", "Test", "Utilities", "Site_Locations")))
 
                 # Parse the file contents into a list
                 Site_Location_List = [
@@ -1491,29 +1459,26 @@ if __name__ == "__main__":
     gtime = 0.25
     stylesheet = None
 
-    bottom_left_image_path = Import_File("bottom_left_corner", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    bottom_right_image_path = Import_File("bottom_right_corner", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    Icon_Image = Import_File("App_Icon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    bottom_left_image_path = Import_File("bottom_left_corner", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    bottom_right_image_path = Import_File("bottom_right_corner", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    Icon_Image = Import_File("App_Icon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
 
-    icons_WO_desc1 = Import_File("BurgerMenuIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc2 = Import_File("FunctionsIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc3 = Import_File("HelpIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_WO_desc4 = Import_File("ExtraIcon", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    icons_WO_desc1 = Import_File("BurgerMenuIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_WO_desc2 = Import_File("FunctionsIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_WO_desc3 = Import_File("HelpIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_WO_desc4 = Import_File("ExtraIcon", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
 
-    icons_with_desc1 = Import_File("BurgerMenuIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc2 = Import_File("FunctionsIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc3 = Import_File("HelpIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    icons_with_desc4 = Import_File("ExtraIconWithDescription", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    icons_with_desc1 = Import_File("BurgerMenuIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_with_desc2 = Import_File("FunctionsIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_with_desc3 = Import_File("HelpIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    icons_with_desc4 = Import_File("ExtraIconWithDescription", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
     
-    Red_Confirmation_Img = Import_File("ConfirmedRed", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
-    Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Utilities", "Images.zip")))
+    Red_Confirmation_Img = Import_File("ConfirmedRed", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
+    Green_Confirmation_Img = Import_File("ConfirmedGreen", resource_path(os.path.join("Resources", "Test", "Utilities", "Images")))
 
-    # Verify the Utilities_File.zip before importing
-    verify_file("Utilities_File.zip", EXPECTED_HASHES["Utilities_File.zip"])
-
-    # Import the encrypted Python file only if verification passes
-    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Utilities", "Utilities_File.zip")))
-    #from Resources.Test.Utilities import Utilities_File as utilities_file
+    # Load the utilities_file
+    utilities_file = Import_File("Utilities_File", resource_path(os.path.join("Resources", "Test", "Utilities", "Utilities_File")))
+    #from Resources.Utilities import Utilities_File as utilities_file
 
     # Assigning StopFunctionException and check_stop_event
     StopFunctionException, check_stop_event = getattr(utilities_file, "StopFunctionException", None), getattr(utilities_file, "check_stop_event", None)
@@ -1551,7 +1516,7 @@ if __name__ == "__main__":
 
     try:
         # Load the stylesheet from the encrypted zip
-        stylesheet = Import_File("styles", resource_path(os.path.join("Resources", "Utilities", "styles.zip")))
+        stylesheet = Import_File("styles", resource_path(os.path.join("Resources", "Test", "Utilities", "styles")))
         if stylesheet:
             app.setStyleSheet(stylesheet)
     except FileNotFoundError:

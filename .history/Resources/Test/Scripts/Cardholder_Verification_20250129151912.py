@@ -11,16 +11,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 gtime = 0.25
-SearchBarResultCount = 0
-BadgeValuesNonLoadCount = 0
-AccessValuesNonLoadCount = 0
 
 # ------------------------------------------------------------------------------------------------------------------------------------------ #
 
 def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"Cardholder_Verification_Script: Trigger1 @ {current_time}")
         def SwithTo_Window(QuipWindow=False, CardholderWindow=False):
             check_stop_event(stop_event)
             if QuipWindow:
@@ -102,6 +97,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                             if setting_name == "EID_Widget":
                                 check_stop_event(stop_event)
+                                print(f"{WorkingRow}, {column_name}")
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[1]))
                                 check_stop_event(stop_event)
@@ -532,6 +528,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                     EIDInfo = Quip_GetInfo_CellText(driver, WorkingRow, SearchByColumn, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                     if EIDInfo:
                         check_stop_event(stop_event)
+                        Cardholder_Failsafe_GeneralError(driver)
                         time.sleep(gtime)
                         pyperclip.copy(EIDInfo)
                     else:
@@ -539,6 +536,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                         return False
                 elif SearchBy_Login:
                     check_stop_event(stop_event)
+                    Cardholder_Failsafe_GeneralError(driver)
                     LoginInfo = Quip_GetInfo_CellText(driver, WorkingRow, SearchByColumn, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                     if LoginInfo:
                         check_stop_event(stop_event)
@@ -580,19 +578,16 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                 else:
                     print("Invalid Paste method, Failsafe Measure Ending Script")
                     return False
-                current_time = datetime.datetime.now()
-                print(f"Cardholder_ProfileLoadedWithValues: Trigger1 @ {current_time}")
-                
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
                 time.sleep(gtime)
 
                 for LoadProfileAttempt in range(3):
-                    ContinueStatus1, SearchBarResult = CardHolder_WaitFor_Loading(driver, MainProfile=True, Element=SearchButton_Element, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-                    if ContinueStatus1:
-                        if SearchBarResult:
-                            ContinueStatus2, ProfileLoaded = Cardholder_Verify_ProfileLoaded(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-                            if ContinueStatus2:
+                    ContinueStatus, Result = CardHolder_WaitFor_Loading(driver, MainProfile=True, Element=SearchButton_Element, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                    if ContinueStatus:
+                        if Result:
+                            ContinueStatus, ProfileLoaded = Cardholder_Verify_ProfileLoaded()
+                            if ContinueStatus:
                                 if ProfileLoaded is False:
                                     # Retry
                                     print(f"Profile Load attempt Failed {LoadProfileAttempt}")
@@ -603,57 +598,102 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                     continue
                                 else:
                                     # continue with script
+                                    pass
+
+
+
+
+                            # In Cardholder Management System, get AA Information
+                            CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
+                            time.sleep(gtime)
+                            ProfileValues = CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                            print(ProfileValues)
+                            check_stop_event(stop_event)
+                            Cardholder_Failsafe_GeneralError(driver)
+                            time.sleep(gtime)
+
+                            if ProfileValues:
+                                if ProfileValues[7] == "Terminated":
                                     check_stop_event(stop_event)
                                     Cardholder_Failsafe_GeneralError(driver)
-                                    
-                                    # In Cardholder Management System, get AA Information
-                                    CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
-                                    ProfileValues = CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                    check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
+                                    time.sleep(gtime)
 
-                                    current_time = datetime.datetime.now()
-                                    print(f"Cardholder_ProfileLoadedWithValues: Trigger2 @ {current_time}")
+                                    # Switch to Quip, and write info to Quip Database
+                                    SwithTo_Window(QuipWindow=True)
+                                    check_stop_event(stop_event)
 
-                                    if ProfileValues:
-                                        if ProfileValues[7] == "Terminated":
+                                    Write_InfoTo_Quip(ProfileValues)
+                                    Color_InfoTo_Quip(ProfileValues, TerminatedStatus=True)
+                                    return True
+
+                                if ProfileValues[7] == "Suspended":
+                                    check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
+                                    check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
+                                    time.sleep(gtime)
+
+                                    # Switch to Quip, and write info to Quip Database
+                                    SwithTo_Window(QuipWindow=True)
+                                    check_stop_event(stop_event)
+
+                                    Write_InfoTo_Quip(ProfileValues)
+                                    Color_InfoTo_Quip(ProfileValues, InActiveBadge=True)
+                                    return True
+
+                                if settings.get("Badge_Tab_Info_Widget", False):
+                                    check_stop_event(stop_event)
+                                    Cardholder_Failsafe_GeneralError(driver)
+                                    time.sleep(gtime)
+
+                                    if ContinueStatus:
+                                        check_stop_event(stop_event)
+                                        Cardholder_Failsafe_GeneralError(driver)
+                                        time.sleep(gtime)
+                                        TempElements = driver.find_elements(By.CSS_SELECTOR, 'span[class*="awsui_counter_2qdw9"]')
+                                        BadgeNumber = TempElements[0]
+                                        print(f"BadgeNumber {BadgeNumber.text}")
+                                        if BadgeNumber.text == "(0)":
+                                            check_stop_event(stop_event)
+                                            Cardholder_Failsafe_GeneralError(driver)
                                             check_stop_event(stop_event)
                                             Cardholder_Failsafe_GeneralError(driver)
                                             time.sleep(gtime)
 
                                             # Switch to Quip, and write info to Quip Database
                                             SwithTo_Window(QuipWindow=True)
-                                            check_stop_event(stop_event)
 
                                             Write_InfoTo_Quip(ProfileValues)
-                                            Color_InfoTo_Quip(ProfileValues, TerminatedStatus=True)
-                                            return True
+                                            Color_InfoTo_Quip(ProfileValues, NoBadges=True)
 
-                                        if ProfileValues[7] == "Suspended":
+                                            check_stop_event(stop_event)
+                                            return True
+                                        else:
                                             check_stop_event(stop_event)
                                             Cardholder_Failsafe_GeneralError(driver)
                                             time.sleep(gtime)
+                                            BadgeValues = CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                            print(BadgeValues)
+                                            badge_number_text = BadgeNumber.text.strip().replace('(', '').replace(')', '')
+                                            BadgeValues.append(badge_number_text)
 
-                                            # Switch to Quip, and write info to Quip Database
-                                            SwithTo_Window(QuipWindow=True)
-                                            check_stop_event(stop_event)
-
-                                            Write_InfoTo_Quip(ProfileValues)
-                                            Color_InfoTo_Quip(ProfileValues, InActiveBadge=True)
-                                            return True
-
-                                        if settings.get("Badge_Tab_Info_Widget", False):
-                                            current_time = datetime.datetime.now()
-                                            print(f"Badge_Tab_Info_Widget: Trigger1 @ {current_time}")
-
-                                            check_stop_event(stop_event)
-                                            Cardholder_Failsafe_GeneralError(driver)
-
-                                            BadgeContinueStatus, BadgeValuesLoaded = CardHolder_WaitFor_Loading(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-
-                                            if BadgeContinueStatus:
-                                                if BadgeValuesLoaded:
-                                                    BadgeNumberElement = driver.find_element(By.CSS_SELECTOR, 'span[class*="awsui_counter_2qdw9"]')
-
-                                                    if BadgeNumberElement.text == "(0)":
+                                            if BadgeValues:
+                                                if not BadgeValues[9]:
+                                                    badge_actions = {
+                                                        "Lost": {"InActiveBadge": True},
+                                                        "Returned": {"TerminatedStatus": True},
+                                                        "Terminated": {"TerminatedStatus": True},
+                                                        "Broken": {"InActiveBadge": True},
+                                                        "Use/Lose (System)": {"InActiveBadge": True},
+                                                        "In the Mail": {"InActiveBadge": True},
+                                                        "IFMB Issued": {"InActiveBadge": True},
+                                                        "Suspended": {"InActiveBadge": True},
+                                                        "Expired (System)": {"InActiveBadge": True},
+                                                    }
+                                                    action = badge_actions.get(BadgeValues[1])
+                                                    if action:
                                                         check_stop_event(stop_event)
                                                         Cardholder_Failsafe_GeneralError(driver)
                                                         check_stop_event(stop_event)
@@ -663,185 +703,94 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                                         # Switch to Quip, and write info to Quip Database
                                                         SwithTo_Window(QuipWindow=True)
 
-                                                        Write_InfoTo_Quip(ProfileValues)
-                                                        Color_InfoTo_Quip(ProfileValues, NoBadges=True)
-
-                                                        check_stop_event(stop_event)
+                                                        Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues)
+                                                        Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, **action)
                                                         return True
+                                                    else:
+                                                        print("action", action)
+                                                        return False
+                                                else:
+                                                    if settings.get("AccessLvl_Tab_Info_Widget", False):
+                                                        CardHolder_ClickOn_AccessLvlTab(driver)  # Click on AccessLvl Tab
+                                                        check_stop_event(stop_event)
+                                                        Cardholder_Failsafe_GeneralError(driver)
+
+                                                        ContinueStatus, _ = CardHolder_WaitFor_Loading(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                                        if ContinueStatus:
+                                                            check_stop_event(stop_event)
+                                                            Cardholder_Failsafe_GeneralError(driver)
+                                                            AccessValues = CardHolder_GetInfo_AccessLvlInfo(driver, settings=settings, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+
+                                                            check_stop_event(stop_event)
+                                                            Cardholder_Failsafe_GeneralError(driver)
+                                                            CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
+                                                            time.sleep(gtime)
+
+                                                            # Add DOB from Skyline and NATA here
+
+                                                            # Switch to Quip, and write info to Quip Database
+                                                            SwithTo_Window(QuipWindow=True)
+
+                                                            Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AccessValues=AccessValues)
+                                                            Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AllInfo=True)
+                                                            return True
+                                                        else:
+                                                            print("ContinueStatus: ", ContinueStatus)
+                                                            return False
                                                     else:
                                                         check_stop_event(stop_event)
                                                         Cardholder_Failsafe_GeneralError(driver)
                                                         time.sleep(gtime)
 
-                                                        BadgeValues = CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                                        # Switch to Quip, and write info to Quip Database
+                                                        SwithTo_Window(QuipWindow=True)
 
-                                                        badge_number_text = BadgeNumberElement.text.strip().replace('(', '').replace(')', '')
-                                                        BadgeValues.append(badge_number_text)
-
-                                                        current_time = datetime.datetime.now()
-                                                        print(f"Badge_Tab_Info_Widget: Trigger2 @ {current_time}")
-
-                                                        if BadgeValues:
-                                                            if not BadgeValues[9]:
-                                                                badge_actions = {
-                                                                    "Returned": {"TerminatedStatus": True},
-                                                                    "Terminated": {"TerminatedStatus": True},
-                                                                    "Lost": {"InActiveBadge": True},
-                                                                    "Broken": {"InActiveBadge": True},
-                                                                    "Use/Lose (System)": {"InActiveBadge": True},
-                                                                    "In the Mail": {"InActiveBadge": True},
-                                                                    "IFMB Issued": {"InActiveBadge": True},
-                                                                    "Suspended": {"InActiveBadge": True},
-                                                                    "Expired (System)": {"InActiveBadge": True},
-                                                                }
-                                                                action = badge_actions.get(BadgeValues[1])
-                                                                if action:
-                                                                    check_stop_event(stop_event)
-                                                                    Cardholder_Failsafe_GeneralError(driver)
-                                                                    time.sleep(gtime)
-
-                                                                    # Switch to Quip, and write info to Quip Database
-                                                                    SwithTo_Window(QuipWindow=True)
-
-                                                                    Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues)
-                                                                    Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, **action)
-                                                                    return True
-                                                                else:
-                                                                    print("action", action)
-                                                                    return False
-                                                            else:
-                                                                if settings.get("AccessLvl_Tab_Info_Widget", False):
-                                                                    current_time = datetime.datetime.now()
-                                                                    print(f"AccessLvl_Tab_Info_Widget: Trigger1 @ {current_time}")
-
-                                                                    CardHolder_ClickOn_AccessLvlTab(driver)  # Click on AccessLvl Tab
-                                                                    check_stop_event(stop_event)
-                                                                    Cardholder_Failsafe_GeneralError(driver)
-
-                                                                    AccessContinueStatus, AccessValuesLoaded = CardHolder_WaitFor_Loading(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-                                                                    if AccessContinueStatus:
-                                                                        if AccessValuesLoaded:
-                                                                            check_stop_event(stop_event)
-                                                                            Cardholder_Failsafe_GeneralError(driver)
-                                                                            time.sleep(gtime)
-
-                                                                            AccessValues = CardHolder_GetInfo_AccessLvlInfo(driver, settings=settings, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-
-                                                                            current_time = datetime.datetime.now()
-                                                                            print(f"AccessLvl_Tab_Info_Widget: Trigger2 @ {current_time}")
-
-                                                                            check_stop_event(stop_event)
-                                                                            Cardholder_Failsafe_GeneralError(driver)
-                                                                            CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
-                                                                            time.sleep(gtime)
-
-                                                                            # Add DOB from Skyline and NATA here
-
-                                                                            # Switch to Quip, and write info to Quip Database
-                                                                            SwithTo_Window(QuipWindow=True)
-
-                                                                            Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AccessValues=AccessValues)
-                                                                            Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AllInfo=True)
-
-                                                                            current_time = datetime.datetime.now()
-                                                                            print(f"Cardholder_Verification_Script: Trigger2 @ {current_time}")
-                                                                            return True
-                                                                        else:
-                                                                            print(f"AccessValuesLoaded: {AccessValuesLoaded}")
-                                                                            AccessValuesNonLoadCount = AccessValuesNonLoadCount + 1
-                                                                            if AccessValuesNonLoadCount <= 3:
-                                                                                print(f"AccessValuesNonLoadCount: {AccessValuesNonLoadCount}")
-                                                                                SearchBarResultCount = 0
-                                                                                BadgeValuesNonLoadCount = 0
-                                                                                AccessValuesNonLoadCount = 0
-                                                                                return False
-                                                                            SwitchBack_FailsafeColoring()
-                                                                            return True
-                                                                    else:
-                                                                        print(f"AccessContinueStatus: {AccessContinueStatus}")
-                                                                        return False
-                                                                else:
-                                                                    check_stop_event(stop_event)
-                                                                    Cardholder_Failsafe_GeneralError(driver)
-                                                                    time.sleep(gtime)
-
-                                                                    # Switch to Quip, and write info to Quip Database
-                                                                    SwithTo_Window(QuipWindow=True)
-
-                                                                    Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues)
-                                                                    Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AllInfo=True)
-                                                                    return True
-                                                        else:
-                                                            print("BadgeValues: ", BadgeValues)
-                                                            return False    
-                                                else:
-                                                    print(f"BadgeValuesLoaded: {BadgeValuesLoaded}")
-                                                    BadgeValuesNonLoadCount = BadgeValuesNonLoadCount + 1
-                                                    if BadgeValuesNonLoadCount <= 3:
-                                                        print(f"BadgeValuesNonLoadCount: {BadgeValuesNonLoadCount}")
-                                                        SearchBarResultCount = 0
-                                                        BadgeValuesNonLoadCount = 0
-                                                        AccessValuesNonLoadCount = 0
-                                                        return False
-                                                    SwitchBack_FailsafeColoring()
-                                                    return True
+                                                        Write_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues)
+                                                        Color_InfoTo_Quip(ProfileValues, BadgeValues=BadgeValues, AllInfo=True)
+                                                        return True
                                             else:
-                                                print(f"BadgeContinueStatus: {BadgeContinueStatus}")
+                                                print("BadgeValues: ", BadgeValues)
                                                 return False
+                                else:
+                                    if settings.get("AccessLvl_Tab_Info_Widget", False):
+                                        CardHolder_ClickOn_AccessLvlTab(driver)  # Click on AccessLvl Tab
+                                        check_stop_event(stop_event)
+                                        Cardholder_Failsafe_GeneralError(driver)
+                                        time.sleep(gtime)
+
+                                        ContinueStatus, _ = CardHolder_WaitFor_Loading(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+                                        if ContinueStatus:
+                                            check_stop_event(stop_event)
+                                            Cardholder_Failsafe_GeneralError(driver)
+                                            AccessValues = CardHolder_GetInfo_AccessLvlInfo(driver, settings=settings, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+
+                                            check_stop_event(stop_event)
+                                            CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
+                                            time.sleep(gtime)
+
+                                            # Add DOB from Skyline and NATA here
+
+                                            # Switch to Quip, and write info to Quip Database
+                                            SwithTo_Window(QuipWindow=True)
+
+                                            Write_InfoTo_Quip(ProfileValues, AccessValues=AccessValues)
+                                            Color_InfoTo_Quip(ProfileValues, Cardholder_Tab=True)
+                                            return True
                                         else:
-                                            if settings.get("AccessLvl_Tab_Info_Widget", False):
-                                                CardHolder_ClickOn_AccessLvlTab(driver)  # Click on AccessLvl Tab
-                                                check_stop_event(stop_event)
-                                                Cardholder_Failsafe_GeneralError(driver)
-                                                time.sleep(gtime)
-
-                                                ContinueStatus, _ = CardHolder_WaitFor_Loading(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-                                                if ContinueStatus:
-                                                    check_stop_event(stop_event)
-                                                    Cardholder_Failsafe_GeneralError(driver)
-                                                    AccessValues = CardHolder_GetInfo_AccessLvlInfo(driver, settings=settings, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-
-                                                    check_stop_event(stop_event)
-                                                    CardHolder_ClickOn_BadgeTab(driver)  # Click on Badge Tab
-                                                    time.sleep(gtime)
-
-                                                    # Add DOB from Skyline and NATA here
-
-                                                    # Switch to Quip, and write info to Quip Database
-                                                    SwithTo_Window(QuipWindow=True)
-
-                                                    Write_InfoTo_Quip(ProfileValues, AccessValues=AccessValues)
-                                                    Color_InfoTo_Quip(ProfileValues, Cardholder_Tab=True)
-                                                    return True
-                                                else:
-                                                    print("ContinueStatus: ", ContinueStatus)
-                                                    return False
-                                            else:
-                                                # Switch to Quip, and write info to Quip Database
-                                                SwithTo_Window(QuipWindow=True)
-
-                                                Write_InfoTo_Quip(ProfileValues)
-                                                Color_InfoTo_Quip(ProfileValues, Cardholder_Tab=True)
-                                                return True
+                                            print("ContinueStatus: ", ContinueStatus)
+                                            return False
                                     else:
-                                        print("ProfileValues: ", ProfileValues)
-                                        return False
+                                        # Switch to Quip, and write info to Quip Database
+                                        SwithTo_Window(QuipWindow=True)
+
+                                        Write_InfoTo_Quip(ProfileValues)
+                                        Color_InfoTo_Quip(ProfileValues, Cardholder_Tab=True)
+                                        return True
                             else:
-                                print(f"ContinueStatus2: {ContinueStatus2}")
+                                print("ProfileValues: ", ProfileValues)
                                 return False
-                        else:
-                            print(f"SearchBarResult: {SearchBarResult}")
-                            SearchBarResultCount = SearchBarResultCount + 1
-                            if SearchBarResultCount <= 3:
-                                print(f"SearchBarResultCount: {SearchBarResultCount}")
-                                SearchBarResultCount = 0
-                                BadgeValuesNonLoadCount = 0
-                                AccessValuesNonLoadCount = 0
-                                return False
-                            SwitchBack_FailsafeColoring()
-                            return True
                     else:
-                        print(f"ContinueStatus1: {ContinueStatus1}")
+                        print("ContinueStatus: ", ContinueStatus)
                         return False
                 # Bad EID
                 SwitchBack_FailsafeColoring()
@@ -1715,21 +1664,17 @@ def CardHolder_GetElement_SearchButton(driver, StopFunctionException=None, check
         return False
 
 def CardHolder_Paste_EID(driver, StopFunctionException=None, check_stop_event=None, stop_event=None):
-    global EID_ID
     try:
         for attempt in range(2):
+            # Get the EID_ID if not already obtained
+            ReturnID = CardHolder_GetID_EID(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
+            check_stop_event(stop_event)
+            Cardholder_Failsafe_GeneralError(driver)
+            time.sleep(gtime)
             try:
-                if EID_ID is None:
-                    # Get the EID_ID if not already obtained
-                    EID_ID = CardHolder_GetID_EID(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-
-                check_stop_event(stop_event)
-                Cardholder_Failsafe_GeneralError(driver)
-            
-                input_element = driver.find_element(By.ID, EID_ID)
+                input_element = driver.find_element(By.ID, ReturnID)
                 actions = ActionChains(driver)
                 actions.click(input_element).click(input_element).click(input_element).perform()
-
                 time.sleep(gtime)
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
@@ -1737,12 +1682,12 @@ def CardHolder_Paste_EID(driver, StopFunctionException=None, check_stop_event=No
                 clipboard_text = driver.execute_script("return navigator.clipboard.readText();")
                 input_element.send_keys(clipboard_text)
                 time.sleep(gtime)
-
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
                 input_element.send_keys(Keys.ENTER)
                 return
             except NoSuchElementException:
+                global EID_ID
                 EID_ID = None
                 continue
 
@@ -1750,21 +1695,18 @@ def CardHolder_Paste_EID(driver, StopFunctionException=None, check_stop_event=No
         return False
 
 def CardHolder_Paste_Login(driver, StopFunctionException=None, check_stop_event=None, stop_event=None):
-    global Login_ID
     try:
         for attempt in range(2):
             try:
-                if Login_ID:
-                    # Get the EID_ID if not already obtained
-                    Login_ID = CardHolder_GetID_Login(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
-                
+                # Get the EID_ID if not already obtained
+                ReturnID = CardHolder_GetID_Login(driver, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
+                time.sleep(gtime)
 
-                input_element = driver.find_element(By.ID, Login_ID)
+                input_element = driver.find_element(By.ID, ReturnID)
                 actions = ActionChains(driver)
                 actions.click(input_element).click(input_element).click(input_element).perform()
-
                 time.sleep(gtime)
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
@@ -1774,12 +1716,12 @@ def CardHolder_Paste_Login(driver, StopFunctionException=None, check_stop_event=
                 Cardholder_Failsafe_GeneralError(driver)
                 input_element.send_keys(clipboard_text)
                 time.sleep(gtime)
-
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
                 input_element.send_keys(Keys.ENTER)
                 return
             except NoSuchElementException:
+                global Login_ID
                 Login_ID = None
                 continue
 
@@ -1788,42 +1730,34 @@ def CardHolder_Paste_Login(driver, StopFunctionException=None, check_stop_event=
 
 def Cardholder_Verify_ProfileLoaded(driver, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"Cardholder_Verify_ProfileLoaded: Trigger1 @ {current_time}")
+        elements = driver.find_elements(By.CSS_SELECTOR, 'div[class*="awsui_content_1d2i7"]')
         time.sleep(gtime)
-        ParentElements = driver.find_elements(By.CSS_SELECTOR, 'div[class*="awsui_small_"]')
-
         # Iterate through the elements
-        for element in ParentElements:
+        for element in elements:
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
-            if "awsui_breakpoint" in element.get_attribute('class'): 
+            # Check if the element contains the desired text
+            if "Cannot find cardholder, please modify search fields and try again." in element.text:
                 check_stop_event(stop_event)
                 Cardholder_Failsafe_GeneralError(driver)
-                current_time = datetime.datetime.now()
-                print(f"Cardholder_Verify_ProfileLoaded: Trigger2 @ {current_time}")
-                return True, False  # Profile not loaded, return False
+                return True, False  # Found the desired text, return False
 
-        # If the loop completes, meaning the profile loaded, return True
+        # If the loop completes without finding the desired text, return True
         check_stop_event(stop_event)
         Cardholder_Failsafe_GeneralError(driver)
-        current_time = datetime.datetime.now()
-        print(f"Cardholder_Verify_ProfileLoaded: Trigger3 @ {current_time}")
         return True, True
     except (StopFunctionException, ElementClickInterceptedException, StaleElementReferenceException, CardHolder_General_Failsafe):
         return False, False
 
 def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_WaitFor_Loading: Trigger1 @ {current_time}")
         Time = 0
 
         for attempt in range(30):
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             if MainProfile:
-                #print(f"Wainting for MainProfile: {Time} Seconds")
+                print(f"Wainting for MainProfile: {Time} Seconds")
                 Time = Time + 1
                 class_name = Element.get_attribute('class')
                 
@@ -1831,24 +1765,18 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
                     time.sleep(1)  # Short delay between attempts
                 else:
                     time.sleep(gtime)
-                    current_time = datetime.datetime.now()
-                    print(f"CardHolder_WaitFor_Loading: Trigger2 @ {current_time}")
                     return True, True
             else:
-                #print(f"Wainting for other Values: {Time} Seconds")
+                print(f"Wainting for else: {Time} Seconds")
                 Time = Time + 1
                 try:
                     driver.find_element(By.CSS_SELECTOR, "[class*='awsui_icon_1cbgc']")
                     time.sleep(1)
                 except NoSuchElementException:
                     time.sleep(gtime)
-                    current_time = datetime.datetime.now()
-                    print(f"CardHolder_WaitFor_Loading: Trigger3 @ {current_time}")
                     return True, True
 
         # Final status if the loop completes without returning
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_WaitFor_Loading: Trigger4 @ {current_time}")
         return True, False
     
     except (StopFunctionException, ElementClickInterceptedException, CardHolder_General_Failsafe) as E:
@@ -1953,9 +1881,6 @@ def CardHolder_GetInfo_ProfileInfo(driver, StopFunctionException=None, check_sto
 
 def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_BadgeInfo: Trigger1 @ {current_time}")
-
         Tr_Elements = driver.find_elements(By.CSS_SELECTOR, 'tr[class*="awsui_row_wih1l"]')
         found_element = None  # Initialize a variable to store the found element
 
@@ -2014,10 +1939,6 @@ def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_
             values.append(True)
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
-
-            current_time = datetime.datetime.now()
-            print(f"CardHolder_GetInfo_BadgeInfo: Trigger2 @ {current_time}")
-
             return values
         except NoSuchElementException:
             check_stop_event(stop_event)
@@ -2033,9 +1954,6 @@ def CardHolder_GetInfo_BadgeInfo(driver, StopFunctionException=None, check_stop_
 
 def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=None, check_stop_event=None, stop_event=None):
     try:
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_AccessLvlInfo: Trigger1 @ {current_time}")
-    
         check_stop_event(stop_event)
 
         # Find the input element with the specified class name
@@ -2071,9 +1989,6 @@ def CardHolder_GetInfo_AccessLvlInfo(driver, settings, StopFunctionException=Non
         CountElement = driver.find_element(By.CSS_SELECTOR, 'span[class*="awsui_counter_"]')
         CountText = CountElement.text.strip().replace('(', '').replace(')', '')
         Values.append(CountText)
-
-        current_time = datetime.datetime.now()
-        print(f"CardHolder_GetInfo_AccessLvlInfo: Trigger2 @ {current_time}")
 
         return Values
 

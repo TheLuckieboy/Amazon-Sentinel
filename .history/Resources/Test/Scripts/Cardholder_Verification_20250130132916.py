@@ -102,6 +102,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
 
                             if setting_name == "EID_Widget":
                                 check_stop_event(stop_event)
+                                print(f"{WorkingRow}, {column_name}")
                                 Quip_ClickOn_Cell(driver, WorkingRow, column_name, StopFunctionException=StopFunctionException, check_stop_event=check_stop_event, stop_event=stop_event)
                                 pyperclip.copy(str(ProfileValues[1]))
                                 check_stop_event(stop_event)
@@ -679,7 +680,7 @@ def Cardholder_Verification(driver, window_handles, WorkingRow, settings=None, S
                                                         BadgeValues.append(badge_number_text)
 
                                                         current_time = datetime.datetime.now()
-                                                        print(f"Badge_Tab_Info_Widget: Trigger2 @ {current_time}")
+                                                        print(f"Badge_Tab_Info_Widget: Trigger1 @ {current_time}")
 
                                                         if BadgeValues:
                                                             if not BadgeValues[9]:
@@ -1823,7 +1824,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
             check_stop_event(stop_event)
             Cardholder_Failsafe_GeneralError(driver)
             if MainProfile:
-                #print(f"Wainting for MainProfile: {Time} Seconds")
+                print(f"Wainting for MainProfile: {Time} Seconds")
                 Time = Time + 1
                 class_name = Element.get_attribute('class')
                 
@@ -1835,7 +1836,7 @@ def CardHolder_WaitFor_Loading(driver, MainProfile=False, Element=None, StopFunc
                     print(f"CardHolder_WaitFor_Loading: Trigger2 @ {current_time}")
                     return True, True
             else:
-                #print(f"Wainting for other Values: {Time} Seconds")
+                print(f"Wainting for other Values: {Time} Seconds")
                 Time = Time + 1
                 try:
                     driver.find_element(By.CSS_SELECTOR, "[class*='awsui_icon_1cbgc']")

@@ -431,8 +431,8 @@ class FunctionsGUI(BasePage):
 
     def Plugin_Settings(self):
         # Access the Plugins function dynamically
-        #from Resources.Test.Utilities import Utilities_File as TempFile
-        Plugin_Settings = getattr(utilities_file, "Plugin_Settings", None)
+        from Resources.Test.Utilities import Utilities_File as TempFile
+        Plugin_Settings = getattr(TempFile, "Plugin_Settings", None)
         if not Plugin_Settings:
             raise ImportError("The function 'Plugin_Settings' was not found in Utilities_File.")
 
