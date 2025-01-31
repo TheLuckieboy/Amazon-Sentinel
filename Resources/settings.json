@@ -6,7 +6,7 @@
     "Kill Switch Key": "Ctrl+Alt+Shift",
     "Quip_Database": true,
     "Excel_Database": false,
-    "Starting Row": "2",
+    "Starting Row": "3",
     "CommandLine Column": "A",
     "SearchBy_Column_Widget": [
         true,
